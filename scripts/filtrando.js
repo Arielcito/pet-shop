@@ -1,17 +1,32 @@
+
 const cards = document.getElementById('cards')
 const tipo = document.title.indexOf('Farmacia') > -1 ? 'Medicamento' : 'Juguete'
-const dataFiltradaSorteada = data
-  .filter(x => x.tipo === tipo)
-  .filter(x => x.precio >= rangeFilter().minPrice)
-  .filter(x => x.precio <= rangeFilter().maxPrice)
-  .sort((a, b) => a.stock - b.stock)
 
-drawCards(tipo)
+let API_URL ="https://apipetshop.herokuapp.com/api/articulos"
+let init = {
+  method: "GET"
+}
+fetch(API_URL,init)
+              .then(res => res.json())
+              .then(data => {
+                let articulos = data.response
+                console.log(articulos)
+                const dataFiltradaSorteada = articulos
+                  .filter(x => x.tipo === tipo)
+                  .filter(x => x.precio >= rangeFilter().minPrice)
+                  .filter(x => x.precio <= rangeFilter().maxPrice)
+                  .sort((a, b) => a.stock - b.stock)
 
-function drawCards (tipo) {
+                drawCards(dataFiltradaSorteada)
+                rangeFilter(dataFiltradaSorteada)
+                return articulos
+              })
+              .catch(err => err.message)
+
+function drawCards (array) {
   cards.innerHTML = ''
 
-  dataFiltradaSorteada.forEach(producto => {
+  array.forEach(producto => {
     if (producto.precio >= rangeFilter().minPrice && producto.precio <= rangeFilter().maxPrice) {
       cards.innerHTML +=
     `<div class="col">
@@ -31,12 +46,10 @@ function drawCards (tipo) {
   })
 }
 
-rangeFilter()
-
-function rangeFilter () {
+function rangeFilter (array) {
   const maxPrice = document.getElementById('maxPrice')
   const minPrice = document.getElementById('minPrice')
-  const precios = data.sort((a, b) => a.precio - b.precio).map(a => a.precio)
+  const precios = array.sort((a, b) => a.precio - b.precio).map(a => a.precio)
 
   minPrice.setAttribute('max', precios.slice(precios.length - 1, precios.length))
   minPrice.setAttribute('min', precios[0])

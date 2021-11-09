@@ -163,4 +163,3 @@ const db = {
   ]
 }
 
-const data = db.response
