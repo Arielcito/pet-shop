@@ -12,33 +12,35 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-          <div class="container-fluid d-flex ">
-            <a class="navbar-brand" href="#">
-              <img src="./assets/logo.png" alt="logo" class="logo" >
-              Franco
-            </a>
-            <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="¿Qué es lo que buscas?" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Buscar</button>
-            </form>
-            <div class="collapse navbar-collapse " id="navbarSupportedContent">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">Sobre nosotros</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Contactenos</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Farmacia</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Juguetes</a>
-                </li>
-              </ul>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top d-flex">
+            <div class="flex-column container-fluid">
+                <div class="navbar-nav hstack gap-3 ">
+                  <a class="navbar-brand" href="#">
+                    <img src="./assets/logo.png" alt="logo" class="logo" >
+                    Pet Shop Franco
+                  </a>
+                  <div class="input-group mb-3 w-50 ">
+                    <input type="text" class="form-control " placeholder="¿Qué es lo que buscas?" aria-label="Recipient's username" aria-describedby="button-addon2">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fas fa-search"></i></button>
+                  </div>                  
+                </div>
+                  <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Sobre nosotros</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Contactenos</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Farmacia</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Juguetes</a>
+                      </li>
+                    </ul>
+                </div>
             </div>
-          </div>
         </nav>
       </header>
 </body>
