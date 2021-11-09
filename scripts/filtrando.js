@@ -1,33 +1,32 @@
 const cards = document.getElementById('cards')
-const tipo = document.title.indexOf('Farmacia') > -1 ? 'Medicamento' : 'Juguete'
-const search = document.getElementById('#buscador')
+const tipo = document.title.indexOf('Farmacia') > -1
+  ? 'Medicamento'
+  : 'Juguete'
 
-let API_URL ="https://apipetshop.herokuapp.com/api/articulos"
-let init = {
-  method: "GET"
+const API_URL = 'https://apipetshop.herokuapp.com/api/articulos'
+const init = {
+  method: 'GET'
 }
-fetch(API_URL,init)
-              .then(res => res.json())
-              .then(data => {
-                let articulos = data.response
+fetch(API_URL, init)
+  .then(res => res.json())
+  .then(data => {
+    const articulos = data.response
+    const dataFiltradaSorteada = articulos
+      .filter(x => x.tipo === tipo)
+      .sort((a, b) => a.stock - b.stock)
 
-                const dataFiltradaSorteada = articulos
-                  .filter(x => x.tipo === tipo)
-                  .filter(x => x.precio >= rangeFilter(articulos).minPrice)
-                  .filter(x => x.precio <= rangeFilter(articulos).maxPrice)
-                  .sort((a, b) => a.stock - b.stock)
+    drawCards(dataFiltradaSorteada)
+    rangeFilter(dataFiltradaSorteada)
 
-                drawCards(dataFiltradaSorteada)
-                rangeFilter(dataFiltradaSorteada)
-                return articulos,dataFiltradaSorteada
-              })
-              .catch(err => err.message)
+    return (articulos, dataFiltradaSorteada)
+  })
+  .catch(err => err.message)
 
 function drawCards (array) {
   cards.innerHTML = ''
 
   array.forEach(producto => {
-      cards.innerHTML +=
+    cards.innerHTML +=
     `<div class="col">
       <div class="card h-100">
         <img src="${producto.imagen}" class="card-img-top" alt="...">
@@ -41,15 +40,28 @@ function drawCards (array) {
         </div>
       </div>
     </div>`
-    }
+  }
   )
 }
 
 function rangeFilter (array) {
   const maxPrice = document.getElementById('maxPrice')
   const minPrice = document.getElementById('minPrice')
-  const precios = array.sort((a, b) => a.precio - b.precio).map(a => a.precio)
+  const slideMax = document.querySelector('.slideMax')
+  const slideMin = document.querySelector('.slideMin')
 
+  minPrice.oninput = () => {
+    const value = minPrice.value
+    slideMin.textContent = value
+    drawCards(array.filter(x => x.precio >= minPrice.value && x.precio <= maxPrice.value))
+  }
+  maxPrice.oninput = () => {
+    const value = maxPrice.value
+    slideMax.textContent = value
+    drawCards(array.filter(x => x.precio >= minPrice.value && x.precio <= maxPrice.value))
+  }
+  const precios = array.sort((a, b) => a.precio - b.precio).map(a => a.precio)
+  console.log(precios)
   minPrice.setAttribute('max', precios.slice(precios.length - 1, precios.length))
   minPrice.setAttribute('min', precios[0])
   minPrice.setAttribute('value', precios[0])
@@ -57,18 +69,4 @@ function rangeFilter (array) {
   maxPrice.setAttribute('max', precios.slice(precios.length - 1, precios.length))
   maxPrice.setAttribute('min', precios[0])
   maxPrice.setAttribute('value', precios.slice(precios.length - 1, precios.length))
-
-  maxPrice.addEventListener('change', drawCards(array))
-  minPrice.addEventListener('change', drawCards(array))
-
-  const pricesObj = {
-    minPrice: minPrice.value,
-    maxPrice: maxPrice.value
-  }
-  return pricesObj
 }
-
-function filtroBusqueda(array){
-  array.filter(articulo => articulo.includes())
-}
-
