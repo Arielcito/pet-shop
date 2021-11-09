@@ -8,7 +8,6 @@
 6_crear fetch de datos ✅
 7_crear carrito de compras
 
-p# pet-shop
 TRABAJAR SIEMPRE SOBRE LA RAMA DEVELOPER
 
 Como pushear cambios?
@@ -20,5 +19,4 @@ git push
 Como crear una rama?
 git branch nombredelarama
 git push developer nombredelarama
-
 
