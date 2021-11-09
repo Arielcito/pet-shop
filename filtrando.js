@@ -2,8 +2,6 @@ const cards = document.getElementById('cards')
 const tipo = document.title.indexOf('Farmacia') > -1 ? 'Medicamento' : 'Juguete'
 const dataFiltradaSorteada = data
   .filter(x => x.tipo === tipo)
-  .filter(x => x.precio >= rangeFilter().minPrice)
-  .filter(x => x.precio <= rangeFilter().maxPrice)
   .sort((a, b) => a.stock - b.stock)
 
 drawCards(tipo)
@@ -36,7 +34,18 @@ rangeFilter()
 function rangeFilter () {
   const maxPrice = document.getElementById('maxPrice')
   const minPrice = document.getElementById('minPrice')
+  const slideMax = document.querySelector('.slideMax')
+  const slideMin = document.querySelector('.slideMin')
   const precios = data.sort((a, b) => a.precio - b.precio).map(a => a.precio)
+
+  minPrice.oninput = () => {
+    const value = minPrice.value
+    slideMin.textContent = value
+  }
+  maxPrice.oninput = () => {
+    const value = maxPrice.value
+    slideMax.textContent = value
+  }
 
   minPrice.setAttribute('max', precios.slice(precios.length - 1, precios.length))
   minPrice.setAttribute('min', precios[0])
