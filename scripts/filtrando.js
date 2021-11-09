@@ -27,14 +27,14 @@ function drawCards (array) {
 
   array.forEach(producto => {
     cards.innerHTML +=
-    `<div class="col">
-      <div class="card h-100">
-        <img src="${producto.imagen}" class="card-img-top imgSize" alt="...">
+    `<div class="container d-flex">
+      <div class="card h-100 carta w-75">
+        <img src="${producto.imagen}" class="card-img-top imgSize w-75" alt="...">
         <div class="card-body">
           <h5 class="card-title">${producto.nombre}</h5>
           <p class="card-text">${producto.descripcion}</p>
         </div>
-        <div class="card-footer d-flex justify-content-between">
+        <div class="card-footer d-flex justify-content-around">
           <small class="text-muted">${producto.stock > 5 ? 'Stock disponible!' : 'Ultimas unidades!'}</small>
           <small class="text-muted">$${producto.precio}</small>
         </div>
