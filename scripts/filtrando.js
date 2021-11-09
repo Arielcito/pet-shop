@@ -14,10 +14,10 @@ fetch(API_URL, init)
     const dataFiltradaSorteada = articulos
       .filter(x => x.tipo === tipo)
       .sort((a, b) => a.stock - b.stock)
-
     drawCards(dataFiltradaSorteada)
+    sortFilter(rangeFilter(dataFiltradaSorteada))
     rangeFilter(dataFiltradaSorteada)
-
+    filtroCombinado(dataFiltradaSorteada)
     return (articulos, dataFiltradaSorteada)
   })
   .catch(err => err.message)
@@ -51,21 +51,9 @@ function drawCards (array) {
 function rangeFilter (array) {
   const maxPrice = document.getElementById('maxPrice')
   const minPrice = document.getElementById('minPrice')
-  const slideMax = document.querySelector('.slideMax')
-  const slideMin = document.querySelector('.slideMin')
 
-  minPrice.oninput = () => {
-    const value = minPrice.value
-    slideMin.textContent = value
-    drawCards(array.filter(x => x.precio >= minPrice.value && x.precio <= maxPrice.value))
-  }
-  maxPrice.oninput = () => {
-    const value = maxPrice.value
-    slideMax.textContent = value
-    drawCards(array.filter(x => x.precio >= minPrice.value && x.precio <= maxPrice.value))
-  }
   const precios = array.sort((a, b) => a.precio - b.precio).map(a => a.precio)
-  console.log(precios)
+
   minPrice.setAttribute('max', precios.slice(precios.length - 1, precios.length))
   minPrice.setAttribute('min', precios[0])
   minPrice.setAttribute('value', precios[0])
@@ -73,4 +61,44 @@ function rangeFilter (array) {
   maxPrice.setAttribute('max', precios.slice(precios.length - 1, precios.length))
   maxPrice.setAttribute('min', precios[0])
   maxPrice.setAttribute('value', precios.slice(precios.length - 1, precios.length))
+
+  return array
+    .filter(x => x.precio >= minPrice.value && x.precio <= maxPrice.value)
+}
+
+function sortFilter (array) {
+  const select = document.getElementById('sortSelect')
+
+  if (select.value === '0') {
+    return array.sort((a, b) => a.stock - b.stock)
+  } else if (select.value === '1') {
+    return array.sort((a, b) => a.precio - b.precio)
+  } else {
+    return array.sort((a, b) => b.precio - a.precio)
+  }
+}
+
+function filtroCombinado (array) {
+  const maxPrice = document.getElementById('maxPrice')
+  const minPrice = document.getElementById('minPrice')
+  const slideMax = document.querySelector('.slideMax')
+  const slideMin = document.querySelector('.slideMin')
+  const select = document.getElementById('sortSelect')
+
+  minPrice.oninput = () => {
+    const value = minPrice.value
+    slideMin.textContent = value
+    drawCards(sortFilter(rangeFilter(array)))
+  }
+  maxPrice.oninput = () => {
+    const value = maxPrice.value
+    slideMax.textContent = value
+    drawCards(sortFilter(rangeFilter(array)))
+  }
+
+  select.oninput = () => {
+    const value = select.value
+    slideMax.textContent = value
+    drawCards(sortFilter(rangeFilter(array)))
+  }
 }
