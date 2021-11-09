@@ -10,16 +10,16 @@ fetch(API_URL,init)
               .then(res => res.json())
               .then(data => {
                 let articulos = data.response
-                console.log(articulos)
+
                 const dataFiltradaSorteada = articulos
                   .filter(x => x.tipo === tipo)
-                  .filter(x => x.precio >= rangeFilter().minPrice)
-                  .filter(x => x.precio <= rangeFilter().maxPrice)
+                  .filter(x => x.precio >= rangeFilter(articulos).minPrice)
+                  .filter(x => x.precio <= rangeFilter(articulos).maxPrice)
                   .sort((a, b) => a.stock - b.stock)
 
                 drawCards(dataFiltradaSorteada)
                 rangeFilter(dataFiltradaSorteada)
-                return articulos
+                return articulos,dataFiltradaSorteada
               })
               .catch(err => err.message)
 
@@ -27,7 +27,7 @@ function drawCards (array) {
   cards.innerHTML = ''
 
   array.forEach(producto => {
-    if (producto.precio >= rangeFilter().minPrice && producto.precio <= rangeFilter().maxPrice) {
+    
       cards.innerHTML +=
     `<div class="col">
       <div class="card h-100">
@@ -43,7 +43,7 @@ function drawCards (array) {
       </div>
     </div>`
     }
-  })
+  )
 }
 
 function rangeFilter (array) {
@@ -59,8 +59,8 @@ function rangeFilter (array) {
   maxPrice.setAttribute('min', precios[0])
   maxPrice.setAttribute('value', precios.slice(precios.length - 1, precios.length))
 
-  maxPrice.addEventListener('change', drawCards)
-  minPrice.addEventListener('change', drawCards)
+  maxPrice.addEventListener('change', drawCards(array))
+  minPrice.addEventListener('change', drawCards(array))
 
   const pricesObj = {
     minPrice: minPrice.value,
