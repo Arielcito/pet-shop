@@ -1,5 +1,4 @@
 //filtros
-let fav = document.querySelector(".fav")
 const cards = document.getElementById('cards')
 const tipo = document.title.indexOf('Farmacia') > -1
   ? 'Medicamento'
@@ -12,6 +11,7 @@ const init = {
 fetch(API_URL, init)
   .then(res => res.json())
   .then(data => {
+    
     const articulos = data.response
     const dataFiltradaSorteada = articulos
       .filter(x => x.tipo === tipo)
@@ -20,6 +20,7 @@ fetch(API_URL, init)
     sortFilter(rangeFilter(dataFiltradaSorteada))
     rangeFilter(dataFiltradaSorteada)
     filtroCombinado(dataFiltradaSorteada)
+    
     return (articulos, dataFiltradaSorteada)
   })
   .catch(err => err.message)
@@ -40,8 +41,8 @@ function drawCards (array) {
           <small class="text-muted">$${producto.precio}</small>
         </div>
         <div class="d-flex justify-content-between">
-        <button type="button" class="btn btn-primary m-1 buy">Añadir a la canasta</button>
-        <button type="button" class="btn btn-primary m-1 fav">Añadir a favoritos</button>
+          <button type="button" class="btn btn-primary m-1 buy">Añadir a la canasta</button>
+          <button type="button" class="btn btn-primary m-1 fav">Añadir a favoritos</button>
         </div>
       </div>
     </div>`
@@ -104,10 +105,20 @@ function filtroCombinado (array) {
   }
 }
 
-//localstorage
-
-
-fav.onclick() =() =>{
-  console.log("hola")
+function agregarFavoritos(e){
+  if(e.target.textContent == "Añadir a favoritos"){
+    localStorage.setItem("Favoritos",e.target.parenElement)
+  
+  }
 }
+function agregarCarrito(e){
+  if(e.target.textContent == "Añadir a carrito"){
+    localStorage.setItem("Carrito",e.target.parenElement)
+  }
+}
+cards.addEventListener('click', e => {
+  agregarCarrito(e)
+  agregarFavoritos(e)
+  console.log(e.target.parentElement)
+})
 
