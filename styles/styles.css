@@ -1,0 +1,18 @@
+.logo{
+    width: 5rem;
+    height: 5rem;
+}
+.navbar-nav{
+    margin-right: 1rem;
+    margin-top: -1rem;
+}
+.text{
+    margin-right:1rem;
+    margin-left: 1rem;
+}
+
+.icons a {
+    display: flex;
+    margin-right: -1rem;
+}
+
