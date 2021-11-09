@@ -30,7 +30,7 @@ function drawCards (array) {
     cards.innerHTML +=
     `<div class="container d-flex">
       <div class="card h-100 carta w-75">
-        <img src="${producto.imagen}" class="card-img-top imgSize w-75" alt="...">
+        <img src="${producto.imagen}" class=" d-block mx-auto card-img-top imgSize w-75" alt="...">
         <div class="card-body">
           <h5 class="card-title">${producto.nombre}</h5>
           <p class="card-text">${producto.descripcion}</p>
@@ -51,7 +51,9 @@ function drawCards (array) {
         <div class="d-flex justify-content-between">
         <button type="button" class="btn btn-primary m-1 buy">Añadir a la canasta</button>
         <button type="button" class="btn btn-primary m-1 fav">Añadir a favoritos</button>
+        
         </div>
+        
       </div>
     </div>`
   }
