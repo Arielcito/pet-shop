@@ -1,18 +1,33 @@
+
 const cards = document.getElementById('cards')
 const tipo = document.title.indexOf('Farmacia') > -1 ? 'Medicamento' : 'Juguete'
-const dataFiltradaSorteada = data
-  .filter(x => x.tipo === tipo)
-  .filter(x => x.precio >= rangeFilter().minPrice)
-  .filter(x => x.precio <= rangeFilter().maxPrice)
-  .sort((a, b) => a.stock - b.stock)
 
-drawCards(tipo)
+let API_URL ="https://apipetshop.herokuapp.com/api/articulos"
+let init = {
+  method: "GET"
+}
+fetch(API_URL,init)
+              .then(res => res.json())
+              .then(data => {
+                let articulos = data.response
 
-function drawCards (tipo) {
+                const dataFiltradaSorteada = articulos
+                  .filter(x => x.tipo === tipo)
+                  .filter(x => x.precio >= rangeFilter(articulos).minPrice)
+                  .filter(x => x.precio <= rangeFilter(articulos).maxPrice)
+                  .sort((a, b) => a.stock - b.stock)
+
+                drawCards(dataFiltradaSorteada)
+                rangeFilter(dataFiltradaSorteada)
+                return articulos,dataFiltradaSorteada
+              })
+              .catch(err => err.message)
+
+function drawCards (array) {
   cards.innerHTML = ''
 
-  dataFiltradaSorteada.forEach(producto => {
-    if (producto.precio >= rangeFilter().minPrice && producto.precio <= rangeFilter().maxPrice) {
+  array.forEach(producto => {
+    
       cards.innerHTML +=
     `<div class="col">
       <div class="card h-100">
@@ -28,15 +43,13 @@ function drawCards (tipo) {
       </div>
     </div>`
     }
-  })
+  )
 }
 
-rangeFilter()
-
-function rangeFilter () {
+function rangeFilter (array) {
   const maxPrice = document.getElementById('maxPrice')
   const minPrice = document.getElementById('minPrice')
-  const precios = data.sort((a, b) => a.precio - b.precio).map(a => a.precio)
+  const precios = array.sort((a, b) => a.precio - b.precio).map(a => a.precio)
 
   minPrice.setAttribute('max', precios.slice(precios.length - 1, precios.length))
   minPrice.setAttribute('min', precios[0])
@@ -46,8 +59,8 @@ function rangeFilter () {
   maxPrice.setAttribute('min', precios[0])
   maxPrice.setAttribute('value', precios.slice(precios.length - 1, precios.length))
 
-  maxPrice.addEventListener('change', drawCards)
-  minPrice.addEventListener('change', drawCards)
+  maxPrice.addEventListener('change', drawCards(array))
+  minPrice.addEventListener('change', drawCards(array))
 
   const pricesObj = {
     minPrice: minPrice.value,
