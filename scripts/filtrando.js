@@ -100,3 +100,5 @@ function filtroCombinado (array) {
     drawCards(sortFilter(rangeFilter(array)))
   }
 }
+
+console.log('prueba');
