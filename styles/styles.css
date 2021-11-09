@@ -13,7 +13,7 @@ footer {
 }
 
 .imgLogo {
-  height: 10rem;
+  height: 9rem;
   display: flex;
   border-radius: 50%;
 }
@@ -24,24 +24,24 @@ footer {
   }
 }
 
-.row {
+.roww {
   margin-top: 20px;
   display: flex;
 }
 
-.row img {
+.roww img {
   width: 36px;
   height: 36px;
 }
 
 
-.row a {
+.roww a {
   margin-top: 10px;
   margin-left: 20px;
   color: #c7c7c7;
   text-decoration: none;
 }
-.row a:hover {
+.roww a:hover {
   color: #ffffff;
 }
 
