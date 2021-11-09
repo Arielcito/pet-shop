@@ -24,8 +24,20 @@ footer {
   }
 }
 
-.roww {
+.redes{
+  display: flex;
+}
+
+.iconos{
+  margin-right: 2rem;
+}
+
+.abajo {
   margin-top: 20px;
+  display: flex;
+}
+.roww {
+  
   display: flex;
 }
 
@@ -52,4 +64,5 @@ footer {
 
 .colum2 h3 {
   font-size: 22px;
+  text-align: center;
 }
