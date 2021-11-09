@@ -36,8 +36,17 @@ function drawCards (array) {
           <p class="card-text">${producto.descripcion}</p>
         </div>
         <div class="card-footer d-flex justify-content-around">
-          <small class="text-muted">${producto.stock > 5 ? 'Stock disponible!' : 'Ultimas unidades!'}</small>
-          <small class="text-muted">$${producto.precio}</small>
+        <ul class="list-group">
+        <li class="list-group-item ">
+        <small class="text-muted">${producto.stock > 5 ? 'Stock disponible!' : 'Ultimas unidades!'} </small>
+        </li>
+        <li class="list-group-item">
+        <small class="text-muted">Stock diponible: ${producto.stock}</small>
+        </li>
+        <li class="list-group-item">
+        <small class="text-muted">$${producto.precio}</small>
+        </li>
+        </ul>
         </div>
         <div class="d-flex justify-content-between">
         <button type="button" class="btn btn-primary m-1 buy">Añadir a la canasta</button>
