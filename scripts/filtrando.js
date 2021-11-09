@@ -30,7 +30,7 @@ function drawCards (array) {
       cards.innerHTML +=
     `<div class="col">
       <div class="card h-100">
-        <img src="${producto.imagen}" class="card-img-top" alt="...">
+        <img src="${producto.imagen}" class="card-img-top imgSize" alt="...">
         <div class="card-body">
           <h5 class="card-title">${producto.nombre}</h5>
           <p class="card-text">${producto.descripcion}</p>
@@ -38,6 +38,10 @@ function drawCards (array) {
         <div class="card-footer d-flex justify-content-between">
           <small class="text-muted">${producto.stock > 5 ? 'Stock disponible!' : 'Ultimas unidades!'}</small>
           <small class="text-muted">$${producto.precio}</small>
+        </div>
+        <div class="d-flex justify-content-between">
+        <button type="button" class="btn btn-primary m-1">Añadir a la canasta</button>
+        <button type="button" class="btn btn-primary m-1">Añadir a favoritos</button>
         </div>
       </div>
     </div>`
