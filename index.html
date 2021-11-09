@@ -12,7 +12,6 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>petShop Franco</title>
 </head>
-
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top d-flex ">
         <div class="flex-column container-fluid">
@@ -23,8 +22,13 @@
                         Pet Shop Franco
                     </p>
                 </a>
-                <div class="input-group w-50">
-                    <input type="text" class="form-control " placeholder="¿Qué es lo que buscas?"
+                <div class="input-group w-50 ">
+                  <select class="form-select form-select-lg " aria-label=".form-select-lg example">
+                    <option selected>Buscar en...</option>
+                    <option value="1">farmacia</option>
+                    <option value="2">Juguetes</option>
+                  </select>
+                    <input type="text" class="form-control w-50" placeholder="¿Qué es lo que buscas?"
                         aria-label="Recipient's username" aria-describedby="button-addon2">
                     <button class="btn btn-outline-secondary" type="button" id="button-addon2"><svg
                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
@@ -34,11 +38,10 @@
                         </svg></button>
                 </div>
                 <div class="navbar icons ">
-                    <a href="#" class="nav-link me-2">
-                        <span class="material-icons ">location_on
-                            
-                        </span>
+                    <a href="https://goo.gl/maps/bfW2zvxUgJ7FY1vDA " target="_blank" class="nav-link me-2">
+                        <span class="material-icons" >location_on</span>
                         <p class="text d-none d-lg-block">Location</p>
+                        
                     </a>
                     <a href="shopping-cart.html" class="nav-link me-2">
                         <span class="material-icons">shopping_cart</span>
@@ -73,27 +76,30 @@
             </div>
         </div>
     </nav>
-</header>
-    <div class="container-sm d-flex mt-5">
-        <img src="./assets/unknown.png" class="rounded  w-25 h-25 mt-5"  alt="...">
-
-        <div class="col-9 btn ">
+  </header>
+  <main>  
+  <div class="container-sm">
+      <img src="./assets/unknown.png" class="rounded mx-auto d-block" alt="...">
+  </div>
+    <div class="d-flex container-fluid p-4 pt-5 col-11">
+        <div class="col-9 btn">
             <section>
                 <h2>Nuestra Historia</h2>
-                <p class="text-start">Nuestra historia comienza el día que Frida se integró a nuestra familia. Ni ella, mi familia y mucho
+                <p>Nuestra historia comienza el día que Franco se integró a nuestra familia. Ni el, mi familia y mucho
                     menos yo nos imaginamos que sería la primer razón para crear este proyecto, con el que
-                    colaboraríamos a que cientos de perros a tuvieran juguetes de calidad en México, y al alcance de un
-                    solo clic, mostrando una novedosa manera de adquirir productos en muchos hogares mexicanos.
-
-                    Durante el primer año, como todo cachorro Frida se comió y/o destrozó celulares, bolsas, zapatos,
-                    controles de TV, tapetes, camas, en fin. En junio del siguiente año, Chelsee se unió a la familia,
-                    una Border Collie con un carácter único. Con su llegada ahora no era un control, una bolsa o unos
-                    zapatos… era TODO AL DOBLE. En fin, creo que todos los que han tenido perros han vivido estas
-                    historias que a veces son cómicas y a veces no tanto ya que implican gastos al tener que reponer
-                    objetos que no tenía sentido que desaparecieran.
-
-                    Tanto a Frida como a Chelsee, desde chicas las acostumbramos a pasear los fines de semana en un
-                    parque conoci</p>
+                        colaboraríamos a que cientos de perros a tuvieran juguetes de calidad en CABA, y al alcance de un
+                        solo clic, mostrando una novedosa manera de adquirir productos en muchos hogares Argentinos.
+    
+                        Durante el primer año, como todo cachorro Franco se comió y/o destrozó celulares, bolsas, zapatillas,
+                        controles de TV, tapetes, camas, en fin. En junio del siguiente año, Alondra se unió a la familia,
+                        una Border Collie con un carácter único. Con su llegada ahora no era un control, una bolsa o unos
+                        zapatos… era TODO AL DOBLE. En fin, creo que todos los que han tenido perros han vivido estas
+                        historias que a veces son cómicas y a veces no tanto ya que implican gastos al tener que reponer
+                        objetos que no tenía sentido que desaparecieran.
+    
+                        Tanto a Franco como a Alondra, desde cachorros los acostumbramos a pasear los fines de semana en un
+                        parque conocido en la ciudad allí nos dimos cuenta que muchos cachorros no tienen los juguetes apropiados para divertirse, inclusive mucho podría ser tóxicos para su salud 
+    es fue la razon de  emprender con esta PYME y asi mejor la calidad de vida de las mascotas</p>
                 <p></p>
             </section>
             <p>
@@ -101,17 +107,11 @@
                     aria-expanded="false" aria-controls="collapseExample" id="read-more">
                     Read more
                 </a>
-                
             </p>
             <div class="collapse" id="collapseExample">
                 <div class="card card-body">
                     <h3>Nuestros Inicios </h3>
-                    <iframe id="inlineFrameExample"
-                    title="Inline Frame Example"
-                    width="300"
-                    height="200"
-                    src="https://www.openstreetmap.org/export/embed.html?bbox=-0.004017949104309083%2C51.47612752641776%2C0.00030577182769775396%2C51.478569861898606&layer=mapnik">
-                </iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d105050.29591993621!2d-58.5720814!3d-34.6339446!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca452761bf09%3A0x19cc92a92de5564c!2sPet%20Shop%20Caballito%20Reino%20Animal!5e0!3m2!1ses-419!2sar!4v1636482352624!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
         </div>
@@ -145,6 +145,7 @@
     
     PRUEBA FOOTER <small>&copy; 2019</small>
     // LO DISEÑA FEDERICO
+    
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
