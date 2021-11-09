@@ -18,6 +18,4 @@ git push
 
 Como crear una rama?
 git branch <nombredelarama>
-git push origin <nombredelarama>
-
-
+git push developer <nombredelarama>
