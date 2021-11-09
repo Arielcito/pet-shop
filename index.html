@@ -12,7 +12,6 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>petShop Franco</title>
 </head>
-
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top d-flex ">
         <div class="flex-column container-fluid">
@@ -24,7 +23,12 @@
                     </p>
                 </a>
                 <div class="input-group w-50 ">
-                    <input type="text" class="form-control " placeholder="¿Qué es lo que buscas?"
+                  <select class="form-select form-select-lg " aria-label=".form-select-lg example">
+                    <option selected>Buscar en...</option>
+                    <option value="1">farmacia</option>
+                    <option value="2">Juguetes</option>
+                  </select>
+                    <input type="text" class="form-control w-50" placeholder="¿Qué es lo que buscas?"
                         aria-label="Recipient's username" aria-describedby="button-addon2">
                     <button class="btn btn-outline-secondary" type="button" id="button-addon2"><svg
                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
@@ -72,18 +76,12 @@
             </div>
         </div>
     </nav>
-    <div class="container-sm">
-        <img src="./styles/unknown.png" class="rounded mx-auto d-block" alt="...">
-
-    </div>
-
-
-</header>
-
-
-<main>
-    
-    <div class="d-flex container-fluid p-4 pt-5 col-10">
+  </header>
+  <main>  
+  <div class="container-sm">
+      <img src="./assets/unknown.png" class="rounded mx-auto d-block" alt="...">
+  </div>
+    <div class="d-flex container-fluid p-4 pt-5 col-11">
         <div class="col-9 btn">
             <section>
                 <h2>Nuestra Historia</h2>
@@ -109,7 +107,6 @@
                     aria-expanded="false" aria-controls="collapseExample" id="read-more">
                     Leer Valores
                 </a>
-                
             </p>
             <div class="collapse" id="collapseExample">
                 <div class="card card-body">
@@ -151,15 +148,15 @@
                     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="./styles/foto1.jpeg"
+                                <img src="./assets/foto1.jpeg"
                                     class="d-block w-100" alt="...">
                             </div>
                             <div class="carousel-item">
-                                <img src="./styles/foto2.jpeg" class="d-block w-100"
+                                <img src="./assets/foto2.jpeg" class="d-block w-100"
                                     alt="...">
                             </div>
                             <div class="carousel-item">
-                                <img src="./styles/foto3.jpeg"
+                                <img src="./assets/foto3.jpeg"
                                     class="d-block w-100" alt="...">
                             </div>
                         </div>
