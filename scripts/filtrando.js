@@ -1,6 +1,6 @@
-
 const cards = document.getElementById('cards')
 const tipo = document.title.indexOf('Farmacia') > -1 ? 'Medicamento' : 'Juguete'
+const search = document.getElementById('#buscador')
 
 let API_URL ="https://apipetshop.herokuapp.com/api/articulos"
 let init = {
@@ -27,7 +27,6 @@ function drawCards (array) {
   cards.innerHTML = ''
 
   array.forEach(producto => {
-    
       cards.innerHTML +=
     `<div class="col">
       <div class="card h-100">
@@ -68,3 +67,8 @@ function rangeFilter (array) {
   }
   return pricesObj
 }
+
+function filtroBusqueda(array){
+  array.filter(articulo => articulo.includes())
+}
+
