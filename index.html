@@ -12,7 +12,6 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>petShop Franco</title>
 </head>
-
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top d-flex ">
         <div class="flex-column container-fluid">
@@ -24,7 +23,12 @@
                     </p>
                 </a>
                 <div class="input-group w-50 ">
-                    <input type="text" class="form-control " placeholder="¿Qué es lo que buscas?"
+                  <select class="form-select form-select-lg " aria-label=".form-select-lg example">
+                    <option selected>Buscar en...</option>
+                    <option value="1">farmacia</option>
+                    <option value="2">Juguetes</option>
+                  </select>
+                    <input type="text" class="form-control w-50" placeholder="¿Qué es lo que buscas?"
                         aria-label="Recipient's username" aria-describedby="button-addon2">
                     <button class="btn btn-outline-secondary" type="button" id="button-addon2"><svg
                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
@@ -73,15 +77,11 @@
             </div>
         </div>
     </nav>
-    <div class="container-sm">
-        <img src="./assets/unknown.png" class="rounded mx-auto d-block" alt="...">
-
-    </div>
-
-
-</header>
-<main>
-    
+  </header>
+  <main>  
+  <div class="container-sm">
+      <img src="./assets/unknown.png" class="rounded mx-auto d-block" alt="...">
+  </div>
     <div class="d-flex container-fluid p-4 pt-5 col-11">
         <div class="col-9 btn">
             <section>
