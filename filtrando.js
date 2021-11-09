@@ -3,9 +3,6 @@ const tipo = document.title.indexOf('Farmacia') > -1
   ? 'Medicamento'
   : 'Juguete'
 
-    .filter(x => x.tipo === tipo)
-    .sort((a, b) => a.stock - b.stock)
-
 const API_URL = 'https://apipetshop.herokuapp.com/api/articulos'
 const init = {
   method: 'GET'
@@ -52,7 +49,6 @@ function rangeFilter (array) {
   const minPrice = document.getElementById('minPrice')
   const slideMax = document.querySelector('.slideMax')
   const slideMin = document.querySelector('.slideMin')
-  const precios = array.map(a => a.precio).sort((a, b) => a.precio - b.precio)
 
   minPrice.oninput = () => {
     const value = minPrice.value
@@ -64,7 +60,8 @@ function rangeFilter (array) {
     slideMax.textContent = value
     drawCards(array.filter(x => x.precio >= minPrice.value && x.precio <= maxPrice.value))
   }
-
+  const precios = array.sort((a, b) => a.precio - b.precio).map(a => a.precio)
+  console.log(precios)
   minPrice.setAttribute('max', precios.slice(precios.length - 1, precios.length))
   minPrice.setAttribute('min', precios[0])
   minPrice.setAttribute('value', precios[0])
