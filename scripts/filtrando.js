@@ -33,8 +33,8 @@ function drawCards (array) {
   array.forEach(producto => {
     cards.innerHTML +=
     `<div class="col-lg-3 col-md-4 col-sm-6">
-      <div class="card h-100 w-100 carta shadow m-4 ">
-        <img src="${producto.imagen}" class=" d-block mx-auto card-img-top imgSize w-75" alt="...">
+      <div class="card h-100 w-100 carta shadow ">
+        <img src="${producto.imagen}" class=" d-block mx-auto card-img-top imgSize" alt="...">
         <div class="card-body">
           <a href="producto.html?id=${producto._id}" class="productoAnchor">
           <h6 class="card-title">${producto.nombre}</h6>
@@ -227,7 +227,6 @@ function crearTablasFavoritos(array){
 
  */
 
-function filtroBusqueda (productos) {
 // let favoritos = []
 // let carrito = []
 
@@ -259,13 +258,12 @@ function filtroBusqueda (productos) {
 //   if(document.title == "Favorito"){
 //     let auxArray = JSON.parse(localStorage.getItem("favoritos"))
 
-
 //   inputBuscar.oninput = () => {
 //     drawCards(filtroBusqueda(sortFilter(rangeFilter(array))))
 //   }
 // }}
 
-function filtroBusqueda (productos){
+function filtroBusqueda (productos) {
   const texto = inputBuscar.value.toLowerCase()
   const arrayBuscado = []
   for (const producto of productos) {
