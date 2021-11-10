@@ -6,6 +6,8 @@ const tipo = document.title.indexOf('Farmacia') > -1
   ? 'Medicamento'
   : 'Juguete'
 
+//buscador+
+
 const API_URL = 'https://apipetshop.herokuapp.com/api/articulos'
 const init = {
   method: 'GET'
@@ -28,9 +30,11 @@ fetch(API_URL, init)
   .catch(err => err.message)
 
 function drawCards (array) {
-/*   let local = localStorage.getItem("favoritos")
- */ cards.innerHTML = ''
+  cards.innerHTML = ''
+  if(array.length > 0){
   array.forEach(producto => {
+
+
     cards.innerHTML +=
     `<div class="col-lg-3 col-md-4 col-sm-6 id="${producto._id}">
       <div class="card h-100 carta shadow-lg mb-5 mt-3 rounded">
@@ -60,8 +64,18 @@ function drawCards (array) {
       </div>
     </div>`
   }
-  )
+  
+  )}else{
+    cards.innerHTML += `
+    <div class="alert text-center alert-warning" role="alert">
+    
+¡Upss! Sin resultados de búsqueda ingresada</div>`
+  }
+
+  
 }
+
+
 
 function rangeFilter (array) {
   const maxPrice = document.getElementById('maxPrice')
