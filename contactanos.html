@@ -18,7 +18,7 @@
     />
     <title>Contactanos</title>
   </head>
-  <body>
+  <body class="d-flex flex-column vh-100">
     <header>
       <nav
         class="navbar navbar-expand-lg navbar-light bg-light sticky-top d-flex"
@@ -111,9 +111,118 @@
         </div>
       </nav>
     </header>
-    <main>
-      <!-- Moraga -->
+    <main class="d-flex flex-column flex-grow-1">
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Formulario</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">Se enviaron los datos exitosamente!</div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Aceptar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex flex-column">
+        <div>
+          <h1 class="text-center fs-3">Formulario de contacto</h1>
+        </div>
+        <form class="form mt-3">
+          <div class="active step-1">
+            <label class="form-label" for="nombre">Nombre</label>
+            <input class="form-text" id="nombre" name="nombre" type="text" />
+            <a class="btn-primary btn p-1">Siguiente</a>
+          </div>
+          <div class="hidden step-2">
+            <label class="form-label" for="apellido">Apellido</label>
+            <input class="form-text" type="text" />
+            <a class="btn-primary btn p-1">Siguiente</a>
+          </div>
+          <div class="hidden step-3">
+            <label class="form-label" for="">Telefono</label>
+            <input class="form-text" type="tel" />
+            <a class="btn-primary btn p-1">Siguiente</a>
+          </div>
+          <div class="hidden step-4">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="pet"
+                id="dog"
+              />
+              <label class="form-check-label" for="dog"> Dog </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="pet"
+                id="cat"
+                checked
+              />
+              <label class="form-check-label" for="cat"> Cat </label>
+            </div>
+
+            <a class="btn-primary btn p-1">Siguiente</a>
+          </div>
+          <div class="hidden step-5">
+            <div>
+              <div>
+                <label class="form-label" style="width: 150px" for="comentarios"
+                  >Comentarios:</label
+                >
+              </div>
+
+              <textarea
+                class="form-text"
+                name="comentarios"
+                id="comentarios"
+                cols="30"
+                rows="10"
+              >
+              </textarea>
+            </div>
+            <div>
+              <button
+                type="submit"
+                class="btn-primary btn p-1"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
     </main>
-    <footer></footer>
+    <footer>I am the footer</footer>
+    <script src="scripts/stepper-form.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

@@ -1,18 +1,43 @@
-.logo{
-    width: 5rem;
-    height: 5rem;
+.logo {
+  width: 5rem;
+  height: 5rem;
 }
-.navbar-nav{
-    margin-right: 1rem;
-    margin-top: -1rem;
+.navbar-nav {
+  margin-right: 1rem;
+  margin-top: -1rem;
 }
-.text{
-    margin-right:1rem;
-    margin-left: 1rem;
+.text {
+  margin-right: 1rem;
+  margin-left: 1rem;
 }
 
 .icons a {
-    display: flex;
-    margin-right: -1rem;
+  display: flex;
+  margin-right: -1rem;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+fieldset {
+  display: flex;
+  flex-direction: column;
+}
+
+form input {
+  width: 150px;
+}
+.active {
+  /* background-color: blue; */
+}
+.hidden {
+  display: none;
+}
+.complete {
+  /* background-color: red; */
+}
+form a {
+  cursor: pointer;
+}
