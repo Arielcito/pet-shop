@@ -10,12 +10,15 @@
     <link rel="stylesheet" href="./styles/styles.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
     rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200&display=swap" rel="stylesheet">
     <title>Contactanos</title>
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top d-flex ">
-          <div class="flex-column container-fluid">
+          <div class="flex-column container-fluid nav-color">
             <div class="navbar-nav hstack d-flex justify-content-between">
               <a class="navbar-brand " href="index.html">
                 <img src="./assets/logo.png" alt="logo" class="logo" >
@@ -33,17 +36,17 @@
                 <button class="btn btn-outline-secondary" type="button" id="button-addon2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill-rule="evenodd" d="M14.53 15.59a8.25 8.25 0 111.06-1.06l5.69 5.69a.75.75 0 11-1.06 1.06l-5.69-5.69zM2.5 9.25a6.75 6.75 0 1111.74 4.547.746.746 0 00-.443.442A6.75 6.75 0 012.5 9.25z"></path></svg></button>
               </div>
               <div class="navbar icons ">
-                <a href="#" class="nav-link me-2">
+                <a target="_blank" href="https://www.google.com/maps/place/Río+de+Janeiro+300,+C1405CCB+CABA/@-34.6120774,-58.4325776,17z/data=!3m1!4b1!4m9!1m2!2m1!1sRio+de+Janeiro+300.!3m5!1s0x95bcca429815227f:0x5d302e497c2cda87!8m2!3d-34.6120774!4d-58.4303836!15sChNSaW8gZGUgSmFuZWlybyAzMDAukgEQZ2VvY29kZWRfYWRkcmVzcw" class="nav-link me-2">
                     <span class="material-icons ">location_on</span>
-                    <p class="text d-none d-lg-block">Location</p>
+                    <p class="text d-none d-lg-block">ubicación</p>
                 </a>
                 <a href="shopping-cart.html" class="nav-link me-2">
                     <span class="material-icons">shopping_cart</span>
-                    <p class="text d-none d-lg-block">Cart</p>
+                    <p class="text d-none d-lg-block">Carrito</p>
                 </a>
                 <a href="favorite.html" class="nav-link me-2">
                     <span class="material-icons">favorite</span>
-                    <p class="text d-none d-lg-block"> Favorites</p>
+                    <p class="text d-none d-lg-block"> Favoritos</p>
                 </a>
               </div>
             </div>
@@ -69,7 +72,51 @@
           </div>
         </nav>
       </header>
-      <main></main>
+      <main>
+        <div class="floating-cart">
+
+        </div>
+        <div class="mainTitle text-center">
+          <div class="box text-center">
+            <h2 class="titles text-danger">Sucursales</h2>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <h1>Nuestra ubicación</h1>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  <span class="material-icons">
+                  place
+                  </span>
+                  Rio de Janeiro 300
+                </li>
+                <li class="list-group-item">
+                  <span class="material-icons">
+                  watch_later
+                  </span>
+                  Lunes a Sábado de 9 a 20hs
+                </li>
+                <li class="list-group-item">
+                  <span class="material-icons">
+                  whatsapp
+                  </span>
+                  +54-11-2896-4445
+                </li>
+                <li class="list-group-item">
+                  <span class="material-icons">
+                    email
+                    </span>
+                    franco.pet-shop@gmail.com
+                  </li>
+              </ul>
+            </div>
+            <div class="col">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.6869258147417!2d-58.43257764853827!3d-34.61207738036141!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca429815227f%3A0x5d302e497c2cda87!2sR%C3%ADo%20de%20Janeiro%20300%2C%20C1405CCB%20CABA!5e0!3m2!1ses-419!2sar!4v1636549071439!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+      </main>
       <footer>
         <div>
           <div class="container-body">
