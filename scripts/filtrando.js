@@ -1,6 +1,12 @@
-//filtros
-let fav = document.querySelector(".fav")
 const cards = document.getElementById('cards')
+
+let unidadesDeseadas = 0;
+let sumar = document.querySelector(".sumar");
+let contador = document.querySelector("#cuenta");
+let restar = document.querySelector(".restar");
+
+
+
 const tipo = document.title.indexOf('Farmacia') > -1
   ? 'Medicamento'
   : 'Juguete'
@@ -10,22 +16,40 @@ const init = {
   method: 'GET'
 }
 fetch(API_URL, init)
-  .then(res => res.json())
-  .then(data => {
-    const articulos = data.response
-    const dataFiltradaSorteada = articulos
-      .filter(x => x.tipo === tipo)
-      .sort((a, b) => a.stock - b.stock)
-    drawCards(dataFiltradaSorteada)
-    sortFilter(rangeFilter(dataFiltradaSorteada))
-    rangeFilter(dataFiltradaSorteada)
-    filtroCombinado(dataFiltradaSorteada)
+.then(res => res.json())
+.then(data => {
+  const articulos = data.response
+  const dataFiltradaSorteada = articulos
+  .filter(x => x.tipo === tipo)
+  .sort((a, b) => a.stock - b.stock)
+  drawCards(dataFiltradaSorteada)
+  sortFilter(rangeFilter(dataFiltradaSorteada))
+  rangeFilter(dataFiltradaSorteada)
+  filtroCombinado(dataFiltradaSorteada)
+  sumar.addEventListener("click", sumo);
+  restar.addEventListener("click", resto);
+  console.log("sumar");
+  
+  function sumo() {
+    contador.innerHTML = unidadesDeseadas++;
+    if (unidadesDeseadas> response.stock ){
+
+    }
+
+  }
+  function resto() {
+    contador.innerHTML = unidadesDeseadas--;
+    if(unidadesDeseadas<=0){
+      unidadesDeseadas=0;
+    }
+  }
     return (articulos, dataFiltradaSorteada)
   })
   .catch(err => err.message)
 
 function drawCards (array) {
   cards.innerHTML = ''
+
   array.forEach(producto => {
     cards.innerHTML +=
     `<div class="container d-flex">
@@ -39,9 +63,14 @@ function drawCards (array) {
           <small class="text-muted">${producto.stock > 5 ? 'Stock disponible!' : 'Ultimas unidades!'}</small>
           <small class="text-muted">$${producto.precio}</small>
         </div>
+        <div class="d-flex container-fluid">
+        <p>Cantidad: <span id="cuenta">${unidadesDeseadas}</span> </p>
+        <button type="button" class="bg-light text-dark btn-sm btn-primary m-1">-</button>
+        <button type="button" class="bg-light text-dark btn-sm btn-primary m-1">+</button>
+        </div>
         <div class="d-flex justify-content-between">
-        <button type="button" class="btn btn-primary m-1 buy">Añadir a la canasta</button>
-        <button type="button" class="btn btn-primary m-1 fav">Añadir a favoritos</button>
+        <button type="button" class="restar btn btn-primary m-1">Añadir a la canasta</button>
+        <button type="button" class="sumar btn btn-primary m-1">Añadir a favoritos</button>
         </div>
       </div>
     </div>`
@@ -102,12 +131,5 @@ function filtroCombinado (array) {
     slideMax.textContent = value
     drawCards(sortFilter(rangeFilter(array)))
   }
-}
-
-//localstorage
-
-
-fav.onclick() =() =>{
-  console.log("hola")
 }
 
