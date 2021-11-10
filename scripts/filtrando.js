@@ -27,7 +27,7 @@ function drawCards (array) {
 
   array.forEach(producto => {
     cards.innerHTML +=
-    `<div class="container d-flex">
+      `<div class="container d-flex">
       <div class="card h-100 carta ">
         <img src="${producto.imagen}" class="card-img-top imgSize " alt="...">
         <div class="card-body">
@@ -101,4 +101,4 @@ function filtroCombinado (array) {
   }
 }
 
-console.log('prueba');
+console.log('prueba')
