@@ -116,11 +116,67 @@ function filtroCombinado (array) {
 
 //localstorage
 
+function addToCart (e) {
+  const producto = e.target.parentElement.parentElement.parentElement
+  const nombre = producto.querySelector('.card-title').textContent
+  const precio = producto.querySelector('.card-footer small:nth-child(3)').textContent
+  const imagen = producto.querySelector('.card-img-top').src
+  const stock = producto.querySelector('.card-footer small:nth-child(2)').textContent
+  const id = producto.querySelector('.card-footer small:nth-child(1)').textContent
+
+  const cart = JSON.parse(localStorage.getItem('cart')) || []
+  const newItem = {
+    nombre,
+    precio,
+    imagen,
+    stock,
+    id
+  }
+  cart.push(newItem)
+  localStorage.setItem('cart', JSON.stringify(cart))
+  alert('Producto agregado a la canasta')
+
+}
+
+function addToFav (e) {
+  const producto = e.target.parentElement.parentElement.parentElement 
+  const nombre = producto.querySelector('.card-title').textContent
+  const precio = producto.querySelector('.card-footer small:nth-child(3)').textContent
+  const imagen = producto.querySelector('.card-img-top').src
+  const stock = producto.querySelector('.card-footer small:nth-child(2)').textContent
+  const id = producto.querySelector('.card-footer small:nth-child(1)').textContent
+
+  const fav = JSON.parse(localStorage.getItem('fav')) || []
+  const newItem = {
+    nombre,
+    precio,
+    imagen,
+    stock,
+    id
+  }
+  fav.push(newItem)
+  localStorage.setItem('fav', JSON.stringify(fav))
+  alert('Producto agregado a favoritos')
+
+}
 
 
+function localStorage(){
+  const cart = JSON.parse(localStorage.getItem('cart')) || []
+  const fav = JSON.parse(localStorage.getItem('fav')) || []
 
+  cart.forEach(producto => {
+    const card = document.querySelector(`[data-id="${producto.id}"]`)
+    card.querySelector('.buy').textContent = 'Añadido'
+    card.querySelector('.buy').disabled = true
+  })
 
-
+  fav.forEach(producto => {
+    const card = document.querySelector(`[data-id="${producto.id}"]`)
+    card.querySelector('.fav').textContent = 'Añadido'
+    card.querySelector('.fav').disabled = true
+  })
+}
 
 
 
