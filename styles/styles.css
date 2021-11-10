@@ -11,9 +11,6 @@ footer {
   flex-wrap: wrap;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  
-  
-  
 }
 
 .imgLogo {
@@ -28,11 +25,11 @@ footer {
   }
 }
 
-.redes{
+.redes {
   display: flex;
 }
 
-.iconos{
+.iconos {
   margin-right: 2rem;
 }
 
@@ -41,7 +38,6 @@ footer {
   display: flex;
 }
 .roww {
-  
   display: flex;
 }
 
@@ -49,7 +45,6 @@ footer {
   width: 36px;
   height: 36px;
 }
-
 
 .roww a {
   margin-top: 10px;
@@ -70,13 +65,13 @@ footer {
   font-size: 22px;
   text-align: center;
 }
-.logo{
-    width: 5rem;
-    height: 5rem;
+.logo {
+  width: 5rem;
+  height: 5rem;
 }
 .icons a {
-    display: flex;
-    margin-right: -1rem;
+  display: flex;
+  margin-right: -1rem;
 }
 .imgSize{
     width:100%;
@@ -115,3 +110,7 @@ li .nav-link{
   
 }
 
+.carta {
+  width: 100%;
+  object-fit: cover;
+}
