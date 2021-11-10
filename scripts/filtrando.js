@@ -1,6 +1,7 @@
-//filtros
-let fav = document.querySelector(".fav")
+// filtros
+const info = document.getElementsByClassName('card-title')
 const cards = document.getElementById('cards')
+const inputBuscar = document.getElementById('buscador')
 const tipo = document.title.indexOf('Farmacia') > -1
   ? 'Medicamento'
   : 'Juguete'
@@ -20,12 +21,14 @@ fetch(API_URL, init)
     sortFilter(rangeFilter(dataFiltradaSorteada))
     rangeFilter(dataFiltradaSorteada)
     filtroCombinado(dataFiltradaSorteada)
+    // filtroBusqueda(dataFiltradaSorteada)
+
     return (articulos, dataFiltradaSorteada)
-    
   })
   .catch(err => err.message)
 
 function drawCards (array) {
+  let local = localStorage.getItem("favoritos")
   cards.innerHTML = ''
   array.forEach(producto => {
     cards.innerHTML +=
@@ -50,8 +53,8 @@ function drawCards (array) {
         </ul>
         </div>
         <div class="d-flex justify-content-between">
-        <button type="button" class="btn btn-primary m-1 buy">Añadir a la canasta</button>
-        <button type="button" class="btn btn-primary m-1 fav">Añadir a favoritos</button>
+          <button type="button" class="btn btn-primary m-1 buy">Añadir a la canasta</button>
+          <button type="button" class="btn btn-primary m-1 fav ">${local.includes(producto['nombre'])?"Ya esta en favoritos" : "Añadir a favoritos"}</button>
         </div>
       </div>
     </div>`
@@ -99,30 +102,64 @@ function filtroCombinado (array) {
   minPrice.oninput = () => {
     const value = minPrice.value
     slideMin.textContent = value
-    drawCards(sortFilter(rangeFilter(array)))
+    drawCards(filtroBusqueda(sortFilter(rangeFilter(array))))
   }
   maxPrice.oninput = () => {
     const value = maxPrice.value
     slideMax.textContent = value
-    drawCards(sortFilter(rangeFilter(array)))
+    drawCards(filtroBusqueda(sortFilter(rangeFilter(array))))
   }
 
   select.oninput = () => {
-    const value = select.value
-    slideMax.textContent = value
-    drawCards(sortFilter(rangeFilter(array)))
+    drawCards(filtroBusqueda(sortFilter(rangeFilter(array))))
   }
 }
 
-//localstorage
+let favoritos = []
+let carrito = []
+
+function agregarFavoritos(e){
+  if(e.target.textContent == "Añadir a favoritos"){
+    const button = e.target
+    const item = button.closest(".card")
+    const itemTitle = item.querySelector(".card-title").textContent
+    if(!favoritos.includes(itemTitle)){
+      favoritos.push(itemTitle)
+      localStorage.setItem("favoritos",JSON.stringify(favoritos))
+    }
+  }
+}
+function agregarCarrito(e){
+  if(e.target.textContent == "Añadir a la canasta"){
+    const button = e.target
+    const item = button.closest(".card")
+    const itemTitle = item.querySelector(".card-title").textContent
+    carrito.push(itemTitle)
+    localStorage.setItem("carrito",JSON.stringify(itemTitle))
+  }
+}
+cards.addEventListener('click', e => {
+  agregarCarrito(e)
+  agregarFavoritos(e)
+})
+function crearTablasFavoritos(array){
+  if(document.title == "Favorito"){
+    let auxArray = JSON.parse(localStorage.getItem("favoritos"))
 
 
+  inputBuscar.oninput = () => {
+    drawCards(filtroBusqueda(sortFilter(rangeFilter(array))))
+  }
+}}
 
-
-
-
-
-
-
-
-
+function filtroBusqueda (productos){
+  const texto = inputBuscar.value.toLowerCase()
+  const arrayBuscado = []
+  for (const producto of productos) {
+    const nombre = producto.nombre.toLowerCase()
+    if (nombre.indexOf(texto) !== -1) {
+      arrayBuscado.push(producto)
+    }
+  }
+  return arrayBuscado
+}
