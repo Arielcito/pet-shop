@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,33 +9,37 @@
   <link rel="shortcut icon" href="logo.ico" type="image/x-icon">
   <link rel="stylesheet" href="./styles/styles.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200&display=swap" rel="stylesheet">
+
   <title>Farmacia</title>
 </head>
 
 <body>
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top d-flex ">
-      <div class="flex-column container-fluid">
-        <div class="navbar-nav hstack d-flex justify-content-between">
+      <div class="flex-column container-fluid nav-color">
+        <div class="navbar-nav hstack d-flex justify-content-evenly">
           <a class="navbar-brand " href="index.html">
-            <img src="./assets/logo.png" alt="logo" class="logo">
+            <img src="./assets/logo.png" alt="logo" class="logo" >
             <p class="d-sm-none">
               Pet Shop Franco
             </p>
           </a>
           <h1></h1>
           <div class="navbar icons ">
-            <a href="#" class="nav-link me-2">
-              <span class="material-icons ">location_on</span>
-              <p class="text d-none d-lg-block">Location</p>
+            <a target="_blank" href="https://www.google.com/maps/place/Río+de+Janeiro+300,+C1405CCB+CABA/@-34.6120774,-58.4325776,17z/data=!3m1!4b1!4m9!1m2!2m1!1sRio+de+Janeiro+300.!3m5!1s0x95bcca429815227f:0x5d302e497c2cda87!8m2!3d-34.6120774!4d-58.4303836!15sChNSaW8gZGUgSmFuZWlybyAzMDAukgEQZ2VvY29kZWRfYWRkcmVzcw" class="nav-link me-2">
+                <span class="material-icons ">location_on</span>
+                <p class="text d-none d-lg-block">ubicación</p>
             </a>
             <a href="shopping-cart.html" class="nav-link me-2">
-              <span class="material-icons">shopping_cart</span>
-              <p class="text d-none d-lg-block">Cart</p>
+                <span class="material-icons">shopping_cart</span>
+                <p class="text d-none d-lg-block">Carrito</p>
             </a>
             <a href="favorite.html" class="nav-link me-2">
-              <span class="material-icons">favorite</span>
-              <p class="text d-none d-lg-block"> Favorites</p>
+                <span class="material-icons">favorite</span>
+                <p class="text d-none d-lg-block"> Favoritos</p>
             </a>
           </div>
         </div>
@@ -65,6 +68,11 @@
     </nav>
   </header>
   <main>
+    <div class="mainTitle text-center ">
+      <div class="box text-center">
+        <h2 class="titles text-danger">Farmacia</h2>
+      </div>
+    </div>
     <div class="container">
       <div class="ranges row ">
         <div class="col-2">
@@ -195,7 +203,6 @@
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
     crossorigin="anonymous"></script>
   <script src="./scripts/filtrando.js"></script>
-
+  <script src="./scripts/localstorage.js"></script>
 </body>
-
 </html>
