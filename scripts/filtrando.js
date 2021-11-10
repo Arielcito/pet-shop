@@ -6,8 +6,6 @@ const tipo = document.title.indexOf('Farmacia') > -1
   ? 'Medicamento'
   : 'Juguete'
 
-//buscador+
-
 const API_URL = 'https://apipetshop.herokuapp.com/api/articulos'
 const init = {
   method: 'GET'
@@ -24,17 +22,15 @@ fetch(API_URL, init)
     rangeFilter(dataFiltradaSorteada)
     filtroCombinado(dataFiltradaSorteada)
     // filtroBusqueda(dataFiltradaSorteada)
-
+    
     return (articulos, dataFiltradaSorteada)
   })
   .catch(err => err.message)
 
 function drawCards (array) {
-  cards.innerHTML = ''
-  if(array.length > 0){
+/*   let local = localStorage.getItem("favoritos")
+ */ cards.innerHTML = ''
   array.forEach(producto => {
-
-
     cards.innerHTML +=
     `<div class="col-lg-3 col-md-4 col-sm-6 id="${producto._id}">
       <div class="card h-100 carta shadow-lg mb-5 mt-3 rounded">
@@ -64,18 +60,8 @@ function drawCards (array) {
       </div>
     </div>`
   }
-  
-  )}else{
-    cards.innerHTML += `
-    <div class="alert text-center alert-warning" role="alert">
-    
-¡Upss! Sin resultados de búsqueda ingresada</div>`
-  }
-
-  
+  )
 }
-
-
 
 function rangeFilter (array) {
   const maxPrice = document.getElementById('maxPrice')
@@ -126,6 +112,9 @@ function filtroCombinado (array) {
   }
 
   select.oninput = () => {
+    drawCards(filtroBusqueda(sortFilter(rangeFilter(array))))
+  }
+  inputBuscar.oninput = () => {
     drawCards(filtroBusqueda(sortFilter(rangeFilter(array))))
   }
 }
@@ -186,7 +175,7 @@ function obtenerLocalStorage () {
   fav = JSON.parse(localStorage.getItem('favs'))
 }
 
-function localStorages () {
+function localStorage () {
   const cart = JSON.parse(localStorage.getItem('cart')) || []
   const fav = JSON.parse(localStorage.getItem('fav')) || []
 
@@ -203,9 +192,7 @@ function localStorages () {
   })
 }
 
-inputBuscar.oninput = (array) => {
-  drawCards(filtroBusqueda(sortFilter(rangeFilter(array))))
-}
+
 
 function filtroBusqueda (productos) {
   const texto = inputBuscar.value.toLowerCase()
