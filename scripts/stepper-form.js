@@ -3,13 +3,27 @@ buttons.forEach(button => {
     button.addEventListener('click', handleSteps)
 })
 const form = document.querySelector('form')
-form.addEventListener('submit', handleSumbit)
+form.addEventListener('submit', handleSubmit)
 
-// active - hidden - complete (STATES)
+getLocalStorage()
 
-function handleSumbit(e) {
+function handleSubmit(e) {
     e.preventDefault();
     console.log('submit');
+    setLocalStorage()
+}
+
+function setLocalStorage() {
+    localStorage.setItem('submit', true)
+}
+
+function getLocalStorage() {
+    localStorage.getItem('submit') && stepperFormDisable();
+}
+
+function stepperFormDisable() {
+    const hiddenElements = document.querySelectorAll('.hidden')
+    hiddenElements.forEach(element => element.classList.remove("hidden"))
 }
 
 function handleSteps(e) {
@@ -18,6 +32,7 @@ function handleSteps(e) {
     handleStates(e.target, nextstep)
 }
 
+// active - hidden - complete (STATES)
 function handleStates(currentStep, nextStep) {
 
     currentStep.classList = 'hidden'
