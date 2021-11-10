@@ -11,9 +11,6 @@ footer {
   flex-wrap: wrap;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  
-  
-  
 }
 
 .imgLogo {
@@ -28,11 +25,11 @@ footer {
   }
 }
 
-.redes{
+.redes {
   display: flex;
 }
 
-.iconos{
+.iconos {
   margin-right: 2rem;
 }
 
@@ -41,7 +38,6 @@ footer {
   display: flex;
 }
 .roww {
-  
   display: flex;
 }
 
@@ -49,7 +45,6 @@ footer {
   width: 36px;
   height: 36px;
 }
-
 
 .roww a {
   margin-top: 10px;
@@ -70,32 +65,56 @@ footer {
   font-size: 22px;
   text-align: center;
 }
-.logo{
-    width: 5rem;
-    height: 5rem;
+.logo {
+  width: 5rem;
+  height: 5rem;
 }
-.navbar-nav{
-    margin-right: 1rem;
-    margin-top: -1rem;
+.navbar-nav {
+  margin-right: 1rem;
+  margin-top: -1rem;
 }
-.text{
-    margin-right:1rem;
-    margin-left: 1rem;
+.text {
+  margin-right: 1rem;
+  margin-left: 1rem;
 }
 
 .icons a {
-    display: flex;
-    margin-right: -1rem;
+  display: flex;
+  margin-right: -1rem;
 }
 
-.imgSize{
-    width:100%;
-    height:60%;
-    object-fit: cover;
+form {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+fieldset {
+  display: flex;
+  flex-direction: column;
 }
 
-.carta{
-    width:100%;
-    object-fit: cover;
+form input {
+  width: 150px;
+}
+.active {
+  /* background-color: blue; */
+}
+.hidden {
+  display: none;
+}
+.complete {
+  /* background-color: red; */
+}
+form a {
+  cursor: pointer;
+}
+.imgSize {
+  width: 100%;
+  height: 60%;
+  object-fit: cover;
 }
 
+.carta {
+  width: 100%;
+  object-fit: cover;
+}
