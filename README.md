@@ -1,4 +1,5 @@
-# pet-shop
+ pet-shop
+
 
 1-crear un boceto de la pagina(navbar,footer,logo,colores)  ✅(falta elegir colores)
 2_armar la pagina principal(titulo de bienvenida, texto introductorio, carrousel de fotos y iframe de google maps)✅Falta Iframe
@@ -8,6 +9,7 @@
 6_crear fetch de datos ✅
 7_crear carrito de compras
 
+
 TRABAJAR SIEMPRE SOBRE LA RAMA DEVELOPER
 
 Como pushear cambios?
@@ -16,6 +18,5 @@ git add .
 git commit -m "mensaje"
 git push
 
-Como crear una rama?
-git branch <nombredelarama>
-git push developer <nombredelarama>
+
+
