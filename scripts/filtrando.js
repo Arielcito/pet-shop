@@ -28,11 +28,11 @@ fetch(API_URL, init)
   .catch(err => err.message)
 
 function drawCards (array) {
-  let local = localStorage.getItem("favoritos")
-  cards.innerHTML = ''
+/*   let local = localStorage.getItem("favoritos")
+ */ cards.innerHTML = ''
   array.forEach(producto => {
     cards.innerHTML +=
-    `<div class="col-lg-3 col-md-4 col-sm-6 ">
+    `<div class="col-lg-3 col-md-4 col-sm-6 id="${producto.id}">
       <div class="card h-100 carta shadow-lg mb-5 mt-3 rounded">
         <img src="${producto.imagen}" class=" d-block mx-auto card-img-top imgSize w-75" alt="...">
         <div class="card-body">
@@ -54,7 +54,6 @@ function drawCards (array) {
         </div>
         <div class="d-flex justify-content-between">
           <button type="button" class="btn btn-primary m-1 buy">Añadir a la canasta</button>
-          <button type="button" class="btn btn-primary m-1 fav ">${local.includes(producto['nombre'])?"Ya esta en favoritos" : "Añadir a favoritos"}</button>
         </div>
       </div>
     </div>`
@@ -113,8 +112,12 @@ function filtroCombinado (array) {
   select.oninput = () => {
     drawCards(filtroBusqueda(sortFilter(rangeFilter(array))))
   }
-}
 
+  inputBuscar.oninput = () => {
+    drawCards(filtroBusqueda(sortFilter(rangeFilter(array))))
+  }
+}
+/* /*
 let favoritos = []
 let carrito = []
 
@@ -137,8 +140,8 @@ function agregarCarrito(e){
     carrito.push(itemTitle)
     localStorage.setItem("carrito",JSON.stringify(itemTitle))
   }
-}
-cards.addEventListener('click', e => {
+} */
+/* cards.addEventListener('click', e => {
   agregarCarrito(e)
   agregarFavoritos(e)
 })
@@ -146,13 +149,9 @@ function crearTablasFavoritos(array){
   if(document.title == "Favorito"){
     let auxArray = JSON.parse(localStorage.getItem("favoritos"))
 
+ */
 
-  inputBuscar.oninput = () => {
-    drawCards(filtroBusqueda(sortFilter(rangeFilter(array))))
-  }
-}}
-
-function filtroBusqueda (productos){
+function filtroBusqueda (productos) {
   const texto = inputBuscar.value.toLowerCase()
   const arrayBuscado = []
   for (const producto of productos) {
