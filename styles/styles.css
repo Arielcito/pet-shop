@@ -120,3 +120,27 @@ li .nav-link{
     object-fit: cover;
     object-position: top;
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+}
+
+form input {
+  width: 150px;
+}
+.hidden {
+  display: none;
+}
+form a {
+  cursor: pointer;
+}
+.producto{
+  background-color: rgba(0,0,0,.1);
+}
