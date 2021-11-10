@@ -203,7 +203,7 @@ function localStorages () {
   })
 }
 
-inputBuscar.oninput = () => {
+inputBuscar.oninput = (array) => {
   drawCards(filtroBusqueda(sortFilter(rangeFilter(array))))
 }
 
