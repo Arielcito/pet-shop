@@ -1,4 +1,4 @@
-const buttons = document.querySelectorAll('a')
+const buttons = document.querySelectorAll('form a')
 buttons.forEach(button => {
     button.addEventListener('click', handleSteps)
 })
