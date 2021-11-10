@@ -116,7 +116,7 @@ function filtroCombinado (array) {
   }
 }
 
-//localstorage agregar articulos a la canasta y añadir a favoritos
+// localstorage agregar articulos a la canasta y añadir a favoritos
 
 function addToCart (e) {
   const producto = e.target.parentElement.parentElement.parentElement
@@ -137,13 +137,10 @@ function addToCart (e) {
   cart.push(newItem)
   localStorage.setItem('cart', JSON.stringify(cart))
   alert('Producto agregado a la canasta')
-
 }
 
-
-
 function addToFav (e) {
-  const producto = e.target.parentElement.parentElement.parentElement 
+  const producto = e.target.parentElement.parentElement.parentElement
   const nombre = producto.querySelector('.card-title').textContent
   const precio = producto.querySelector('.card-footer small:nth-child(3)').textContent
   const imagen = producto.querySelector('.card-img-top').src
@@ -161,28 +158,21 @@ function addToFav (e) {
   fav.push(newItem)
   localStorage.setItem('fav', JSON.stringify(fav))
   alert('Producto agregado a favoritos')
-
 }
 
+// LocalStorage
 
-//LocalStorage
-
-
-
-function guardarLocalStorage(array) {
-  localStorage.setItem("fav", JSON.stringify(array));
-
-  }
-
-function obtenerLocalStorage() {
-  var array = JSON.parse(localStorage.getItem("fav"));
-
-  fav = JSON.parse(localStorage.getItem("favs"))
+function guardarLocalStorage (array) {
+  localStorage.setItem('fav', JSON.stringify(array))
 }
 
+function obtenerLocalStorage () {
+  const array = JSON.parse(localStorage.getItem('fav'))
 
+  fav = JSON.parse(localStorage.getItem('favs'))
+}
 
-function localStorage(){
+function localStorage () {
   const cart = JSON.parse(localStorage.getItem('cart')) || []
   const fav = JSON.parse(localStorage.getItem('fav')) || []
 
@@ -199,13 +189,9 @@ function localStorage(){
   })
 }
 
-
-
-
-
-  inputBuscar.oninput = () => {
-    drawCards(filtroBusqueda(sortFilter(rangeFilter(array))))
-  }
+inputBuscar.oninput = () => {
+  drawCards(filtroBusqueda(sortFilter(rangeFilter(array))))
+}
 
 /* /*
 let favoritos = []
