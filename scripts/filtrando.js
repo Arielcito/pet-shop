@@ -28,7 +28,7 @@ fetch(API_URL, init)
   .catch(err => err.message)
 
 function drawCards (array) {
-  let local = localStorage.getItem("favoritos")
+  
   cards.innerHTML = ''
   array.forEach(producto => {
     cards.innerHTML +=
@@ -54,7 +54,7 @@ function drawCards (array) {
         </div>
         <div class="d-flex justify-content-between">
           <button type="button" class="btn btn-primary m-1 buy">Añadir a la canasta</button>
-          <button type="button" class="btn btn-primary m-1 fav ">${local.includes(producto['nombre'])?"Ya esta en favoritos" : "Añadir a favoritos"}</button>
+          <button type="button" class="btn btn-primary m-1 fav ">Añadir a favoritos</button>
         </div>
       </div>
     </div>`

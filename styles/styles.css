@@ -113,3 +113,22 @@ li .nav-link{
   width: 100%;
   object-fit: cover;
 }
+form {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+fieldset {
+  display: flex;
+  flex-direction: column;
+}
+
+form input {
+  width: 150px;
+}
+.hidden {
+  display: none;
+}
+form a {
+  cursor: pointer;
+}
