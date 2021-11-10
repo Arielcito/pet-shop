@@ -1,3 +1,7 @@
+.search {
+  display: flex;
+}
+
 footer {
   width: 100%;
   background: #202020;
@@ -66,8 +70,8 @@ footer {
   text-align: center;
 }
 .logo {
-  width: 5rem;
-  height: 5rem;
+  width: 9rem;
+  height: 9rem;
 }
 .icons a {
   display: flex;
@@ -108,6 +112,10 @@ li .nav-link {
   box-shadow: 0 5px 10px rgb(0 0 0 / 10%);
   border-radius: 50%;
 }
+
+.sinp {
+  padding: 0;
+}
 .carta {
   width: 100%;
   object-fit: cover;
@@ -123,6 +131,13 @@ form {
 form label {
   color: white;
 }
+.snau {
+  height: 50rem;
+  width: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
 fieldset {
   display: flex;
   flex-direction: column;
@@ -163,4 +178,20 @@ form input::placeholder {
 }
 .complete {
   /* background-color: red; */
+}
+
+.producto {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.cart {
+  width: 50px;
+  height: 50px;
+  z-index: 3;
+}
+.dropdown-menu {
+  height: 400px;
+  width: 20rem;
+}
+.principalImage {
+  z-index: 1;
 }

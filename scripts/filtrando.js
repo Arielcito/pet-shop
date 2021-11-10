@@ -6,6 +6,8 @@ const tipo = document.title.indexOf('Farmacia') > -1
   ? 'Medicamento'
   : 'Juguete'
 
+//buscador+
+
 const API_URL = 'https://apipetshop.herokuapp.com/api/articulos'
 const init = {
   method: 'GET'
@@ -28,17 +30,20 @@ fetch(API_URL, init)
   .catch(err => err.message)
 
 function drawCards (array) {
-  let local = localStorage.getItem("favoritos")
   cards.innerHTML = ''
+  if(array.length > 0){
   array.forEach(producto => {
+
+
     cards.innerHTML +=
-    `<div class="col-lg-3 col-md-4 col-sm-6 ">
+    `<div class="col-lg-3 col-md-4 col-sm-6 id="${producto._id}">
       <div class="card h-100 carta shadow-lg mb-5 mt-3 rounded">
         <img src="${producto.imagen}" class=" d-block mx-auto card-img-top imgSize w-75" alt="...">
         <div class="card-body">
+          <a href="producto.html?id=${producto._id}" class="productoAnchor">
           <h6 class="card-title">${producto.nombre}</h6>
-          
-        </div>
+          </div>
+          </a>
         <div class="card-footer d-flex justify-content-around">
         <ul class="list-group">
         <li class="list-group-item ">
@@ -54,13 +59,23 @@ function drawCards (array) {
         </div>
         <div class="d-flex justify-content-between">
           <button type="button" class="btn btn-primary m-1 buy">Añadir a la canasta</button>
-          <button type="button" class="btn btn-primary m-1 fav ">${local.includes(producto['nombre'])?"Ya esta en favoritos" : "Añadir a favoritos"}</button>
+          <button type="button" class="btn btn-primary m-1 fav ">Añadir a favoritos</button>
         </div>
       </div>
     </div>`
   }
-  )
+  
+  )}else{
+    cards.innerHTML += `
+    <div class="alert text-center alert-warning" role="alert">
+    
+¡Upss! Sin resultados de búsqueda ingresada</div>`
+  }
+
+  
 }
+
+
 
 function rangeFilter (array) {
   const maxPrice = document.getElementById('maxPrice')
@@ -115,44 +130,84 @@ function filtroCombinado (array) {
   }
 }
 
-let favoritos = []
-let carrito = []
+// localstorage agregar articulos a la canasta y añadir a favoritos
 
-function agregarFavoritos(e){
-  if(e.target.textContent == "Añadir a favoritos"){
-    const button = e.target
-    const item = button.closest(".card")
-    const itemTitle = item.querySelector(".card-title").textContent
-    if(!favoritos.includes(itemTitle)){
-      favoritos.push(itemTitle)
-      localStorage.setItem("favoritos",JSON.stringify(favoritos))
-    }
+function addToCart (e) {
+  const producto = e.target.parentElement.parentElement.parentElement
+  const nombre = producto.querySelector('.card-title').textContent
+  const precio = producto.querySelector('.card-footer small:nth-child(3)').textContent
+  const imagen = producto.querySelector('.card-img-top').src
+  const stock = producto.querySelector('.card-footer small:nth-child(2)').textContent
+  const id = producto.querySelector('.card-footer small:nth-child(1)').textContent
+
+  const cart = JSON.parse(localStorage.getItem('cart')) || []
+  const newItem = {
+    nombre,
+    precio,
+    imagen,
+    stock,
+    id
   }
+  cart.push(newItem)
+  localStorage.setItem('cart', JSON.stringify(cart))
+  alert('Producto agregado a la canasta')
 }
-function agregarCarrito(e){
-  if(e.target.textContent == "Añadir a la canasta"){
-    const button = e.target
-    const item = button.closest(".card")
-    const itemTitle = item.querySelector(".card-title").textContent
-    carrito.push(itemTitle)
-    localStorage.setItem("carrito",JSON.stringify(itemTitle))
+
+function addToFav (e) {
+  const producto = e.target.parentElement.parentElement.parentElement
+  const nombre = producto.querySelector('.card-title').textContent
+  const precio = producto.querySelector('.card-footer small:nth-child(3)').textContent
+  const imagen = producto.querySelector('.card-img-top').src
+  const stock = producto.querySelector('.card-footer small:nth-child(2)').textContent
+  const id = producto.querySelector('.card-footer small:nth-child(1)').textContent
+
+  const fav = JSON.parse(localStorage.getItem('fav')) || []
+  const newItem = {
+    nombre,
+    precio,
+    imagen,
+    stock,
+    id
   }
+  fav.push(newItem)
+  localStorage.setItem('fav', JSON.stringify(fav))
+  alert('Producto agregado a favoritos')
 }
-cards.addEventListener('click', e => {
-  agregarCarrito(e)
-  agregarFavoritos(e)
-})
-function crearTablasFavoritos(array){
-  if(document.title == "Favorito"){
-    let auxArray = JSON.parse(localStorage.getItem("favoritos"))
 
+// LocalStorage
 
-  inputBuscar.oninput = () => {
-    drawCards(filtroBusqueda(sortFilter(rangeFilter(array))))
-  }
-}}
+function guardarLocalStorage (array) {
+  localStorage.setItem('fav', JSON.stringify(array))
+}
 
-function filtroBusqueda (productos){
+function obtenerLocalStorage () {
+  const array = JSON.parse(localStorage.getItem('fav'))
+
+  fav = JSON.parse(localStorage.getItem('favs'))
+}
+
+function localStorages () {
+  const cart = JSON.parse(localStorage.getItem('cart')) || []
+  const fav = JSON.parse(localStorage.getItem('fav')) || []
+
+  cart.forEach(producto => {
+    const card = document.querySelector(`[data-id="${producto.id}"]`)
+    card.querySelector('.buy').textContent = 'Añadido'
+    card.querySelector('.buy').disabled = true
+  })
+
+  fav.forEach(producto => {
+    const card = document.querySelector(`[data-id="${producto.id}"]`)
+    card.querySelector('.fav').textContent = 'Añadido'
+    card.querySelector('.fav').disabled = true
+  })
+}
+
+inputBuscar.oninput = () => {
+  drawCards(filtroBusqueda(sortFilter(rangeFilter(array))))
+}
+
+function filtroBusqueda (productos) {
   const texto = inputBuscar.value.toLowerCase()
   const arrayBuscado = []
   for (const producto of productos) {
