@@ -1,13 +1,12 @@
-//filtros
-let fav = document.querySelector(".fav")
-const cards = document.getElementById('cards')
+// filtros
 const info = document.getElementsByClassName('card-title')
+const cards = document.getElementById('cards')
+const inputBuscar = document.getElementById('buscador')
 const tipo = document.title.indexOf('Farmacia') > -1
   ? 'Medicamento'
   : 'Juguete'
 
-//buscador
-const inputBuscar = document.getElementById('buscador')
+//buscador+
 
 const API_URL = 'https://apipetshop.herokuapp.com/api/articulos'
 const init = {
@@ -24,24 +23,38 @@ fetch(API_URL, init)
     sortFilter(rangeFilter(dataFiltradaSorteada))
     rangeFilter(dataFiltradaSorteada)
     filtroCombinado(dataFiltradaSorteada)
+    // filtroBusqueda(dataFiltradaSorteada)
+
     return (articulos, dataFiltradaSorteada)
   })
   .catch(err => err.message)
 
 function drawCards (array) {
   cards.innerHTML = ''
+  if(array.length > 0){
   array.forEach(producto => {
+
+
     cards.innerHTML +=
-    `<div class="container d-flex">
-      <div class="card h-100 carta w-75">
-        <img src="${producto.imagen}" class="card-img-top imgSize w-75" alt="...">
+    `<div class="col-lg-3 col-md-4 col-sm-6 ">
+      <div class="card h-100 carta shadow-lg mb-5 mt-3 rounded">
+        <img src="${producto.imagen}" class=" d-block mx-auto card-img-top imgSize w-75" alt="...">
         <div class="card-body">
-          <h5 class="card-title">${producto.nombre}</h5>
-          <p class="card-text">${producto.descripcion}</p>
+          <h6 class="card-title">${producto.nombre}</h6>
+          
         </div>
         <div class="card-footer d-flex justify-content-around">
-          <small class="text-muted">${producto.stock > 5 ? 'Stock disponible!' : 'Ultimas unidades!'}</small>
-          <small class="text-muted">$${producto.precio}</small>
+        <ul class="list-group">
+        <li class="list-group-item ">
+        <small class="text-muted">${producto.stock > 5 ? 'Stock disponible!' : 'Ultimas unidades!'} </small>
+        </li>
+        <li class="list-group-item">
+        <small class="text-muted">Stock diponible: ${producto.stock}</small>
+        </li>
+        <li class="list-group-item">
+        <small class="text-muted">$${producto.precio}</small>
+        </li>
+        </ul>
         </div>
         <div class="d-flex justify-content-between">
         <button type="button" class="btn btn-primary m-1 buy">Añadir a la canasta</button>
@@ -50,10 +63,18 @@ function drawCards (array) {
       </div>
     </div>`
   }
-  )
+  
+  )}else{
+    cards.innerHTML += `
+    <div class="alert text-center alert-warning" role="alert">
+    
+¡Upss! Sin resultados de búsqueda ingresada</div>`
+  }
 
   
 }
+
+
 
 function rangeFilter (array) {
   const maxPrice = document.getElementById('maxPrice')
@@ -95,42 +116,31 @@ function filtroCombinado (array) {
   minPrice.oninput = () => {
     const value = minPrice.value
     slideMin.textContent = value
-    drawCards(sortFilter(rangeFilter(array)))
+    drawCards(filtroBusqueda(sortFilter(rangeFilter(array))))
   }
   maxPrice.oninput = () => {
     const value = maxPrice.value
     slideMax.textContent = value
-    drawCards(sortFilter(rangeFilter(array)))
+    drawCards(filtroBusqueda(sortFilter(rangeFilter(array))))
   }
 
   select.oninput = () => {
-    const value = select.value
-    slideMax.textContent = value
-    drawCards(sortFilter(rangeFilter(array)))
+    drawCards(filtroBusqueda(sortFilter(rangeFilter(array))))
+  }
+
+  inputBuscar.oninput = () => {
+    drawCards(filtroBusqueda(sortFilter(rangeFilter(array))))
   }
 }
 
-//localstorage
-
-
-/*fav.onclick() =() =>{
-  console.log("hola")
-}*/
-
-// Buesqueda
-function filtroBusqueda(array){
-inputBuscar.addEventListener('keyup', (e)=>{
-  let texto = e.target.value
-  //console.log(texto);
-  let er = new RegExp(texto, "i")
-  for (let i = 0; i < info.length; i++) {
-    let valor = info[i];
-    console.log(valor);
-    if(er.test(valor.innerText)){
-     
+function filtroBusqueda (productos) {
+  const texto = inputBuscar.value.toLowerCase()
+  const arrayBuscado = []
+  for (const producto of productos) {
+    const nombre = producto.nombre.toLowerCase()
+    if (nombre.indexOf(texto) !== -1) {
+      arrayBuscado.push(producto)
     }
-    
   }
-})
-  
+  return arrayBuscado
 }
