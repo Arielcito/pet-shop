@@ -1,0 +1,201 @@
+.search {
+  display: flex;
+}
+
+footer {
+  width: 100%;
+  background: #202020;
+  color: white;
+}
+
+.container-body {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.imgLogo {
+  height: 9rem;
+  display: flex;
+  border-radius: 50%;
+}
+
+@media screen and (max-width: 1100px) {
+  .container-body {
+    flex-wrap: wrap;
+  }
+}
+
+.redes {
+  display: flex;
+}
+
+.iconos {
+  margin-right: 2rem;
+}
+
+.abajo {
+  margin-top: 20px;
+  display: flex;
+}
+.roww {
+  display: flex;
+}
+
+.roww img {
+  width: 36px;
+  height: 36px;
+}
+
+.roww a {
+  margin-top: 10px;
+  margin-left: 20px;
+  color: #c7c7c7;
+  text-decoration: none;
+}
+.roww a:hover {
+  color: #ffffff;
+}
+
+.colum2 {
+  max-width: 400px;
+  margin-bottom: 2rem;
+}
+
+.colum2 h3 {
+  font-size: 22px;
+  text-align: center;
+}
+.logo {
+  width: 9rem;
+  height: 9rem;
+}
+.icons a {
+  display: flex;
+  margin-right: -1rem;
+}
+.imgSize {
+  width: 100%;
+  height: 60%;
+  object-fit: cover;
+}
+.carta {
+  width: 100%;
+  object-fit: cover;
+}
+.nav-color {
+  margin-top: -0.5rem;
+  background-color: #ced097;
+}
+li .nav-link {
+  margin-right: 4rem;
+  margin-left: 4rem;
+}
+.nav-link:hover {
+  color: white;
+}
+.mainTitle {
+  height: 7rem;
+}
+.titles {
+  font-size: 3.2rem;
+  font-weight: 800;
+  font-family: "Dosis", sans-serif;
+  margin-top: 2rem;
+}
+.carritoFLotante {
+  display: block;
+  background-color: #fab001;
+  box-shadow: 0 5px 10px rgb(0 0 0 / 10%);
+  border-radius: 50%;
+}
+
+.sinp {
+  padding: 0;
+}
+.carta {
+  width: 100%;
+  object-fit: cover;
+}
+form {
+  padding: 1rem;
+  background-color: rgb(27, 126, 133);
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  border-radius: 1rem;
+}
+form label {
+  color: white;
+}
+.snau {
+  height: 50rem;
+  width: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+}
+form input:not(input[type="radio"]) {
+  border: none;
+  background-color: transparent;
+  box-shadow: 0 0 5px 2px rgb(0, 0, 0);
+  padding: 0.2rem;
+  color: white;
+}
+form a {
+  color: white !important;
+  background-color: #115055 !important;
+  border-radius: 0.2rem !important;
+}
+
+form textarea {
+  margin-top: 0.4rem;
+  background-color: transparent;
+  color: white;
+  box-shadow: 0 0 5px 2px rgb(0, 0, 0);
+}
+form input::placeholder {
+  color: white;
+  font-weight: bold;
+  font-size: 0.9rem;
+  /* background-color: transparent;
+  width: 250px;
+  border: none; */
+}
+
+.active {
+  /* background-color: blue; */
+}
+.hidden {
+  display: none;
+}
+.complete {
+  /* background-color: red; */
+}
+
+.producto {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.cart {
+  width: 50px;
+  height: 50px;
+  z-index: 3;
+}
+.dropdown-menu {
+  height: 400px;
+  width: 20rem;
+}
+<<<<<<< HEAD
+body{
+=======
+.principalImage {
+>>>>>>> 230db70500173c3ff1f5f6a7d41cc04466bf5bc2
+  z-index: 1;
+}
