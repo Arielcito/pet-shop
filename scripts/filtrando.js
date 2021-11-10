@@ -22,7 +22,7 @@ fetch(API_URL, init)
     rangeFilter(dataFiltradaSorteada)
     filtroCombinado(dataFiltradaSorteada)
     // filtroBusqueda(dataFiltradaSorteada)
-
+    
     return (articulos, dataFiltradaSorteada)
   })
   .catch(err => err.message)
@@ -32,12 +32,13 @@ function drawCards (array) {
   cards.innerHTML = ''
   array.forEach(producto => {
     cards.innerHTML +=
-    `<div class="col-lg-3 col-md-4 col-sm-6 ">
+    `<div class="col-lg-3 col-md-4 col-sm-6 " id="${producto["_id"]}">
       <div class="card h-100 carta shadow-lg mb-5 mt-3 rounded">
         <img src="${producto.imagen}" class=" d-block mx-auto card-img-top imgSize w-75" alt="...">
         <div class="card-body">
+          <a href="producto.html?id=" class="productoAnchor">
           <h6 class="card-title">${producto.nombre}</h6>
-          
+          </a>
         </div>
         <div class="card-footer d-flex justify-content-around">
         <ul class="list-group">
@@ -163,3 +164,11 @@ function filtroBusqueda (productos){
   }
   return arrayBuscado
 }
+
+const anchor = document.querySelectorAll(".productoAnchor")
+
+anchor.forEach(anchor => anchor.addEventListener('hashchange', (e) => {
+  let hiper = e.target
+  const item = hiper.closest(".card")
+  console.log(item)
+}))
