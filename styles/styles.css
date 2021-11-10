@@ -66,8 +66,8 @@ footer {
   text-align: center;
 }
 .logo {
-  width: 5rem;
-  height: 5rem;
+  width: 9rem;
+  height: 9rem;
 }
 .icons a {
   display: flex;
@@ -112,4 +112,35 @@ li .nav-link{
 
 .sinp{
   padding: 0;
+}
+
+.snau {
+    height: 50rem;
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+}
+
+form input {
+  width: 150px;
+}
+.hidden {
+  display: none;
+}
+form a {
+  cursor: pointer;
+}
+.producto{
+  background-color: rgba(0,0,0,.1);
 }
