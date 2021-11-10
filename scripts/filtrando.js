@@ -32,19 +32,29 @@ function drawCards (array) {
     cards.innerHTML +=
     `<div class="container d-flex">
       <div class="card h-100 carta w-75">
-        <img src="${producto.imagen}" class="card-img-top imgSize w-75" alt="...">
+        <img src="${producto.imagen}" class=" d-block mx-auto card-img-top imgSize w-75" alt="...">
         <div class="card-body">
           <h5 class="card-title">${producto.nombre}</h5>
           <p class="card-text">${producto.descripcion}</p>
         </div>
         <div class="card-footer d-flex justify-content-around">
-          <small class="text-muted">${producto.stock > 5 ? 'Stock disponible!' : 'Ultimas unidades!'}</small>
-          <small class="text-muted">$${producto.precio}</small>
+        <ul class="list-group">
+        <li class="list-group-item ">
+        <small class="text-muted">${producto.stock > 5 ? 'Stock disponible!' : 'Ultimas unidades!'} </small>
+        </li>
+        <li class="list-group-item">
+        <small class="text-muted">Stock diponible: ${producto.stock}</small>
+        </li>
+        <li class="list-group-item">
+        <small class="text-muted">$${producto.precio}</small>
+        </li>
+        </ul>
         </div>
         <div class="d-flex justify-content-between">
           <button type="button" class="btn btn-primary m-1 buy">Añadir a la canasta</button>
           <button type="button" class="btn btn-primary m-1 fav ">${local.includes(producto['nombre'])?"Ya esta en favoritos" : "Añadir a favoritos"}</button>
         </div>
+        
       </div>
     </div>`
   }
@@ -136,7 +146,7 @@ cards.addEventListener('click', e => {
 function crearTablasFavoritos(array){
   if(document.title == "Favorito"){
     let auxArray = JSON.parse(localStorage.getItem("favoritos"))
-    
+
   }
 }
 
