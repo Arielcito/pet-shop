@@ -22,7 +22,7 @@ fetch(API_URL, init)
     rangeFilter(dataFiltradaSorteada)
     filtroCombinado(dataFiltradaSorteada)
     // filtroBusqueda(dataFiltradaSorteada)
-    
+
     return (articulos, dataFiltradaSorteada)
   })
   .catch(err => err.message)
@@ -238,5 +238,3 @@ function filtroBusqueda (productos) {
   }
   return arrayBuscado
 }
-
-
