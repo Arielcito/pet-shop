@@ -179,6 +179,7 @@ function obtenerLocalStorage() {
 }
 
 
+
 function localStorage(){
   const cart = JSON.parse(localStorage.getItem('cart')) || []
   const fav = JSON.parse(localStorage.getItem('fav')) || []
