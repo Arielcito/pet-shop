@@ -23,6 +23,7 @@ function getLocalStorage() {
 
 function stepperFormDisable() {
     const hiddenElements = document.querySelectorAll('.hidden')
+    buttons.forEach(element => element.remove())
     hiddenElements.forEach(element => element.classList.remove("hidden"))
 }
 
