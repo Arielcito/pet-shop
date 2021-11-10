@@ -35,3 +35,4 @@ function cargarInterfaz(array,id){
     </div>
     `
 }
+

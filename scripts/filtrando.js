@@ -172,7 +172,7 @@ function obtenerLocalStorage () {
   fav = JSON.parse(localStorage.getItem('favs'))
 }
 
-function localStorage () {
+function localStorages () {
   const cart = JSON.parse(localStorage.getItem('cart')) || []
   const fav = JSON.parse(localStorage.getItem('fav')) || []
 
@@ -192,76 +192,6 @@ function localStorage () {
 inputBuscar.oninput = () => {
   drawCards(filtroBusqueda(sortFilter(rangeFilter(array))))
 }
-
-/* /*
-let favoritos = []
-let carrito = []
-
-function agregarFavoritos(e){
-  if(e.target.textContent == "Añadir a favoritos"){
-    const button = e.target
-    const item = button.closest(".card")
-    const itemTitle = item.querySelector(".card-title").textContent
-    if(!favoritos.includes(itemTitle)){
-      favoritos.push(itemTitle)
-      localStorage.setItem("favoritos",JSON.stringify(favoritos))
-    }
-  }
-}
-function agregarCarrito(e){
-  if(e.target.textContent == "Añadir a la canasta"){
-    const button = e.target
-    const item = button.closest(".card")
-    const itemTitle = item.querySelector(".card-title").textContent
-    carrito.push(itemTitle)
-    localStorage.setItem("carrito",JSON.stringify(itemTitle))
-  }
-} */
-/* cards.addEventListener('click', e => {
-  agregarCarrito(e)
-  agregarFavoritos(e)
-})
-function crearTablasFavoritos(array){
-  if(document.title == "Favorito"){
-    let auxArray = JSON.parse(localStorage.getItem("favoritos"))
-
- */
-
-// let favoritos = []
-// let carrito = []
-
-// function agregarFavoritos(e){
-//   if(e.target.textContent == "Añadir a favoritos"){
-//     const button = e.target
-//     const item = button.closest(".card")
-//     const itemTitle = item.querySelector(".card-title").textContent
-//     if(!favoritos.includes(itemTitle)){
-//       favoritos.push(itemTitle)
-//       localStorage.setItem("favoritos",JSON.stringify(favoritos))
-//     }
-//   }
-// }
-// function agregarCarrito(e){
-//   if(e.target.textContent == "Añadir a la canasta"){
-//     const button = e.target
-//     const item = button.closest(".card")
-//     const itemTitle = item.querySelector(".card-title").textContent
-//     carrito.push(itemTitle)
-//     localStorage.setItem("carrito",JSON.stringify(itemTitle))
-//   }
-// }
-// cards.addEventListener('click', e => {
-//   agregarCarrito(e)
-//   agregarFavoritos(e)
-// })
-// function crearTablasFavoritos(array){
-//   if(document.title == "Favorito"){
-//     let auxArray = JSON.parse(localStorage.getItem("favoritos"))
-
-//   inputBuscar.oninput = () => {
-//     drawCards(filtroBusqueda(sortFilter(rangeFilter(array))))
-//   }
-// }}
 
 function filtroBusqueda (productos) {
   const texto = inputBuscar.value.toLowerCase()
