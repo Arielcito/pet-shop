@@ -28,12 +28,12 @@ fetch(API_URL, init)
   .catch(err => err.message)
 
 function drawCards (array) {
-  let local = localStorage.getItem("favoritos")
+  // let local = localStorage.getItem("favoritos")
   cards.innerHTML = ''
   array.forEach(producto => {
     cards.innerHTML +=
-    `<div class="col-lg-3 col-md-4 col-sm-6 ">
-      <div class="card h-100 carta shadow-lg mb-5 mt-3 rounded">
+    `<div class="col-lg-3 col-md-4 col-sm-6">
+      <div class="card h-100 w-100 carta shadow m-4 ">
         <img src="${producto.imagen}" class=" d-block mx-auto card-img-top imgSize w-75" alt="...">
         <div class="card-body">
           <h6 class="card-title">${producto.nombre}</h6>
@@ -54,7 +54,7 @@ function drawCards (array) {
         </div>
         <div class="d-flex justify-content-between">
           <button type="button" class="btn btn-primary m-1 buy">Añadir a la canasta</button>
-          <button type="button" class="btn btn-primary m-1 fav ">${local.includes(producto['nombre'])?"Ya esta en favoritos" : "Añadir a favoritos"}</button>
+          
         </div>
       </div>
     </div>`
@@ -115,42 +115,42 @@ function filtroCombinado (array) {
   }
 }
 
-let favoritos = []
-let carrito = []
+// let favoritos = []
+// let carrito = []
 
-function agregarFavoritos(e){
-  if(e.target.textContent == "Añadir a favoritos"){
-    const button = e.target
-    const item = button.closest(".card")
-    const itemTitle = item.querySelector(".card-title").textContent
-    if(!favoritos.includes(itemTitle)){
-      favoritos.push(itemTitle)
-      localStorage.setItem("favoritos",JSON.stringify(favoritos))
-    }
-  }
-}
-function agregarCarrito(e){
-  if(e.target.textContent == "Añadir a la canasta"){
-    const button = e.target
-    const item = button.closest(".card")
-    const itemTitle = item.querySelector(".card-title").textContent
-    carrito.push(itemTitle)
-    localStorage.setItem("carrito",JSON.stringify(itemTitle))
-  }
-}
-cards.addEventListener('click', e => {
-  agregarCarrito(e)
-  agregarFavoritos(e)
-})
-function crearTablasFavoritos(array){
-  if(document.title == "Favorito"){
-    let auxArray = JSON.parse(localStorage.getItem("favoritos"))
+// function agregarFavoritos(e){
+//   if(e.target.textContent == "Añadir a favoritos"){
+//     const button = e.target
+//     const item = button.closest(".card")
+//     const itemTitle = item.querySelector(".card-title").textContent
+//     if(!favoritos.includes(itemTitle)){
+//       favoritos.push(itemTitle)
+//       localStorage.setItem("favoritos",JSON.stringify(favoritos))
+//     }
+//   }
+// }
+// function agregarCarrito(e){
+//   if(e.target.textContent == "Añadir a la canasta"){
+//     const button = e.target
+//     const item = button.closest(".card")
+//     const itemTitle = item.querySelector(".card-title").textContent
+//     carrito.push(itemTitle)
+//     localStorage.setItem("carrito",JSON.stringify(itemTitle))
+//   }
+// }
+// cards.addEventListener('click', e => {
+//   agregarCarrito(e)
+//   agregarFavoritos(e)
+// })
+// function crearTablasFavoritos(array){
+//   if(document.title == "Favorito"){
+//     let auxArray = JSON.parse(localStorage.getItem("favoritos"))
 
 
-  inputBuscar.oninput = () => {
-    drawCards(filtroBusqueda(sortFilter(rangeFilter(array))))
-  }
-}}
+//   inputBuscar.oninput = () => {
+//     drawCards(filtroBusqueda(sortFilter(rangeFilter(array))))
+//   }
+// }}
 
 function filtroBusqueda (productos){
   const texto = inputBuscar.value.toLowerCase()
