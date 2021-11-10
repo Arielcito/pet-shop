@@ -1,7 +1,7 @@
 //filtros
 let fav = document.querySelector(".fav")
 const cards = document.getElementById('cards')
-const info = document.getElementsByClassName('card')
+const info = document.getElementsByClassName('card-title')
 const tipo = document.title.indexOf('Farmacia') > -1
   ? 'Medicamento'
   : 'Juguete'
@@ -118,6 +118,7 @@ function filtroCombinado (array) {
 }*/
 
 // Buesqueda
+function filtroBusqueda(array){
 inputBuscar.addEventListener('keyup', (e)=>{
   let texto = e.target.value
   //console.log(texto);
@@ -126,11 +127,10 @@ inputBuscar.addEventListener('keyup', (e)=>{
     let valor = info[i];
     console.log(valor);
     if(er.test(valor.innerText)){
-      valor.classList.remove("ocultar")
-    }else{
-      //console.log(valor);
-      valor.classList.add("ocultar")
+     
     }
     
   }
 })
+  
+}
