@@ -121,28 +121,29 @@
           </div>
         <div class="container">
           <div class="row">
-            <div class="col-4">
-              <img src="./assets/contacto1.jpg" alt="" class="w-50">
+            <div class="col">
+              <img src="./assets/contacto1.png" alt="" class="w-75">
             </div>
-            <div class="col-4">
-              <h2 class="text-center fs-3 mt-5 titles">Dejanos un mensaje😋 </h2>
-              <form class="form mt-3 mb-5">
-              <div class="active step-1 input-group mb-3 w-75">
-                <span class="input-group-text" id="basic-addon1">Nombre</span>
-                <input type="text" class="form-control w-25" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1"/>
-                <a class="btn-primary btn p-1">Siguiente</a>
+            <div class="col">
+            <form class="form mt-3 mb-5">
+              <div class="stepper-title mb-4 text-center">PREGUNTA <span id="stepper-count"></span></div>
+              <div class="active step-1 input-group mb-3  ">
+                <input type="text"  placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1"/>
+                <a class=" btn p-1 ms-2 step">Siguiente</a>
               </div>
-              <div class="hidden step-2 input-group mb-3 w-75">
-                <span class="input-group-text" id="basic-addon1">Apellido</span>
-                <input type="text" class="form-control w-25" placeholder="Apellido" aria-label="Apellido" aria-describedby="basic-addon1"/>
-                <a class="btn-primary btn p-1">Siguiente</a>
+              <div class="hidden step-2 mb-3 ">  
+                <input id="input-2" type="text"  placeholder="Apellido" aria-label="Apellido" aria-describedby="basic-addon1"/>
+                <a  class="btn-primary btn p-1 ms-2 step">Siguiente</a>
               </div>
-              <div class="hidden step-3 input-group mb-3 w-75">
-                <span class="input-group-text" id="basic-addon1">Telefono</span>
-                <input type="text" class="form-control w-25" placeholder="Telefono" aria-label="Telefono" aria-describedby="basic-addon1"/>
-                <a class="btn-primary btn p-1">Siguiente</a>
+              <div class="hidden step-3 input-group mb-3 ">
+                <input id="input-3" type="email" placeholder="Email" aria-label="Apellido" aria-describedby="basic-addon1"/>
+                <a class="btn-primary btn p-1 ms-2 step">Siguiente</a>
               </div>
-              <div class="hidden step-4">
+              <div class="hidden step-4 input-group mb-3 ">
+                <input id="input-4" type="text"  placeholder="Telefono" aria-label="Telefono" aria-describedby="basic-addon1"/>
+                <a class="btn-primary btn p-1 ms-2 step">Siguiente</a>
+              </div>
+              <div class="hidden step-5">
                 <label for="">Animal preferido?</label>
                 <div class="form-check">
                   <input
@@ -163,34 +164,32 @@
                   />
                   <label class="form-check-label" for="cat"> Gato </label>
                 </div>
-    
-                <a class="btn-primary btn p-1">Siguiente</a>
+                <a class="btn-primary btn p-1 step ">Siguiente</a>
               </div>
-              <div class="hidden step-5 mt-3 w-75">
-                <div class="input-group">
-                  <div>
-                    <span class="input-group-text">Comentarios</span>
-                  </div>
-                  <textarea class="form-control" aria-label="With textarea"></textarea>
+              <div class="hidden step-6 mt-3">
+                <div class="input-group d-flex flex-column mb-2">
+          
+                    <span style="color: white;">Comentarios</span>
+            
+                  <textarea aria-label="With textarea"></textarea>
                 </div>
                 <div class="text-center">
-                  <button
-                    type="submit"
-                    class="btn-primary btn p-1"
+                  <a
+                    class="btn-primary btn p-1 submit"
                     data-bs-toggle="modal"
                     data-bs-target="#registroModal"
                   >
                     Submit
-                  </button>
+                  </a>
                   <div class="modal fade" id="registroModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
                         <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">Registro</h5>
+                          <h5 class="modal-title" id="exampleModalLabel">Mensaje</h5>
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                          Se guardaron sus datos!
+                          El mensaje fue enviado exitosamente! 
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -202,8 +201,8 @@
               </div>
             </form>
           </div>
-          <div class="col-4">
-            <img src="./assets/contactoperro.png" alt="">
+          <div class="col">
+            <img src="./assets/contactoperro.png" alt="perritobakano">
           </div>
         </div>
       </div>
