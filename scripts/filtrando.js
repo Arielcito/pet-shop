@@ -28,13 +28,13 @@ fetch(API_URL, init)
   .catch(err => err.message)
 
 function drawCards (array) {
-  // let local = localStorage.getItem("favoritos")
-  cards.innerHTML = ''
+/*   let local = localStorage.getItem("favoritos")
+ */ cards.innerHTML = ''
   array.forEach(producto => {
     cards.innerHTML +=
-    `<div class="col-lg-3 col-md-4 col-sm-6">
-      <div class="card h-100 w-100 carta shadow ">
-        <img src="${producto.imagen}" class=" d-block mx-auto card-img-top imgSize" alt="...">
+    `<div class="col-lg-3 col-md-4 col-sm-6 id="${producto._id}">
+      <div class="card h-100 carta shadow-lg mb-5 mt-3 rounded">
+        <img src="${producto.imagen}" class=" d-block mx-auto card-img-top imgSize w-75" alt="...">
         <div class="card-body">
           <a href="producto.html?id=${producto._id}" class="productoAnchor">
           <h6 class="card-title">${producto.nombre}</h6>
@@ -55,7 +55,7 @@ function drawCards (array) {
         </div>
         <div class="d-flex justify-content-between">
           <button type="button" class="btn btn-primary m-1 buy">Añadir a la canasta</button>
-          
+          <button type="button" class="btn btn-primary m-1 fav ">Añadir a favoritos</button>
         </div>
       </div>
     </div>`
