@@ -8,9 +8,11 @@ fetch(API_URL, init)
   .then(res => res.json())
   .then(data => {
     const articulos = data.response
+    
     let URLsearch = window.location.search
-    console.log(URLsearch)
-    cargarInterfaz(articulos,"5f20f54254c7bc0017856c80")
+    let id = URLsearch.slice(4)
+    console.log(id)
+    cargarInterfaz(articulos,id)
     return articulos
   })
   .catch(err => err.message)

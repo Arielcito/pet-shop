@@ -32,11 +32,11 @@ function drawCards (array) {
  */ cards.innerHTML = ''
   array.forEach(producto => {
     cards.innerHTML +=
-    `<div class="col-lg-3 col-md-4 col-sm-6 id="${producto.id}">
+    `<div class="col-lg-3 col-md-4 col-sm-6 id="${producto._id}">
       <div class="card h-100 carta shadow-lg mb-5 mt-3 rounded">
         <img src="${producto.imagen}" class=" d-block mx-auto card-img-top imgSize w-75" alt="...">
         <div class="card-body">
-          <a href="producto.html?id=" class="productoAnchor">
+          <a href="producto.html?id=${producto._id}" class="productoAnchor">
           <h6 class="card-title">${producto.nombre}</h6>
           </a>
         </div>
