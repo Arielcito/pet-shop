@@ -38,8 +38,8 @@ function drawCards (array) {
         <div class="card-body">
           <a href="producto.html?id=${producto._id}" class="productoAnchor">
           <h6 class="card-title">${producto.nombre}</h6>
+          </div>
           </a>
-        </div>
         <div class="card-footer d-flex justify-content-around">
         <ul class="list-group">
         <li class="list-group-item ">
@@ -253,10 +253,4 @@ function filtroBusqueda (productos) {
   return arrayBuscado
 }
 
-const anchor = document.querySelectorAll(".productoAnchor")
 
-anchor.forEach(anchor => anchor.addEventListener('hashchange', (e) => {
-  let hiper = e.target
-  const item = hiper.closest(".card")
-  console.log(item)
-}))

@@ -11,7 +11,7 @@ fetch(API_URL, init)
     
     let URLsearch = window.location.search
     let id = URLsearch.slice(4)
-    console.log(id)
+ 
     cargarInterfaz(articulos,id)
     return articulos
   })
@@ -19,7 +19,7 @@ fetch(API_URL, init)
 
 function cargarInterfaz(array,id){
     let producto = array.find(array => array["_id"] == id)
-    console.log(producto)
+
     container.innerHTML = `
     <div class="row m-4">
       <div class="col m-auto">
