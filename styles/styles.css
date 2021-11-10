@@ -10,10 +10,7 @@ footer {
   align-items: center;
   flex-wrap: wrap;
   padding-top: 1rem;
-  padding-bottom: 1rem;
-  
-  
-  
+  padding-bottom: 1rem;  
 }
 
 .imgLogo {
@@ -99,3 +96,8 @@ footer {
     object-fit: cover;
 }
 
+/* buscador */
+
+.ocultar{
+  display: none;
+}

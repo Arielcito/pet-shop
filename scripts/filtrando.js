@@ -1,9 +1,13 @@
 //filtros
 let fav = document.querySelector(".fav")
 const cards = document.getElementById('cards')
+const info = document.getElementsByClassName('card')
 const tipo = document.title.indexOf('Farmacia') > -1
   ? 'Medicamento'
   : 'Juguete'
+
+//buscador
+const inputBuscar = document.getElementById('buscador')
 
 const API_URL = 'https://apipetshop.herokuapp.com/api/articulos'
 const init = {
@@ -47,6 +51,8 @@ function drawCards (array) {
     </div>`
   }
   )
+
+  
 }
 
 function rangeFilter (array) {
@@ -107,7 +113,24 @@ function filtroCombinado (array) {
 //localstorage
 
 
-fav.onclick() =() =>{
+/*fav.onclick() =() =>{
   console.log("hola")
-}
+}*/
 
+// Buesqueda
+inputBuscar.addEventListener('keyup', (e)=>{
+  let texto = e.target.value
+  //console.log(texto);
+  let er = new RegExp(texto, "i")
+  for (let i = 0; i < info.length; i++) {
+    let valor = info[i];
+    console.log(valor);
+    if(er.test(valor.innerText)){
+      valor.classList.remove("ocultar")
+    }else{
+      //console.log(valor);
+      valor.classList.add("ocultar")
+    }
+    
+  }
+})
