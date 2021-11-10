@@ -114,7 +114,7 @@ function filtroCombinado (array) {
   }
 }
 
-//localstorage
+//localstorage agregar articulos a la canasta y añadir a favoritos
 
 function addToCart (e) {
   const producto = e.target.parentElement.parentElement.parentElement
@@ -138,6 +138,8 @@ function addToCart (e) {
 
 }
 
+
+
 function addToFav (e) {
   const producto = e.target.parentElement.parentElement.parentElement 
   const nombre = producto.querySelector('.card-title').textContent
@@ -158,6 +160,22 @@ function addToFav (e) {
   localStorage.setItem('fav', JSON.stringify(fav))
   alert('Producto agregado a favoritos')
 
+}
+
+
+//LocalStorage
+
+
+
+function guardarLocalStorage(array) {
+  localStorage.setItem("fav", JSON.stringify(array));
+
+  }
+
+function obtenerLocalStorage() {
+  var array = JSON.parse(localStorage.getItem("fav"));
+
+  fav = JSON.parse(localStorage.getItem("favs"))
 }
 
 
