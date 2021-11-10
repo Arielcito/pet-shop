@@ -30,13 +30,16 @@ function agregarCarrito(){
                                         </div>
                                         <div class="row">
                                             <div class="col-8"> 
-                                                <h4 class="d-inline fs-4">Total(sin envío):</h4>
+                                                <h4 class="d-inline fs-4">Total:</h4>
                                             </div>
                                             <div class="col-4">
                                                 <p>$10000</p>
                                             </div>
                                             <div class="col">
                                             </div>
+                                        </div>
+                                        <div class="row">
+                                        <button type="button" class="btn btn-dark">Comprar</button>
                                         </div>
                                     </div>
                                 </li>
