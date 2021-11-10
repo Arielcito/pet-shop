@@ -8,10 +8,9 @@ fetch(API_URL, init)
   .then(res => res.json())
   .then(data => {
     const articulos = data.response
-    let params = new URLSearchParams(document.location.search.substring(1))
-    let id = params.get("id")
-    console.log(id)
-    cargarInterfaz(articulos,)
+    let URLsearch = window.location.search
+    console.log(URLsearch)
+    cargarInterfaz(articulos,"5f20f54254c7bc0017856c80")
     return articulos
   })
   .catch(err => err.message)

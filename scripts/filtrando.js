@@ -28,11 +28,11 @@ fetch(API_URL, init)
   .catch(err => err.message)
 
 function drawCards (array) {
-  
-  cards.innerHTML = ''
+/*   let local = localStorage.getItem("favoritos")
+ */ cards.innerHTML = ''
   array.forEach(producto => {
     cards.innerHTML +=
-    `<div class="col-lg-3 col-md-4 col-sm-6 " id="${producto["_id"]}">
+    `<div class="col-lg-3 col-md-4 col-sm-6 id="${producto.id}">
       <div class="card h-100 carta shadow-lg mb-5 mt-3 rounded">
         <img src="${producto.imagen}" class=" d-block mx-auto card-img-top imgSize w-75" alt="...">
         <div class="card-body">
@@ -116,6 +116,98 @@ function filtroCombinado (array) {
   }
 }
 
+//localstorage agregar articulos a la canasta y añadir a favoritos
+
+function addToCart (e) {
+  const producto = e.target.parentElement.parentElement.parentElement
+  const nombre = producto.querySelector('.card-title').textContent
+  const precio = producto.querySelector('.card-footer small:nth-child(3)').textContent
+  const imagen = producto.querySelector('.card-img-top').src
+  const stock = producto.querySelector('.card-footer small:nth-child(2)').textContent
+  const id = producto.querySelector('.card-footer small:nth-child(1)').textContent
+
+  const cart = JSON.parse(localStorage.getItem('cart')) || []
+  const newItem = {
+    nombre,
+    precio,
+    imagen,
+    stock,
+    id
+  }
+  cart.push(newItem)
+  localStorage.setItem('cart', JSON.stringify(cart))
+  alert('Producto agregado a la canasta')
+
+}
+
+
+
+function addToFav (e) {
+  const producto = e.target.parentElement.parentElement.parentElement 
+  const nombre = producto.querySelector('.card-title').textContent
+  const precio = producto.querySelector('.card-footer small:nth-child(3)').textContent
+  const imagen = producto.querySelector('.card-img-top').src
+  const stock = producto.querySelector('.card-footer small:nth-child(2)').textContent
+  const id = producto.querySelector('.card-footer small:nth-child(1)').textContent
+
+  const fav = JSON.parse(localStorage.getItem('fav')) || []
+  const newItem = {
+    nombre,
+    precio,
+    imagen,
+    stock,
+    id
+  }
+  fav.push(newItem)
+  localStorage.setItem('fav', JSON.stringify(fav))
+  alert('Producto agregado a favoritos')
+
+}
+
+
+//LocalStorage
+
+
+
+function guardarLocalStorage(array) {
+  localStorage.setItem("fav", JSON.stringify(array));
+
+  }
+
+function obtenerLocalStorage() {
+  var array = JSON.parse(localStorage.getItem("fav"));
+
+  fav = JSON.parse(localStorage.getItem("favs"))
+}
+
+
+
+function localStorage(){
+  const cart = JSON.parse(localStorage.getItem('cart')) || []
+  const fav = JSON.parse(localStorage.getItem('fav')) || []
+
+  cart.forEach(producto => {
+    const card = document.querySelector(`[data-id="${producto.id}"]`)
+    card.querySelector('.buy').textContent = 'Añadido'
+    card.querySelector('.buy').disabled = true
+  })
+
+  fav.forEach(producto => {
+    const card = document.querySelector(`[data-id="${producto.id}"]`)
+    card.querySelector('.fav').textContent = 'Añadido'
+    card.querySelector('.fav').disabled = true
+  })
+}
+
+
+
+
+
+  inputBuscar.oninput = () => {
+    drawCards(filtroBusqueda(sortFilter(rangeFilter(array))))
+  }
+
+/* /*
 let favoritos = []
 let carrito = []
 
@@ -138,8 +230,8 @@ function agregarCarrito(e){
     carrito.push(itemTitle)
     localStorage.setItem("carrito",JSON.stringify(itemTitle))
   }
-}
-cards.addEventListener('click', e => {
+} */
+/* cards.addEventListener('click', e => {
   agregarCarrito(e)
   agregarFavoritos(e)
 })
@@ -147,13 +239,9 @@ function crearTablasFavoritos(array){
   if(document.title == "Favorito"){
     let auxArray = JSON.parse(localStorage.getItem("favoritos"))
 
+ */
 
-  inputBuscar.oninput = () => {
-    drawCards(filtroBusqueda(sortFilter(rangeFilter(array))))
-  }
-}}
-
-function filtroBusqueda (productos){
+function filtroBusqueda (productos) {
   const texto = inputBuscar.value.toLowerCase()
   const arrayBuscado = []
   for (const producto of productos) {
