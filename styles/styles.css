@@ -109,9 +109,9 @@ li .nav-link{
   border-radius: 50%;
   
 }
-.carta {
-  width: 100%;
-  object-fit: cover;
+
+.sinp{
+  padding: 0;
 }
 
 .snau {
