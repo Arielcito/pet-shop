@@ -1,6 +1,7 @@
-//filtros
-let fav = document.querySelector(".fav")
+// filtros
+const info = document.getElementsByClassName('card-title')
 const cards = document.getElementById('cards')
+const inputBuscar = document.getElementById('buscador')
 const tipo = document.title.indexOf('Farmacia') > -1
   ? 'Medicamento'
   : 'Juguete'
@@ -20,6 +21,8 @@ fetch(API_URL, init)
     sortFilter(rangeFilter(dataFiltradaSorteada))
     rangeFilter(dataFiltradaSorteada)
     filtroCombinado(dataFiltradaSorteada)
+    // filtroBusqueda(dataFiltradaSorteada)
+
     return (articulos, dataFiltradaSorteada)
   })
   .catch(err => err.message)
@@ -100,23 +103,31 @@ function filtroCombinado (array) {
   minPrice.oninput = () => {
     const value = minPrice.value
     slideMin.textContent = value
-    drawCards(sortFilter(rangeFilter(array)))
+    drawCards(filtroBusqueda(sortFilter(rangeFilter(array))))
   }
   maxPrice.oninput = () => {
     const value = maxPrice.value
     slideMax.textContent = value
-    drawCards(sortFilter(rangeFilter(array)))
+    drawCards(filtroBusqueda(sortFilter(rangeFilter(array))))
   }
 
   select.oninput = () => {
-    drawCards(sortFilter(rangeFilter(array)))
+    drawCards(filtroBusqueda(sortFilter(rangeFilter(array))))
+  }
+
+  inputBuscar.oninput = () => {
+    drawCards(filtroBusqueda(sortFilter(rangeFilter(array))))
   }
 }
 
-//localstorage
-
-
-fav.onclick() =() =>{
-  console.log("hola")
+function filtroBusqueda (productos) {
+  const texto = inputBuscar.value.toLowerCase()
+  const arrayBuscado = []
+  for (const producto of productos) {
+    const nombre = producto.nombre.toLowerCase()
+    if (nombre.indexOf(texto) !== -1) {
+      arrayBuscado.push(producto)
+    }
+  }
+  return arrayBuscado
 }
-
