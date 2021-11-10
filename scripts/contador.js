@@ -1,6 +1,6 @@
 
 
-  function cantidadCompra (){
+  function cantidadCompra (stock){
     let unidadesDeseadas = 0;
     let sumar = document.querySelector(".sumar");
     let contador = document.querySelector("#cuenta");

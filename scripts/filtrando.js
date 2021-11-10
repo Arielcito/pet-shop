@@ -22,6 +22,7 @@ fetch(API_URL, init)
   rangeFilter(dataFiltradaSorteada)
   filtroCombinado(dataFiltradaSorteada)
     return (articulos, dataFiltradaSorteada)
+    
   })
   .catch(err => err.message)
   
@@ -29,34 +30,41 @@ fetch(API_URL, init)
     cards.innerHTML = ''
     
     array.forEach(producto => {
-      cards.innerHTML +=
-      `<div class="container d-flex">
-      <div class="card h-100 carta w-75">
-      <img src="${producto.imagen}" class="card-img-top imgSize w-75" alt="...">
-      <div class="card-body">
-      <h5 class="card-title">${producto.nombre}</h5>
-      <p class="card-text">${producto.descripcion}</p>
-      </div>
-      <div class="card-footer d-flex justify-content-around">
-      <small class="text-muted">${producto.stock > 5 ? 'Stock disponible!' : 'Ultimas unidades!'}</small>
-      <small class="text-muted">$${producto.precio}</small>
-      </div>
-      <div class="d-flex container-fluid ">
-      <p>Cantidad: <span id="cuenta-${producto._id}">${0}</span> </p>
-      <button type="button" onclick="restar1('cuenta-${producto._id}')" class="bg-light text-dark btn-sm btn-primary m-1">-</button>
-      
-      <button type="button" onclick="sumar1('cuenta-${producto._id}', ${array})" class="bg-light text-dark btn-sm btn-primary m-1">+</button>
-      </div>
-      <div class="d-flex justify-content-between">
-      <button type="button" class="restar btn btn-primary m-1">Añadir a la canasta</button>
-      <button type="button" class="sumar btn btn-primary m-1">Añadir a favoritos</button>
+function drawCards (array) {
+  cards.innerHTML = ''
+  array.forEach(producto => {
+    cards.innerHTML +=
+    `<div class="col-lg-3 col-md-4 col-sm-6 ">
+      <div class="card h-100 carta shadow-lg mb-5 mt-3 rounded">
+        <img src="${producto.imagen}" class=" d-block mx-auto card-img-top imgSize w-75" alt="...">
+        <div class="card-body">
+          <h6 class="card-title">${producto.nombre}</h6>
+          
+        </div>
+        <div class="card-footer d-flex justify-content-around">
+        <ul class="list-group">
+        <li class="list-group-item ">
+        <small class="text-muted">${producto.stock > 5 ? 'Stock disponible!' : 'Ultimas unidades!'} </small>
+        </li>
+        <li class="list-group-item">
+        <small class="text-muted">Stock diponible: ${producto.stock}</small>
+        </li>
+        <li class="list-group-item">
+        <small class="text-muted">$${producto.precio}</small>
+        </li>
+        </ul>
+        </div>
+        <div class="d-flex justify-content-between">
+        <button type="button" class="btn btn-primary m-1 buy">Añadir a la canasta</button>
+        <button type="button" class="btn btn-primary m-1 fav">Añadir a favoritos</button>
+        </div>
       </div>
       </div>
       </div>`
     }
     )
   }
-  
+
   function rangeFilter (array) {
     const maxPrice = document.getElementById('maxPrice')
     const minPrice = document.getElementById('minPrice')
@@ -85,7 +93,7 @@ fetch(API_URL, init)
     } else {
       return array.sort((a, b) => b.precio - a.precio)
     }
-  }
+
   
   function filtroCombinado (array) {
     const maxPrice = document.getElementById('maxPrice')
@@ -110,51 +118,4 @@ fetch(API_URL, init)
       slideMax.textContent = value
       drawCards(sortFilter(rangeFilter(array)))
     }
-  }
   
-  function sumar1(id, array){
-    let contador = document.getElementById(id);
-    console.log(contador);
-    console.log(contador.innerText);
-    let numeroInterno = parseInt(contador.innerText) + 1; 
-    contador.innerText= numeroInterno;
-    console.log(numeroInterno);
-    // console.log(array.producto.stock);
-
-  }
-  
-
-  function restar1(id){
-    let contador = document.getElementById(id);
-    console.log(contador);
-    console.log(contador.innerText);
-    let numeroInterno = parseInt(contador.innerText) - 1; 
-    contador.innerText= numeroInterno;
-    console.log(numeroInterno);
-    // (0 > numeroInterno)?  
-  }
-
-  //
-  // function cantidadCompra (articulos){
-  //     let sumar = document.querySelector(".sumar");
-  //     let contador = document.querySelector("#cuenta");
-  //     let restar = document.querySelector(".restar");
-    
-  //       sumar.addEventListener("click", sumo);
-  //       restar.addEventListener("click", resto);
-  //       console.log("sumar");
-    
-    //     function sumo() {
-    //         contador.innerHTML = unidadesDeseadas++;
-    //         if (unidadesDeseadas> response.stock ){
-        
-    //           }
-        
-    //         }
-    //         function resto("") {
-    //             contador.innerHTML = unidadesDeseadas--;
-    //             if(unidadesDeseadas<=0){
-    //     unidadesDeseadas=0;
-    //   }
-    // }
-// }
