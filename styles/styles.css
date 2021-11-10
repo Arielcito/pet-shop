@@ -70,8 +70,8 @@ footer {
   text-align: center;
 }
 .logo {
-  width: 9rem;
-  height: 9rem;
+  width: 5rem;
+  height: 5rem;
 }
 .icons a {
   display: flex;
@@ -86,10 +86,7 @@ footer {
   width: 100%;
   object-fit: cover;
 }
-.nav-color {
-  margin-top: -0.5rem;
-  background-color: #ced097;
-}
+
 li .nav-link {
   margin-right: 4rem;
   margin-left: 4rem;
