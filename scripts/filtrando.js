@@ -21,6 +21,7 @@ fetch(API_URL, init)
     rangeFilter(dataFiltradaSorteada)
     filtroCombinado(dataFiltradaSorteada)
     return (articulos, dataFiltradaSorteada)
+    
   })
   .catch(err => err.message)
 
@@ -28,8 +29,8 @@ function drawCards (array) {
   cards.innerHTML = ''
   array.forEach(producto => {
     cards.innerHTML +=
-    `<div class="container d-flex">
-      <div class="card h-100 carta w-75">
+    `<div class="container d-flex ">
+      <div class="card h-100 carta w-75 shadow-lg p-3 mb-5 bg-body rounded">
         <img src="${producto.imagen}" class=" d-block mx-auto card-img-top imgSize w-75" alt="...">
         <div class="card-body">
           <h5 class="card-title">${producto.nombre}</h5>
@@ -118,7 +119,12 @@ function filtroCombinado (array) {
 //localstorage
 
 
-fav.onclick() =() =>{
-  console.log("hola")
-}
+
+
+
+
+
+
+
+
 
