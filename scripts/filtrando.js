@@ -112,7 +112,6 @@ function filtroCombinado (array) {
   select.oninput = () => {
     drawCards(filtroBusqueda(sortFilter(rangeFilter(array))))
   }
-<<<<<<< HEAD
 }
 
 //localstorage agregar articulos a la canasta y añadir a favoritos
@@ -201,13 +200,11 @@ function localStorage(){
 
 
 
-=======
->>>>>>> aec48f216f172ca6c6bed5bcc5450333bd6de9d9
 
   inputBuscar.oninput = () => {
     drawCards(filtroBusqueda(sortFilter(rangeFilter(array))))
   }
-}
+
 /* /*
 let favoritos = []
 let carrito = []
