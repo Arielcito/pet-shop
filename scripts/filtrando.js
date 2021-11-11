@@ -70,7 +70,7 @@ function drawCards (array) {
   } else {
     cards.innerHTML = `
   <div class="alert alert-danger text-center" role="alert">
-  ¡Upss! Tu busequeda no tiene resultados. 
+  ¡Ups! ..Busqueda sin resultados. 
 </div>
   `
   }
@@ -216,3 +216,4 @@ function filtroBusqueda (productos) {
   }
   return arrayBuscado
 }
+

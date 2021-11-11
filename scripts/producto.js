@@ -2,6 +2,7 @@ const container = document.querySelector(".container")
 const API_URL = 'https://apipetshop.herokuapp.com/api/articulos'
 let cont = 0
 
+
 const init = {
   method: 'GET'
 }
@@ -21,6 +22,11 @@ fetch(API_URL, init)
 
 function cargarInterfaz(array, id) {
   let producto = array.find(array => array["_id"] == id)
+  
+  volverAtras.innerHTML = `
+<a href="${producto.tipo == 'Medicamento'?"farmacia.html":"juguetes.html"}">Volver a ${producto.tipo == 'Medicamento'? 'Farmacia':'Juguetes'}</a>
+
+  `
 
   container.innerHTML = `
     <div class="row m-4">
@@ -53,9 +59,9 @@ function cargarInterfaz(array, id) {
         <div class="d-flex flex-row">
           <h2>Cantidad:</h2>
           <div>
-            <button onclick="sumar('${producto.stock}')">+</button>
-            <span id="contador">0</span>
-            <button onclick="restar()">-</button>
+          <button onclick="restar()">-</button>
+          <span id="contador">0</span>
+          <button onclick="sumar('${producto.stock}')">+</button>
            </div>
         </div>
         <button type="button" class="btn btn-primary m-1 buy">Añadir a la canasta</button>
@@ -65,6 +71,7 @@ function cargarInterfaz(array, id) {
     
     `
 }
+
 function sumar(stock) {
 
   const contador = document.querySelector('#contador')
@@ -80,3 +87,10 @@ function exceso() {
   btnmodal.click()
 }
 
+<<<<<<< HEAD
+=======
+
+const volverAtras = document.querySelector("#volverA")
+
+// console.log(volverAtras);
+>>>>>>> 090dfc22fbba4c06653e891d9785ee02f73f2b81
