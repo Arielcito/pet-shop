@@ -6,8 +6,6 @@ const tipo = document.title.indexOf('Farmacia') > -1
   ? 'Medicamento'
   : 'Juguete'
 
-//buscador+
-
 const API_URL = 'https://apipetshop.herokuapp.com/api/articulos'
 const init = {
   method: 'GET'
@@ -30,11 +28,9 @@ fetch(API_URL, init)
   .catch(err => err.message)
 
 function drawCards (array) {
-  cards.innerHTML = ''
-  if(array.length > 0){
+/*   let local = localStorage.getItem("favoritos")
+ */ cards.innerHTML = ''
   array.forEach(producto => {
-
-
     cards.innerHTML +=
     `<div class="col-lg-3 col-md-4 col-sm-6 id="${producto._id}">
       <div class="card h-100 carta shadow-lg mb-5 mt-3 rounded">
@@ -64,18 +60,8 @@ function drawCards (array) {
       </div>
     </div>`
   }
-  
-  )}else{
-    cards.innerHTML += `
-    <div class="alert text-center alert-warning" role="alert">
-    
-¡Upss! Sin resultados de búsqueda ingresada</div>`
-  }
-
-  
+  )
 }
-
-
 
 function rangeFilter (array) {
   const maxPrice = document.getElementById('maxPrice')
@@ -126,6 +112,9 @@ function filtroCombinado (array) {
   }
 
   select.oninput = () => {
+    drawCards(filtroBusqueda(sortFilter(rangeFilter(array))))
+  }
+  inputBuscar.oninput = () => {
     drawCards(filtroBusqueda(sortFilter(rangeFilter(array))))
   }
 }
@@ -203,43 +192,7 @@ function localStorage () {
   })
 }
 
-inputBuscar.oninput = () => {
-  drawCards(filtroBusqueda(sortFilter(rangeFilter(array))))
-}
 
-/* /*
-let favoritos = []
-let carrito = []
-
-function agregarFavoritos(e){
-  if(e.target.textContent == "Añadir a favoritos"){
-    const button = e.target
-    const item = button.closest(".card")
-    const itemTitle = item.querySelector(".card-title").textContent
-    if(!favoritos.includes(itemTitle)){
-      favoritos.push(itemTitle)
-      localStorage.setItem("favoritos",JSON.stringify(favoritos))
-    }
-  }
-}
-function agregarCarrito(e){
-  if(e.target.textContent == "Añadir a la canasta"){
-    const button = e.target
-    const item = button.closest(".card")
-    const itemTitle = item.querySelector(".card-title").textContent
-    carrito.push(itemTitle)
-    localStorage.setItem("carrito",JSON.stringify(itemTitle))
-  }
-} */
-/* cards.addEventListener('click', e => {
-  agregarCarrito(e)
-  agregarFavoritos(e)
-})
-function crearTablasFavoritos(array){
-  if(document.title == "Favorito"){
-    let auxArray = JSON.parse(localStorage.getItem("favoritos"))
-
- */
 
 function filtroBusqueda (productos) {
   const texto = inputBuscar.value.toLowerCase()
@@ -252,5 +205,3 @@ function filtroBusqueda (productos) {
   }
   return arrayBuscado
 }
-
-
