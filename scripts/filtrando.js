@@ -131,7 +131,32 @@ function filtroCombinado (array) {
   }
 }
 
+// localstorage agregar articulos  añadir a favoritos
 
+function agregarFavoritos (id) {
+  let local = localStorage.getItem('favoritos')
+  if (local === null) {
+    localStorage.setItem('favoritos', id)
+  } else {
+    local = local + ',' + id
+    localStorage.setItem('favoritos', local)
+  }
+}
+
+function eliminarFavoritos (id) {
+  let local = localStorage.getItem('favoritos')
+  local = local.replace(id, '')
+  localStorage.setItem('favoritos', local)
+}
+
+function isFavorito (id) {
+  let local = localStorage.getItem('favoritos')
+  if (local === null) {
+    return false
+  } else {
+    return local.includes(id)
+  }
+}
 
 
 function filtroBusqueda (productos) {
@@ -144,51 +169,4 @@ function filtroBusqueda (productos) {
     }
   }
   return arrayBuscado
-}
-
-// agragando a favoritos 
-
-function addToFav (e) {
-  const producto = e.target.parentElement.parentElement.parentElement
-  const nombre = producto.querySelector('').textContent
-  const precio = producto.querySelector('').textContent
-  const imagen = producto.querySelector('').src
-  const stock = producto.querySelector('').textContent
-  const id = producto.querySelector('').textContent
-
-  const fav = JSON.parse(localStorage.getItem('')) || []
-  const newItem = {
-    nombre,
-    precio,
-    imagen,
-    stock,
-    id
-  }
-  fav.push(newItem)
-  localStorage.setItem('', JSON.stringify(fav))
-  alert('Producto agregado a favoritos')
-}
-
-// LocalStorage
-
-function guardarLocalStorage (array) {
-  localStorage.setItem('', JSON.stringify(array))
-}
-
-function obtenerLocalStorage () {
-  const array = JSON.parse(localStorage.getItem(''))
-
-  fav = JSON.parse(localStorage.getItem(''))
-}
-
-function localStorage () {
-  const cart = JSON.parse(localStorage.getItem('')) || []
-  const fav = JSON.parse(localStorage.getItem('')) || []
-
- 
-  fav.forEach(producto => {
-    const card = document.querySelector(`[data-id="${producto.id}"]`)
-    card.querySelector('').textContent = 'Añadido'
-    card.querySelector('').disabled = true
-  })
 }
