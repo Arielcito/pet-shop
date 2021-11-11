@@ -113,7 +113,7 @@ body{
   width: 100%;
   object-fit: cover;
   background: #F8F0DF;
-  animation: transitionIn 0.7s;
+  animation: transitionIn 2s;
 }
 .card-back{
   background: white;
@@ -261,13 +261,85 @@ nav {
  
  background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(0,152,155,1) 0.1%, rgba(0,94,120,1) 94.2% );}
 
-@keyframes transitionIn{
-  from{
-    opacity: 0;
-    transform: rotateX(10deg)
-  }
-  to{
-    opacity: 1;
-    transform: rotateX(0deg)
+ /* responsive  */
+@media(max-width:1399px){
+  .perroChocolo{
+    display: none!important;
   }
 }
+
+
+@media(max-width:1200px){
+  .btn{
+    font-size:.7rem;
+  }
+}
+
+@media(max-width:992px){
+    .container-sm{
+      flex-direction: column; 
+      align-items: center;
+    }
+    /* foto al costado del texto */
+    .fotoResp{
+      width: 50%!important;
+    }
+    .col-md-4{
+      width: 47%!important;
+    }
+}
+
+@media(max-width:768px){
+    .container{
+      max-width: 690px;
+    }
+    .michiGang{
+      display: none!important;
+    }
+    /* size div formulario de contacto*/
+    .divSize{
+      width: 60% !important;
+    }
+}
+
+@media(max-width:708px){
+  .container{
+    max-width: 650px;
+  }
+}
+@media(max-width:650px){
+  .container{
+    max-width:550px;
+  }
+  .img-contacto-pet{
+    display: none!important;
+  }
+  .contenedorForm{
+    justify-content: center;
+  }
+}
+
+@media(max-width:550px){
+  .container{
+    max-width:400px;
+  }
+  .col-md-4{
+    width: 100% !important;;
+  }
+  .divSize{
+    width: 80% !important;;
+  }
+}
+@media(max-width:400px){
+  .container{
+    max-width:320px;
+  }
+  
+}
+
+@media(max-width:332px){
+  .h2Size{
+    font-size: 2.5em;
+  }
+}
+

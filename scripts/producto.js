@@ -43,7 +43,7 @@ function cargarInterfaz(array, id) {
   </div>
 </div>
       <div class="col-lg-6 m-auto">
-       <img src="${producto.imagen}" class="w-75 m-auto">
+       <img src="${producto.imagen}" class="w-100 m-auto">
       </div>
       <div class="col-lg-6">
         <h2 class="mt-5 fst-italic" >${producto.nombre}</h2>
@@ -79,3 +79,4 @@ function exceso() {
   const btnmodal = document.getElementById('btnmodal')
   btnmodal.click()
 }
+
