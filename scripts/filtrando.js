@@ -46,15 +46,17 @@ function drawCards (array) {
          <div class="card-footer d-flex justify-content-around">
          <ul class="list-group">
          <li class="list-group-item ">
-         <small class="text-muted text-warning">${producto.stock > 5 ? 'Stock disponible!' : 'Ultimas unidades!'} </small>
+         <small class=" text-danger fs-3">${producto.stock > 5 ? 'Stock disponible!' : 'Ultimas unidades!'} </small>
          </li>
          <li class="list-group-item">
-         <small class="text-muted">$${producto.precio}</small>
+         <small class="text-muted fs-4">$${producto.precio}</small>
          </li>
          </ul>
          </div>
          <div class="form-check d-flex justify-content-around">
             <button type="button" class="btn btn-primary m-1 buy ">Comprar!</button>
+          </div>
+         <div class="form-check d-flex justify-content-around position-absolute end-0 mt-1">
             <input class="form-check-input fav hidden" type="checkbox" value="" id="${producto._id}" >
             <label class="form-check-label" for="${producto._id}">
             <span class="material-icons">
