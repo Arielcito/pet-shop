@@ -1,4 +1,5 @@
 // filtros
+let fav = document.querySelector('.fav')
 const info = document.getElementsByClassName('card-title')
 const cards = document.getElementById('cards')
 const inputBuscar = document.getElementById('buscador')
@@ -30,37 +31,47 @@ fetch(API_URL, init)
 function drawCards (array) {
 /*   let local = localStorage.getItem("favoritos")
  */ cards.innerHTML = ''
-  array.forEach(producto => {
-    cards.innerHTML +=
-    `<div class="col-lg-3 col-md-4 col-sm-6 id="${producto._id}">
-      <div class="card h-100 carta shadow-lg mb-5 mt-3 rounded">
-        <img src="${producto.imagen}" class=" d-block mx-auto card-img-top imgSize w-75" alt="...">
-        <div class="card-body">
-          <a href="producto.html?id=${producto._id}" class="productoAnchor">
-          <h6 class="card-title">${producto.nombre}</h6>
+  if (array.length > 0) {
+    array.forEach(producto => {
+      cards.innerHTML +=
+     `<div class=" col-lg-3 col-md-4 col-sm-6 id="${producto._id}">
+       <div class="card-back card h-100 carta shadow-lg mb-5 mt-3 rounded">
+         <img src="${producto.imagen}" class=" d-block mx-auto card-img-top imgSize w-75" alt="...">
+         <div class="card-body">
+           <a href="producto.html?id=${producto._id}" class="productoAnchor">
+           <h6 class="card-title">${producto.nombre}</h6>
+           </div>
+           </a>
+         <div class="card-footer d-flex justify-content-around">
+         <ul class="list-group">
+         <li class="list-group-item ">
+         <small class="text-muted text-warning">${producto.stock > 5 ? 'Stock disponible!' : 'Ultimas unidades!'} </small>
+         </li>
+         <li class="list-group-item">
+         <small class="text-muted">$${producto.precio}</small>
+         </li>
+         </ul>
+         </div>
+         <div class="form-check d-flex justify-content-around">
+            <button type="button" class="btn btn-secondary m-1 buy ">Comprar!</button>
+            <input class="form-check-input fav hidden" type="checkbox" value="" id="${producto._id}" >
+            <label class="form-check-label" for="${producto._id}">
+            <span class="material-icons">
+              favorite
+            </span>
+            </label>
           </div>
-          </a>
-        <div class="card-footer d-flex justify-content-around">
-        <ul class="list-group">
-        <li class="list-group-item ">
-        <small class="text-muted">${producto.stock > 5 ? 'Stock disponible!' : 'Ultimas unidades!'} </small>
-        </li>
-        <li class="list-group-item">
-        <small class="text-muted">Stock diponible: ${producto.stock}</small>
-        </li>
-        <li class="list-group-item">
-        <small class="text-muted">$${producto.precio}</small>
-        </li>
-        </ul>
-        </div>
-        <div class="d-flex justify-content-between">
-          <button type="button" class="btn btn-primary m-1 buy">Añadir a la canasta</button>
-          <button type="button" class="btn btn-primary m-1 fav ">Añadir a favoritos</button>
-        </div>
-      </div>
-    </div>`
+       </div>
+     </div>`
+    }
+    )
+  } else {
+    cards.innerHTML = `
+  <div class="alert alert-danger text-center" role="alert">
+  ¡Upss! Sin resultados en búsqueda realizada 
+</div>
+  `
   }
-  )
 }
 
 function rangeFilter (array) {
@@ -111,6 +122,9 @@ function filtroCombinado (array) {
     drawCards(filtroBusqueda(sortFilter(rangeFilter(array))))
   }
 
+  inputBuscar.oninput = () => {
+    drawCards(filtroBusqueda(sortFilter(rangeFilter(array))))
+  }
   inputBuscar.oninput = () => {
     drawCards(filtroBusqueda(sortFilter(rangeFilter(array))))
   }
@@ -188,80 +202,6 @@ function localStorage () {
     card.querySelector('.fav').disabled = true
   })
 }
-
-inputBuscar.oninput = () => {
-  drawCards(filtroBusqueda(sortFilter(rangeFilter(array))))
-}
-
-/* /*
-let favoritos = []
-let carrito = []
-
-function agregarFavoritos(e){
-  if(e.target.textContent == "Añadir a favoritos"){
-    const button = e.target
-    const item = button.closest(".card")
-    const itemTitle = item.querySelector(".card-title").textContent
-    if(!favoritos.includes(itemTitle)){
-      favoritos.push(itemTitle)
-      localStorage.setItem("favoritos",JSON.stringify(favoritos))
-    }
-  }
-}
-function agregarCarrito(e){
-  if(e.target.textContent == "Añadir a la canasta"){
-    const button = e.target
-    const item = button.closest(".card")
-    const itemTitle = item.querySelector(".card-title").textContent
-    carrito.push(itemTitle)
-    localStorage.setItem("carrito",JSON.stringify(itemTitle))
-  }
-} */
-/* cards.addEventListener('click', e => {
-  agregarCarrito(e)
-  agregarFavoritos(e)
-})
-function crearTablasFavoritos(array){
-  if(document.title == "Favorito"){
-    let auxArray = JSON.parse(localStorage.getItem("favoritos"))
-
- */
-
-// let favoritos = []
-// let carrito = []
-
-// function agregarFavoritos(e){
-//   if(e.target.textContent == "Añadir a favoritos"){
-//     const button = e.target
-//     const item = button.closest(".card")
-//     const itemTitle = item.querySelector(".card-title").textContent
-//     if(!favoritos.includes(itemTitle)){
-//       favoritos.push(itemTitle)
-//       localStorage.setItem("favoritos",JSON.stringify(favoritos))
-//     }
-//   }
-// }
-// function agregarCarrito(e){
-//   if(e.target.textContent == "Añadir a la canasta"){
-//     const button = e.target
-//     const item = button.closest(".card")
-//     const itemTitle = item.querySelector(".card-title").textContent
-//     carrito.push(itemTitle)
-//     localStorage.setItem("carrito",JSON.stringify(itemTitle))
-//   }
-// }
-// cards.addEventListener('click', e => {
-//   agregarCarrito(e)
-//   agregarFavoritos(e)
-// })
-// function crearTablasFavoritos(array){
-//   if(document.title == "Favorito"){
-//     let auxArray = JSON.parse(localStorage.getItem("favoritos"))
-
-//   inputBuscar.oninput = () => {
-//     drawCards(filtroBusqueda(sortFilter(rangeFilter(array))))
-//   }
-// }}
 
 function filtroBusqueda (productos) {
   const texto = inputBuscar.value.toLowerCase()
