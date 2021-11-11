@@ -112,14 +112,11 @@ body{
 .carta {
   width: 100%;
   object-fit: cover;
-<<<<<<< HEAD
-  animation: transitionIn 2s;
-=======
   background: #F8F0DF;
+  animation: transitionIn .7s;
 }
 .card-back{
   background: white;
->>>>>>> e9014e92668d7117b6030e08f6b83156299f1737
 }
 
 li .nav-link {
@@ -246,22 +243,16 @@ form input::placeholder {
   z-index: 1;
 }
 nav {
-<<<<<<< HEAD
-  background-color: var(--color-primario);
-  animation: transitionIn 1s;
-}
+ 
+ background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(0,152,155,1) 0.1%, rgba(0,94,120,1) 94.2% );}
 
-@keyframes transitionIn {
-  from {
+@keyframes transitionIn{
+  from{
     opacity: 0;
-    transform: rotateX(-10deg)
+    transform: rotateX(10deg)
   }
   to{
     opacity: 1;
-    transform: rotateX(0)
+    transform: rotateX(0deg)
   }
 }
-=======
- 
- background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(0,152,155,1) 0.1%, rgba(0,94,120,1) 94.2% );}
->>>>>>> e9014e92668d7117b6030e08f6b83156299f1737
