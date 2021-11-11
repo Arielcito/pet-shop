@@ -19,14 +19,15 @@
   <header>
     <nav class="navbar navbar-expand-lg">
       <div class="flex-column container-fluid ">
+        <div class="container">
         <div class="navbar-nav hstack d-flex justify-content-between ">
           <a class="navbar-brand " href="index.html">
             <img class="logoNavbar" src="assets/logo.jpg" alt="logo pet-shop" />
           </a>
           <div class="navbar icons ">
-            <a href="#" class="nav-link me-2">
-              <span class="material-icons ">location_on</span>
-              <p class="text d-none d-lg-block">Location</p>
+            <a target="_blank" href="https://www.google.com/maps/place/Río+de+Janeiro+300,+C1405CCB+CABA/@-34.6120774,-58.4325776,17z/data=!3m1!4b1!4m9!1m2!2m1!1sRio+de+Janeiro+300.!3m5!1s0x95bcca429815227f:0x5d302e497c2cda87!8m2!3d-34.6120774!4d-58.4303836!15sChNSaW8gZGUgSmFuZWlybyAzMDAukgEQZ2VvY29kZWRfYWRkcmVzcw" class="nav-link me-2">
+                <span class="material-icons ">location_on</span>
+                <p class="text d-none d-lg-block">Ubicación</p>
             </a>
             <a href="shopping-cart.html" class="nav-link me-2">
               <span class="material-icons">shopping_cart</span>
@@ -37,7 +38,7 @@
               <p class="text d-none d-lg-block"> Favorites</p>
             </a>
           </div>
-        </div>
+        </div></div>
         <button class="navbar-toggler bg-info" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -70,11 +71,11 @@
     </div>
     <div class="mainTitle text-center">
       <div class="box text-center">
-        <h2 class="titles text-danger">Farmacia</h2>
+        <h2 class="titles text-farmacia">Farmacia</h2>
       </div>
     </div>
     <div class="container ">
-      <div class="ranges row flex-lg-row">
+      <div class="ranges row flex-lg-row justify-content-evenly">
         <div class="col-lg-2">
           <label for="minPrice" class="form-label">Precio minimo</label>
           <span class="slideMin"></span>
@@ -85,14 +86,7 @@
           <span class="slideMax"></span>
           <input type="range" class="form-range filtroPrecios" min="0" max="1" step="10" id="maxPrice">
         </div>
-        <div class="col-lg-4">
-          <span>Ordenar por:</span>
-          <select id="sortSelect" class="form-select" aria-label="Default select example">
-            <option value="0" selected>Mas relevantes</option>
-            <option value="1">Menor precio</option>
-            <option value="2">Mayor precio</option>
-          </select>
-        </div>
+        
         <div class="col-lg-4">
           <span>¡Encontra lo que buscas!</span>
           <div class="input-group h-25 col">
@@ -124,6 +118,14 @@
             </button>
           </div>
         </div>
+        <div class="col-lg-2">
+          <span>Ordenar por:</span>
+          <select id="sortSelect" class="form-select" aria-label="Default select example">
+            <option value="0" selected>Mas relevantes</option>
+            <option value="1">Menor precio</option>
+            <option value="2">Mayor precio</option>
+          </select>
+        </div>  
       </div>
 
       <div class="container-fluid d-flex flex-wrap gap-3 justify-content-center" id="cards">
