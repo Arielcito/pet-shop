@@ -42,10 +42,10 @@ function cargarInterfaz(array, id) {
     </div>
   </div>
 </div>
-      <div class="col-lg-12 m-auto">
-       <img src="${producto.imagen}" class="w-100 m-auto">
+      <div class="col-lg-6 m-auto">
+       <img src="${producto.imagen}" class="w-75 m-auto">
       </div>
-      <div class="col-lg-12">
+      <div class="col-lg-6">
         <h2 class="mt-5 fst-italic" >${producto.nombre}</h2>
         <h3 >&#36;${producto.precio}<h3>
         <p class="fs-5 fw-light" style="text-indent:20px;">${producto.descripcion}</p>
