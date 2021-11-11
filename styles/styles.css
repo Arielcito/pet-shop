@@ -42,6 +42,7 @@ footer {
 
 .redes {
   display: flex;
+  flex-direction: row !important;
 }
 
 .iconos {
