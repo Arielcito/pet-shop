@@ -50,6 +50,11 @@ body{
   display: flex;
   border-radius: 50%;
 }
+.imgLogoabajo {
+  height: 5rem;
+  display: flex;
+  border-radius: 50%;
+}
 
 @media screen and (max-width: 1100px) {
   .container-body {
