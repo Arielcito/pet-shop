@@ -113,7 +113,7 @@ body{
   width: 100%;
   object-fit: cover;
   background: #F8F0DF;
-  animation: transitionIn .7s;
+  animation: transitionIn 0.7s;
 }
 .card-back{
   background: white;
@@ -176,7 +176,22 @@ form {
   border-radius: 1rem;
   box-shadow: 0 0 10px 1px rgb(100, 100, 100);
 }
+.centered {
+  background-image: url(../assets/foto3-3.jpg);
+  width: 100%;
+  height: 100%;
 
+}
+@keyframes transitionIn {
+  from {
+    opacity: 0;
+    transform: rotateX(-10deg)
+  }
+  to{
+    opacity: 1;
+    transform: rotateX(0)
+  }
+}
 .snau {
   height: 50rem;
   width: 100%;
