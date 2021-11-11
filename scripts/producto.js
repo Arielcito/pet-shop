@@ -59,9 +59,9 @@ function cargarInterfaz(array, id) {
         <div class="d-flex flex-row">
           <h2>Cantidad:</h2>
           <div>
-            <button onclick="sumar('${producto.stock}')">+</button>
-            <span id="contador">0</span>
-            <button onclick="restar()">-</button>
+          <button onclick="restar()">-</button>
+          <span id="contador">0</span>
+          <button onclick="sumar('${producto.stock}')">+</button>
            </div>
         </div>
         <button type="button" class="btn btn-primary m-1 buy">Añadir a la canasta</button>
