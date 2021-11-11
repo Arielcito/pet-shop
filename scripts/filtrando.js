@@ -1,5 +1,4 @@
 // filtros
-let fav = document.querySelector('.fav')
 const info = document.getElementsByClassName('card-title')
 const cards = document.getElementById('cards')
 const inputBuscar = document.getElementById('buscador')
@@ -46,22 +45,20 @@ function drawCards (array) {
          <div class="card-footer d-flex justify-content-around">
          <ul class="list-group">
          <li class="list-group-item ">
-         <small class="text-muted text-warning">${producto.stock > 5 ? 'Stock disponible!' : 'Ultimas unidades!'} </small>
+         <small class="text-muted">${producto.stock > 5 ? 'Stock disponible!' :  'Ultimas unidades!'} </small>
+         </li>
+         <li class="list-group-item">
+         <small class="text-muted">Stock diponible: ${producto.stock}</small>
          </li>
          <li class="list-group-item">
          <small class="text-muted">$${producto.precio}</small>
          </li>
          </ul>
          </div>
-         <div class="form-check d-flex justify-content-around">
-            <button type="button" class="btn btn-primary m-1 buy ">Comprar!</button>
-            <input class="form-check-input fav hidden" type="checkbox" value="" id="${producto._id}" >
-            <label class="form-check-label" for="${producto._id}">
-            <span class="material-icons">
-              favorite
-            </span>
-            </label>
-          </div>
+         <div class="d-flex justify-content-between">
+           <button type="button" class="btn btn-primary m-1 buy">Añadir a la canasta</button>
+           <button type="button" class="btn btn-primary m-1 fav ">Añadir a favoritos</button>
+         </div>
        </div>
      </div>`
    }
