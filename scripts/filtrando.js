@@ -217,3 +217,5 @@ function filtroBusqueda (productos) {
   }
   return arrayBuscado
 }
+
+volverAtras = document.getElementById("#volverAtras")

@@ -2,6 +2,7 @@ const container = document.querySelector(".container")
 const API_URL = 'https://apipetshop.herokuapp.com/api/articulos'
 let cont = 0
 
+
 const init = {
   method: 'GET'
 }
@@ -21,6 +22,11 @@ fetch(API_URL, init)
 
 function cargarInterfaz(array, id) {
   let producto = array.find(array => array["_id"] == id)
+  
+  volverAtras.innerHTML = `
+<a href="${producto.tipo == 'Medicamento'?"farmacia.html":"juguetes.html"}">Volver a ${producto.tipo == 'Medicamento'? 'Farmacia':'Juguetes'}</a>
+
+  `
 
   container.innerHTML = `
     <div class="row m-4">
@@ -65,6 +71,7 @@ function cargarInterfaz(array, id) {
     
     `
 }
+
 function sumar(stock) {
 
   const contador = document.querySelector('#contador')
@@ -79,3 +86,8 @@ function exceso() {
   const btnmodal = document.getElementById('btnmodal')
   btnmodal.click()
 }
+
+
+const volverAtras = document.querySelector("#volverA")
+
+// console.log(volverAtras);
