@@ -45,7 +45,7 @@ function drawCards (array) {
          <div class="card-footer d-flex justify-content-around">
          <ul class="list-group">
          <li class="list-group-item ">
-         <small class=" text-danger fs-3">${producto.stock > 5 ? 'Stock disponible!' : 'Ultimas unidades!'} </small>
+         <small class=" ${producto.stock < 5 ? 'text-danger fs-3' : 'fs-5'} ">${producto.stock > 5 ? 'Stock disponible!' : 'Ultimas unidades!'} </small>
          </li>
          <li class="list-group-item">
          <small class="text-muted fs-4">$${producto.precio}</small>
