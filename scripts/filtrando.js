@@ -69,7 +69,7 @@ function drawCards (array) {
     cards.innerHTML += `
     <div class="alert text-center alert-warning" role="alert">
     
-¡Upss! Sin resultados de búsqueda ingresada</div>`
+¡Ups! Búsqueda sin resultados</div>`
   }
 
   
