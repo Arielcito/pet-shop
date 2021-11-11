@@ -111,7 +111,7 @@ function filtroCombinado (array) {
     drawCards(filtroBusqueda(sortFilter(rangeFilter(array))))
   }
 
-  select.oninput = () => {
+  inputBuscar.oninput = () => {
     drawCards(filtroBusqueda(sortFilter(rangeFilter(array))))
   }
 }
