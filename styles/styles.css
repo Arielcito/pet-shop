@@ -1,7 +1,18 @@
+:root {
+  --color-primario: #2e3831 !important;
+  --color-secundario: #5dfbd7 !important;
+  --color-terciario: #99fa69 !important;
+  --color-cuarto: #dfe354 !important;
+  --color-quinto: #ffe154 !important;
+}
+.search {
+  display: flex;
+}
+
 footer {
   width: 100%;
-  background: #202020;
-  color: white;
+  background: var(--color-primario);
+  color: var(--color-secundario);
 }
 
 .container-body {
@@ -12,9 +23,13 @@ footer {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
-
+.logoNavbar {
+  height: 4rem;
+  display: flex;
+  border-radius: 50%;
+}
 .imgLogo {
-  height: 9rem;
+  height: 7rem;
   display: flex;
   border-radius: 50%;
 }
@@ -49,7 +64,7 @@ footer {
 .roww a {
   margin-top: 10px;
   margin-left: 20px;
-  color: #c7c7c7;
+  color: var(--color-secundario);
   text-decoration: none;
 }
 .roww a:hover {
@@ -65,82 +80,144 @@ footer {
   font-size: 22px;
   text-align: center;
 }
-.logo {
-  width: 9rem;
-  height: 9rem;
-}
+
 .icons a {
   display: flex;
   margin-right: -1rem;
+  color: var(--color-secundario);
 }
-.imgSize{
-    width:100%;
-    height:60%;
-    object-fit: cover;
+.imgSize {
+  width: 100%;
+  height: 60%;
+  object-fit: cover;
 }
-.carta{
-    width:100%;
-    object-fit: cover;
+.carta {
+  width: 100%;
+  object-fit: cover;
 }
-.nav-color{
-  margin-top: -0.5rem;
-  background-color: #CED097;
-}
-li .nav-link{
+
+li .nav-link {
+  color: var(--color-secundario);
   margin-right: 4rem;
   margin-left: 4rem;
 }
-.nav-link:hover{
-  color:white;
+.nav-link:hover {
+  color: white;
 }
-.mainTitle{
+.mainTitle {
   height: 7rem;
 }
-.titles{
+.titles {
   font-size: 3.2rem;
   font-weight: 800;
-  font-family: 'Dosis', sans-serif;
+  font-family: "Dosis", sans-serif;
   margin-top: 2rem;
 }
-.carritoFLotante{
+.carritoFLotante {
   display: block;
   background-color: #fab001;
   box-shadow: 0 5px 10px rgb(0 0 0 / 10%);
   border-radius: 50%;
-  
 }
 
-.sinp{
+.sinp {
   padding: 0;
 }
-
-.snau {
-    height: 50rem;
-    width: 100%;
-    object-fit: cover;
-    object-position: top;
+.carta {
+  width: 100%;
+  object-fit: cover;
 }
-
+.img-contacto-pet {
+  display: flex;
+}
+.img-contacto-pet img {
+  width: 100%;
+  justify-content: flex-end;
+}
+.stepper-title {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-weight: bold;
+}
+iframe {
+  box-shadow: 0 0 5px 2px rgb(0, 0, 0);
+}
 form {
+  padding: 1rem;
+  background-color: rgb(255, 255, 255);
   display: flex;
   flex-direction: column;
   align-self: center;
+  border-radius: 1rem;
+  box-shadow: 0 0 5px 2px rgb(0, 0, 0);
+}
+form label {
+  color: white;
+}
+.snau {
+  height: 50rem;
+  width: 100%;
+  object-fit: cover;
+  object-position: top;
 }
 
 fieldset {
   display: flex;
   flex-direction: column;
 }
+form input:not(input[type="radio"]) {
+  border: none;
+  background-color: transparent;
+  box-shadow: 0 0 5px 2px rgb(0, 0, 0);
+  padding: 0.2rem;
+  color: white;
+}
+form a {
+  color: white !important;
+  background-color: #115055 !important;
+  border-radius: 0.2rem !important;
+}
 
-form input {
-  width: 150px;
+form textarea {
+  margin-top: 0.4rem;
+  background-color: transparent;
+  color: white;
+  box-shadow: 0 0 5px 2px rgb(0, 0, 0);
+}
+form input::placeholder {
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  font-size: 0.9rem;
+  /* background-color: transparent;
+  width: 250px;
+  border: none; */
+}
+
+.active {
+  /* background-color: blue; */
 }
 .hidden {
   display: none;
 }
-form a {
-  cursor: pointer;
+.complete {
+  /* background-color: red; */
 }
-.producto{
-  background-color: rgba(0,0,0,.1);
+
+.producto {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.cart {
+  width: 50px;
+  height: 50px;
+  z-index: 3;
+}
+.dropdown-menu {
+  height: 400px;
+  width: 20rem;
+}
+.principalImage {
+  z-index: 1;
+}
+nav {
+  background-color: var(--color-primario);
 }
