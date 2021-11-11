@@ -53,7 +53,8 @@ function drawCards (array) {
          </ul>
          </div>
          <div class="form-check d-flex justify-content-around">
-            <button type="button" class="btn btn-primary m-1 buy ">Comprar!</button>
+            <button type="button" class="btn btn-primary buy w-100 bg-danger me-3">Comprar!</button>
+            <button type="button" class="btn btn-primary buy w-100 bg-danger me-3">Agregar al carrito</button>
           </div>
          <div class="form-check d-flex justify-content-around position-absolute end-0 mt-1">
             <input class="form-check-input fav hidden" type="checkbox" value="" id="${producto._id}" >
