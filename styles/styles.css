@@ -1,11 +1,18 @@
+:root {
+  --color-primario: #2e3831 !important;
+  --color-secundario: #5dfbd7 !important;
+  --color-terciario: #99fa69 !important;
+  --color-cuarto: #dfe354 !important;
+  --color-quinto: #ffe154 !important;
+}
 .search {
   display: flex;
 }
 
 footer {
   width: 100%;
-  background: #202020;
-  color: white;
+  background: var(--color-primario);
+  color: var(--color-secundario);
 }
 
 .container-body {
@@ -16,9 +23,13 @@ footer {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
-
+.logoNavbar {
+  height: 4rem;
+  display: flex;
+  border-radius: 50%;
+}
 .imgLogo {
-  height: 9rem;
+  height: 7rem;
   display: flex;
   border-radius: 50%;
 }
@@ -53,7 +64,7 @@ footer {
 .roww a {
   margin-top: 10px;
   margin-left: 20px;
-  color: #c7c7c7;
+  color: var(--color-secundario);
   text-decoration: none;
 }
 .roww a:hover {
@@ -69,13 +80,11 @@ footer {
   font-size: 22px;
   text-align: center;
 }
-.logo {
-  width: 9rem;
-  height: 9rem;
-}
+
 .icons a {
   display: flex;
   margin-right: -1rem;
+  color: var(--color-secundario);
 }
 .imgSize {
   width: 100%;
@@ -86,11 +95,9 @@ footer {
   width: 100%;
   object-fit: cover;
 }
-.nav-color {
-  margin-top: -0.5rem;
-  background-color: #ced097;
-}
+
 li .nav-link {
+  color: var(--color-secundario);
   margin-right: 4rem;
   margin-left: 4rem;
 }
@@ -120,13 +127,29 @@ li .nav-link {
   width: 100%;
   object-fit: cover;
 }
+.img-contacto-pet {
+  display: flex;
+}
+.img-contacto-pet img {
+  width: 100%;
+  justify-content: flex-end;
+}
+.stepper-title {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-weight: bold;
+}
+iframe {
+  box-shadow: 0 0 5px 2px rgb(0, 0, 0);
+}
 form {
   padding: 1rem;
-  background-color: rgb(27, 126, 133);
+  background-color: rgb(255, 255, 255);
   display: flex;
   flex-direction: column;
   align-self: center;
   border-radius: 1rem;
+  box-shadow: 0 0 5px 2px rgb(0, 0, 0);
 }
 form label {
   color: white;
@@ -162,7 +185,7 @@ form textarea {
   box-shadow: 0 0 5px 2px rgb(0, 0, 0);
 }
 form input::placeholder {
-  color: white;
+  color: rgb(0, 0, 0);
   font-weight: bold;
   font-size: 0.9rem;
   /* background-color: transparent;
@@ -194,4 +217,7 @@ form input::placeholder {
 }
 .principalImage {
   z-index: 1;
+}
+nav {
+  background-color: var(--color-primario);
 }

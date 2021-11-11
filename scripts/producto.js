@@ -1,5 +1,7 @@
 const container = document.querySelector(".container")
 const API_URL = 'https://apipetshop.herokuapp.com/api/articulos'
+let cont = 0
+
 const init = {
   method: 'GET'
 }
@@ -8,22 +10,39 @@ fetch(API_URL, init)
   .then(res => res.json())
   .then(data => {
     const articulos = data.response
-    
+
     let URLsearch = window.location.search
     let id = URLsearch.slice(4)
- 
-    cargarInterfaz(articulos,id)
+
+    cargarInterfaz(articulos, id)
     return articulos
   })
   .catch(err => err.message)
 
-function cargarInterfaz(array,id){
-    let producto = array.find(array => array["_id"] == id)
+function cargarInterfaz(array, id) {
+  let producto = array.find(array => array["_id"] == id)
 
-    container.innerHTML = `
+  container.innerHTML = `
     <div class="row m-4">
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
       <div class="col m-auto">
-                          <img src="${producto.imagen}" class="w-100 m-auto">
+       <img src="${producto.imagen}" class="w-100 m-auto">
       </div>
       <div class="col">
         <h2 class="mt-5 fst-italic" >${producto.nombre}</h2>
@@ -31,8 +50,30 @@ function cargarInterfaz(array,id){
         <p class="fs-5 fw-light" style="text-indent:20px;">${producto.descripcion}</p>
         <small>Cantidad disponible : ${producto.stock}<small>
         <button type="button" class="btn btn-primary m-1 buy">Añadir a la canasta</button>
+        <div class="d-flex flex-column">
+          <h2>Cantidad: <span id="contador">0</span></h2>
+          <div>
+            <button onclick="sumar('${producto.stock}')">+</button>
+            <button onclick="restar()">-</button>
+           </div>
+        </div>
       </div>
     </div>
+    <button id="btnmodal" hidden type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">sd</button>
+    
     `
 }
+function sumar(stock) {
 
+  const contador = document.querySelector('#contador')
+
+  cont < stock ? (cont++, contador.innerHTML = cont) : exceso()
+}
+function restar() {
+  cont > 0 && (cont--, contador.innerHTML = cont)
+}
+
+function exceso() {
+  const btnmodal = document.getElementById('btnmodal')
+  btnmodal.click()
+}
