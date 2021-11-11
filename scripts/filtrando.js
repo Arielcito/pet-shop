@@ -1,5 +1,6 @@
 
 const cards = document.getElementById('cards')
+const fav = JSON.parse(localStorage.getItem('favs'))
 const inputBuscar = document.getElementById('buscador')
 const tipo = document.title.indexOf('Farmacia') > -1
   ? 'Medicamento'
@@ -14,30 +15,36 @@ const init = {
 fetch(API_URL, init)
   .then(res => res.json())
   .then(data => {
-    drawCards(JSON.parse(localStorage.getItem('favs')))
     const articulos = data.response
     let dataFiltradaSorteada = articulos
-    /* if (tipo !== 'Favoritos') { */
-    dataFiltradaSorteada = articulos
-      .filter(x => x.tipo === tipo)
-      .sort((a, b) => a.stock - b.stock)
-    drawCards(dataFiltradaSorteada)
-    sortFilter(rangeFilter(dataFiltradaSorteada))
-    rangeFilter(dataFiltradaSorteada)
-    filtroCombinado(dataFiltradaSorteada)
-    /* } */
-    /* const favBtn = document.getElementsByClassName('favo')
-    for (let i = 0; i < wall.length; i++) {
-      favBtn[i].addEventListener('click', function (e) {
-        getId(e, articulos)
-      })
-    } */
+    if (tipo !== 'Favoritos') {
+      dataFiltradaSorteada = articulos
+        .filter(x => x.tipo === tipo)
+        .sort((a, b) => a.stock - b.stock)
+      drawCards(dataFiltradaSorteada)
+      sortFilter(rangeFilter(dataFiltradaSorteada))
+      rangeFilter(dataFiltradaSorteada)
+      filtroCombinado(dataFiltradaSorteada)
+    } else {
+      drawCards(JSON.parse(localStorage.getItem('favs')))
+    }
+
+    eventos(articulos)
     return (articulos, dataFiltradaSorteada)
   })
   .catch(err => err)
 
+function eventos (array) {
+  const favBtn = document.getElementsByClassName('favo')
+  for (let i = 0; i < favBtn.length; i++) {
+    favBtn[i].addEventListener('click', function (e) {
+      getId(e, array)
+    })
+  }
+}
 function drawCards (array) {
   cards.innerHTML = ''
+
   if (array.length > 0) {
     array.forEach(producto => {
       cards.innerHTML +=
@@ -68,19 +75,20 @@ function drawCards (array) {
             </label>
           </div>
       </div>
-    </div>`
-    }
-
-    )
+    </div> `
+    })
   } else {
     cards.innerHTML = `
   <div class="alert alert-danger text-center" role="alert">
-  ¡Upss! Tu busequeda no tiene resultados. 
+  ¡Ups! ..Busqueda sin resultados. 
 </div>
   `
   }
+  if (tipo === 'Favoritos') {
+    eventos(array)
+  }
 }
-/*
+
 function getId (e, array) {
   console.log(e.target.id)
   const id = e.target.id
@@ -89,15 +97,16 @@ function getId (e, array) {
       GuardarFavorito(producto._id, producto.nombre, producto.imagen, producto.precio, producto.stock, id)
     }
   })
-} */
+}
 
-/* function GuardarFavorito (_id, nombre, imagen, precio, stock, id) {
+function GuardarFavorito (_id, nombre, imagen, precio, stock, id) {
   const producto = {
     _id: _id,
     nombre: nombre,
     imagen: imagen,
     precio: precio,
     stock: stock
+
   }
 
   const si = fav.findIndex(e => e._id === id)
@@ -105,11 +114,14 @@ function getId (e, array) {
   fav.findIndex(e => e._id === id) > -1 ? fav.splice(si, 1) : fav.push(producto)
 
   localStorage.setItem('favs', JSON.stringify(fav))
+  pintarFavs()
 }
- */
-/* function pintarFavs () {
-  drawCards(JSON.parse(localStorage.getItem('favs')))
-} */
+
+function pintarFavs () {
+  if (tipo === 'Favoritos') {
+    drawCards(JSON.parse(localStorage.getItem('favs')))
+  }
+}
 
 function rangeFilter (array) {
   const maxPrice = document.getElementById('maxPrice')
@@ -165,4 +177,16 @@ function filtroCombinado (array) {
   inputBuscar.oninput = () => {
     drawCards(filtroBusqueda(sortFilter(rangeFilter(array))))
   }
+}
+
+function filtroBusqueda (productos) {
+  const texto = inputBuscar.value.toLowerCase()
+  const arrayBuscado = []
+  for (const producto of productos) {
+    const nombre = producto.nombre.toLowerCase()
+    if (nombre.indexOf(texto) !== -1) {
+      arrayBuscado.push(producto)
+    }
+  }
+  return arrayBuscado
 }
