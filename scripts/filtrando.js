@@ -23,7 +23,7 @@ fetch(API_URL, init)
     rangeFilter(dataFiltradaSorteada)
     filtroCombinado(dataFiltradaSorteada)
     // filtroBusqueda(dataFiltradaSorteada)
-    
+
     return (articulos, dataFiltradaSorteada)
   })
   .catch(err => err.message)
@@ -31,12 +31,11 @@ fetch(API_URL, init)
 function drawCards (array) {
 /*   let local = localStorage.getItem("favoritos")
  */ cards.innerHTML = ''
- if(array.length > 0){
-
-   array.forEach(producto => {
-     cards.innerHTML +=
-     `<div class="col-lg-3 col-md-4 col-sm-6 id="${producto._id}">
-       <div class="card h-100 carta shadow-lg mb-5 mt-3 rounded">
+  if (array.length > 0) {
+    array.forEach(producto => {
+      cards.innerHTML +=
+     `<div class=" col-lg-3 col-md-4 col-sm-6 id="${producto._id}">
+       <div class="card-back card h-100 carta shadow-lg mb-5 mt-3 rounded">
          <img src="${producto.imagen}" class=" d-block mx-auto card-img-top imgSize w-75" alt="...">
          <div class="card-body">
            <a href="producto.html?id=${producto._id}" class="productoAnchor">
@@ -46,15 +45,17 @@ function drawCards (array) {
          <div class="card-footer d-flex justify-content-around">
          <ul class="list-group">
          <li class="list-group-item ">
-         <small class="text-muted text-warning">${producto.stock > 5 ? 'Stock disponible!' : 'Ultimas unidades!'} </small>
+         <small class=" text-danger fs-3">${producto.stock > 5 ? 'Stock disponible!' : 'Ultimas unidades!'} </small>
          </li>
          <li class="list-group-item">
-         <small class="text-muted">$${producto.precio}</small>
+         <small class="text-muted fs-4">$${producto.precio}</small>
          </li>
          </ul>
          </div>
          <div class="form-check d-flex justify-content-around">
             <button type="button" class="btn btn-primary m-1 buy ">Comprar!</button>
+          </div>
+         <div class="form-check d-flex justify-content-around position-absolute end-0 mt-1">
             <input class="form-check-input fav hidden" type="checkbox" value="" id="${producto._id}" >
             <label class="form-check-label" for="${producto._id}">
             <span class="material-icons">
@@ -64,15 +65,15 @@ function drawCards (array) {
           </div>
        </div>
      </div>`
-   }
-   )
- }else{
-  cards.innerHTML = `
+    }
+    )
+  } else {
+    cards.innerHTML = `
   <div class="alert alert-danger text-center" role="alert">
-  ¡Upss! Sin resultados en búsqueda realizada 
+  ¡Upss! Tu busequeda no tiene resultados. 
 </div>
   `
- }
+  }
 }
 
 function rangeFilter (array) {
@@ -123,7 +124,7 @@ function filtroCombinado (array) {
     drawCards(filtroBusqueda(sortFilter(rangeFilter(array))))
   }
 
-  select.oninput = () => {
+  inputBuscar.oninput = () => {
     drawCards(filtroBusqueda(sortFilter(rangeFilter(array))))
   }
   inputBuscar.oninput = () => {
@@ -157,7 +158,6 @@ function isFavorito (id) {
     return local.includes(id)
   }
 }
-
 
 function filtroBusqueda (productos) {
   const texto = inputBuscar.value.toLowerCase()

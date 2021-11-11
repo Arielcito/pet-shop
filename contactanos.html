@@ -26,71 +26,49 @@
   </head>
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg">
-        <div class="flex-column container-fluid">
-          <div class="navbar-nav hstack d-flex justify-content-between">
-            <a class="navbar-brand" href="index.html">
-              <img
-                class="logoNavbar"
-                src="assets/logo.jpg"
-                alt="logo pet-shop"
-              />
-              <p class="d-sm-none">Pet Shop Franco</p>
+    <nav class="navbar navbar-expand-lg">
+      <div class="flex-column container-fluid ">
+        <div class="container">
+        <div class="navbar-nav hstack d-flex justify-content-between ">
+          <a class="navbar-brand " href="index.html">
+            <img class="logoNavbar" src="assets/logo.jpg" alt="logo pet-shop" />
+          </a>
+          <div class="navbar icons ">
+            <a target="_blank" href="https://www.google.com/maps/place/Río+de+Janeiro+300,+C1405CCB+CABA/@-34.6120774,-58.4325776,17z/data=!3m1!4b1!4m9!1m2!2m1!1sRio+de+Janeiro+300.!3m5!1s0x95bcca429815227f:0x5d302e497c2cda87!8m2!3d-34.6120774!4d-58.4303836!15sChNSaW8gZGUgSmFuZWlybyAzMDAukgEQZ2VvY29kZWRfYWRkcmVzcw" class="nav-link me-2">
+                <span class="material-icons ">location_on</span>
+                <p class="text d-none d-lg-block">Ubicación</p>
             </a>
-            <div class="navbar-collapse collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav">
-                <li class="nav-item">
-                  <a
-                    class="nav-link fs-5 active me-1"
-                    aria-current="page"
-                    href="index.html"
-                    >Sobre nosotros</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link fs-5 me-1" href="contactanos.html"
-                    >Contactenos</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link fs-5 me-1" href="farmacia.html"
-                    >Farmacia</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link fs-5" href="juguetes.html">Juguetes</a>
-                </li>
-              </ul>
-            </div>
-            <div class="navbar icons">
-              <a href="#" class="nav-link me-2">
-                <span class="material-icons">location_on</span>
-                <p class="text d-none d-lg-block">Location</p>
-              </a>
-              <a href="shopping-cart.html" class="nav-link me-2">
-                <span class="material-icons">shopping_cart</span>
-                <p class="text d-none d-lg-block">Cart</p>
-              </a>
-              <a href="favorite.html" class="nav-link me-2">
-                <span class="material-icons">favorite</span>
-                <p class="text d-none d-lg-block">Favorites</p>
-              </a>
-            </div>
+            <a href="shopping-cart.html" class="nav-link me-2">
+              <span class="material-icons">shopping_cart</span>
+              <p class="text d-none d-lg-block">Cart</p>
+            </a>
+            <a href="favorite.html" class="nav-link me-2">
+              <span class="material-icons">favorite</span>
+              <p class="text d-none d-lg-block"> Favorites</p>
+            </a>
           </div>
-          <button
-            class="navbar-toggler position-absolute top-50 start-50 bg-info"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-        </div>
-      </nav>
-    </header>
+        </div></div>
+        <button class="navbar-toggler bg-info" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ">
+            <li class="nav-item ">
+              <a class="nav-link" aria-current="page" href="index.html">Sobre nosotros</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="contactanos.html">Contactenos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="farmacia.html">Farmacia</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="juguetes.html">Juguetes</a>
+            </li>
+          </ul>
+      </div>
+    </nav>
+  </header>
     <main>
       <h2 class="titles text-danger text-center">Envianos un mensaje</h2>
       <div class="container">
@@ -98,12 +76,12 @@
           <div class="col img-contacto-pet">
             <img src="./assets/contacto_gato.png" alt="" />
           </div>
-          <div class="col">
-            <form class="form mt-3 mb-5">
+          <div class="col-4 d-flex justify-content-center">
+            <form class="form mt-3 mb-5 w-100 "">
               <div class="stepper-title mb-4 text-center">
                 PREGUNTA <span id="stepper-count"></span>
               </div>
-              <div class="active step-1 input-group mb-3">
+              <div class="active step-1 input-group mb-3 justify-content-center" >
                 <input
                   type="text"
                   placeholder="Nombre"
@@ -112,7 +90,7 @@
                 />
                 <a class="btn p-1 ms-2 step">Siguiente</a>
               </div>
-              <div class="hidden step-2 mb-3">
+              <div class="hidden step-2 input-group mb-3 justify-content-center">
                 <input
                   id="input-2"
                   type="text"
@@ -122,7 +100,7 @@
                 />
                 <a class="btn-primary btn p-1 ms-2 step">Siguiente</a>
               </div>
-              <div class="hidden step-3 input-group mb-3">
+              <div class="hidden step-3 input-group mb-3 justify-content-center">
                 <input
                   id="input-3"
                   type="email"
@@ -132,7 +110,7 @@
                 />
                 <a class="btn-primary btn p-1 ms-2 step">Siguiente</a>
               </div>
-              <div class="hidden step-4 input-group mb-3">
+              <div class="hidden step-4 input-group mb-3 justify-content-center">
                 <input
                   id="input-4"
                   type="text"
@@ -142,20 +120,21 @@
                 />
                 <a class="btn-primary btn p-1 ms-2 step">Siguiente</a>
               </div>
-              <div class="hidden step-5">
+              <div class="hidden step-5 text-center ">
+                <div class="container w-50">
                 <label for="">Animal preferido?</label>
-                <div class="form-check">
+                <div class="form-check ">
                   <input
                     class="form-check-input"
                     type="radio"
                     name="pet"
                     id="dog"
                   />
-                  <label class="form-check-label" for="dog"> Perro </label>
+                  <label class="form-check-label " for="dog"> Perro </label>
                 </div>
                 <div class="form-check">
                   <input
-                    class="form-check-input"
+                    class="form-check-input margin-auto"
                     type="radio"
                     name="pet"
                     id="cat"
@@ -164,6 +143,7 @@
                   <label class="form-check-label" for="cat"> Gato </label>
                 </div>
                 <a class="btn-primary btn p-1 step">Siguiente</a>
+              </div>
               </div>
               <div class="hidden step-6 mt-3">
                 <div class="input-group d-flex flex-column mb-2">

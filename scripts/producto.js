@@ -28,35 +28,37 @@ function cargarInterfaz(array, id) {
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Alerta!</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        ...
+      <p>
+        No hay mas unidades
+      </p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
 </div>
-      <div class="col m-auto">
+      <div class="col-lg-12 m-auto">
        <img src="${producto.imagen}" class="w-100 m-auto">
       </div>
-      <div class="col">
+      <div class="col-lg-12">
         <h2 class="mt-5 fst-italic" >${producto.nombre}</h2>
-        <h3 class="fw-light">&#36;${producto.precio}<h3>
+        <h3 >&#36;${producto.precio}<h3>
         <p class="fs-5 fw-light" style="text-indent:20px;">${producto.descripcion}</p>
         <small>Cantidad disponible : ${producto.stock}<small>
-        <button type="button" class="btn btn-primary m-1 buy">Añadir a la canasta</button>
-        <div class="d-flex flex-column">
-          <h2>Cantidad: <span id="contador">0</span></h2>
+        <div class="d-flex flex-row">
+          <h2>Cantidad:</h2>
           <div>
             <button onclick="sumar('${producto.stock}')">+</button>
+            <span id="contador">0</span>
             <button onclick="restar()">-</button>
            </div>
         </div>
+        <button type="button" class="btn btn-primary m-1 buy">Añadir a la canasta</button>
       </div>
     </div>
     <button id="btnmodal" hidden type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">sd</button>
