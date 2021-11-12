@@ -52,10 +52,6 @@
                 <span class="material-icons ">location_on</span>
                 <p class="text d-none d-lg-block">Location</p>
               </a>
-              <a href="shopping-cart.html" class="nav-link me-2">
-                <span class="material-icons">shopping_cart</span>
-                <p class="text d-none d-lg-block">Cart</p>
-              </a>
               <a href="favorite.html" class="nav-link me-2">
                 <span class="material-icons">favorite</span>
                 <p class="text d-none d-lg-block"> Favorites</p>
@@ -71,8 +67,48 @@
       </nav>
     </header>
     <main>
-      <div id="volverA">
-     </div>
+      <button hidden id="btnmodal" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Launch demo modal
+      </button>
+      
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Atención!</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+              Excede del stock 
+            </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Aceptar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+      <h4 class="opacity-75 p-3 small"><a href="farmacia.html">Volver a tienda</a></h4>
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+    <h5 id="offcanvasRightLabel">Carrito de compras</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <table id="tabla-modal" class="w-100">
+      <thead>
+        <tr>
+          <th>Producto</th>
+          <th>Cantidad</th>
+          <th>Precio</th>
+          <th>Total</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+     </table>
+  </div>
+</div>
         <div class="container producto">
         </div>
     </main>
