@@ -1,4 +1,8 @@
 const container = document.querySelector(".container")
+const API_URL = 'https://apipetshop.herokuapp.com/api/articulos'
+const init = {
+  method: 'GET'
+}
 fetch(API_URL, init)
   .then(res => res.json())
   .then(data => {
