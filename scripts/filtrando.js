@@ -1,6 +1,6 @@
 const cards = document.getElementById('cards')
 
-const fav = JSON.parse(localStorage.getItem('favs'))
+const fav = JSON.parse(localStorage.getItem('favs')) === null ? [] : JSON.parse(localStorage.getItem('favs'))
 const inputBuscar = document.getElementById('buscador')
 const tipo = document.title.indexOf('Farmacia') > -1
   ? 'Medicamento'
@@ -52,7 +52,7 @@ function drawCards (array) {
       <div class="card-back card h-100 carta shadow-lg mb-5 mt-3 rounded">
         <img src="${producto.imagen}" class=" d-block mx-auto card-img-top imgSize w-75" alt="...">
         <div class="card-body">
-          <a href="producto.html?id="${producto._id}" class="productoAnchor">
+          <a href="producto.html?id=${producto._id}" class="productoAnchor">
           <h6 class="card-title">${producto.nombre}</h6>
           </div>
           </a>
@@ -90,7 +90,6 @@ function drawCards (array) {
 }
 
 function getId (e, array) {
-  console.log(e.target.id)
   const id = e.target.id
   array.filter(x => x._id === e.target.id).forEach(producto => {
     if (producto.nombre !== undefined) {
