@@ -17,6 +17,7 @@
 
 <body>
   <header>
+
     <nav class="navbar navbar-expand-lg">
       <div class="flex-column container-fluid ">
         <div class="navbar-nav hstack d-flex justify-content-between ">
@@ -66,14 +67,34 @@
     </nav>
   </header>
   <main>
-    <div class="btn-group dropup position-fixed bottom-0 end-0 cart">
-      <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-        <span class="material-icons">shopping_cart</span>
-      </button>
-      <ul class="dropdown-menu">
-        
-      </ul>
-    </div>
+    <button class="btn btn-primary position-fixed bottom-0 end-0 cart material-icons " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">shopping_cart</button>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+    <h5 id="offcanvasRightLabel">Offcanvas right</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <img src="assets/logo.ico" alt="">
+            <table id="tabla-modal" class="w-100">
+              <thead>
+                <tr>
+                  <th>Producto</th>
+                  <th>Cantidad</th>
+                  <th>Precio</th>
+                  <th>Total</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+              <tfooter class="d-flex">
+                  <td>Total</td>
+                  <td colspan="3"></td>
+              </tfooter>
+            </table>
+      </div>
+</div>
     <div class="mainTitle text-center">
       <div class="box text-center">
         <h2 class="titles text-danger">Farmacia</h2>
@@ -208,6 +229,7 @@
     crossorigin="anonymous"></script>
   <script src="./scripts/filtrando.js"></script>
   <script src="./scripts/carrito.js"></script>
+  <script src="scripts/producto.js"></script>
   <!-- <script src="./scripts/localstorage.js"></script> -->
 </body>
 </html>

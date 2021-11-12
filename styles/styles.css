@@ -192,7 +192,12 @@ form input::placeholder {
   width: 250px;
   border: none; */
 }
-
+#tabla-modal tr {
+  text-align: center;
+}
+#tabla-modal td {
+  width: 150px;
+}
 .active {
   /* background-color: blue; */
 }
@@ -207,9 +212,9 @@ form input::placeholder {
   background-color: rgba(0, 0, 0, 0.1);
 }
 .cart {
-  width: 50px;
+  width: 200px;
   height: 50px;
-  z-index: 3;
+  /* z-index: 0; */
 }
 .dropdown-menu {
   height: 400px;
