@@ -70,6 +70,13 @@ body {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
+
+.logoNavbar1 {
+  height: 20rem;
+  display: flex;
+  /* border-radius: 50%; */
+}
+
 .logoNavbar {
   height: 7rem;
   display: flex;
