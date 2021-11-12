@@ -65,16 +65,15 @@ function drawCards (array) {
   if (array.length > 0) {
     array.forEach(producto => {
       cards.innerHTML +=
-    `<div class= "col-lg-3 col-md-4 col-sm-6" id="${producto._id}">
+    `<div class= "col-lg-3 col-md-4 col-sm-6 " id="${producto._id}">
       <div class="card-back card h-100 carta shadow-lg mb-5 mt-3 rounded">
-        <img src="${producto.imagen}" class=" d-block mx-auto card-img-top imgSize w-75" alt="...">
-        <div class="card-body">
+        <img src="${producto.imagen}" class=" d-block mx-auto card-img-top imgSize w-75" alt="${producto.nombre}">
+        <div class="card-body ">
           <a href="producto.html?id=${producto._id}" class="productoAnchor">
           <h6 class="card-title">${producto.nombre}</h6>
           </div>
           </a>
-        <div class="card-footer d-flex justify-content-around">
-        <ul class="list-group">
+        <ul class="list-group ">
         <li class="list-group-item ">
         <small class=" ${producto.stock < 5 ? 'text-danger' : ''} fs-3">${producto.stock > 5 ? 'Stock disponible!' : 'Ultimas unidades!'} </small>
         </li>
@@ -82,7 +81,6 @@ function drawCards (array) {
         <small class="text-muted fs-4">$${producto.precio}</small>
         </li>
         </ul>
-        </div>
         <div class="form-check d-flex justify-content-around">
           <button type="button" class="btn btn-primary w-100 h-100 buy bg-danger mb-4 me-3">Agregar al carrito!</button>
           </div>
