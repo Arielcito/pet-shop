@@ -40,10 +40,40 @@ function eventos (array) {
   for (let i = 0; i < favBtn.length; i++) {
     favBtn[i].addEventListener('click', function (e) {
       getId(e, array)
+      alertFavorite()
     })
   }
 }
+function alertFavorite(){
+  let alerta = document.querySelector(".alerta")
 
+  alerta.innerHTML= `
+  <div class="alert alert-success d-flex align-items-center" role="alert">
+  <span class="material-icons">
+done
+</span>
+  <div>
+    Se ha agregado a favoritos!
+  </div>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+  `
+}
+function alertShopping(){
+  let alerta = document.querySelector(".alerta")
+
+  alerta.innerHTML= `
+  <div class="alert alert-success d-flex align-items-center" role="alert">
+  <span class="material-icons">
+done
+</span>
+  <div>
+    Se ha agregado a al carrito!
+  </div>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+  `
+}
 function favoButton(){
   let close = document.querySelectorAll(".close")
   close.forEach(element =>{
@@ -65,30 +95,28 @@ function drawCards (array) {
   if (array.length > 0) {
     array.forEach(producto => {
       cards.innerHTML +=
-    `<div class= "col-lg-3 col-md-4 col-sm-6" id="${producto._id}">
+    `<div class= "col-lg-3 col-md-4 col-sm-6 " id="${producto._id}">
       <div class="card-back card h-100 carta shadow-lg mb-5 mt-3 rounded">
-        <img src="${producto.imagen}" class=" d-block mx-auto card-img-top imgSize w-75" alt="...">
-        <div class="card-body">
+        <img src="${producto.imagen}" class=" d-block mx-auto card-img-top imgSize w-75" alt="${producto.nombre}">
+        <div class="card-body ">
           <a href="producto.html?id=${producto._id}" class="productoAnchor">
           <h6 class="card-title">${producto.nombre}</h6>
           </div>
           </a>
-        <div class="card-footer d-flex justify-content-around">
-        <ul class="list-group">
+        <ul class="list-group ">
         <li class="list-group-item ">
-        <small class=" text-danger fs-3">${producto.stock > 5 ? 'Stock disponible!' : 'Ultimas unidades!'} </small>
+        <small class=" ${producto.stock < 5 ? 'text-danger' : ''} fs-3">${producto.stock > 5 ? 'Stock disponible!' : 'Ultimas unidades!'} </small>
         </li>
         <li class="list-group-item">
         <small class="text-muted fs-4">$${producto.precio}</small>
         </li>
         </ul>
-        </div>
         <div class="form-check d-flex justify-content-around">
-          <button type="button" class="btn btn-primary m-1 buy ">Comprar!</button>
+          <button type="button" class="btn btn-primary w-100 h-100 buy bg-danger mb-4 me-3">Agregar al carrito!</button>
           </div>
         <div class="form-check d-flex justify-content-around position-absolute end-0 mt-1">
             <span class="material-icons close favo user-select-none" id="${producto._id}">
-            favorite_border
+            ${tipo === "Favoritos"?"favorite":"favorite_border"}
             </span>
             </span>
             </label>

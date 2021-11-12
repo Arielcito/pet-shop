@@ -39,14 +39,17 @@ function cargarInterfaz(array, id) {
         <h3 class="fw-light">&#36;${producto.precio}<h3>
         <p class="fs-5 fw-light" style="text-indent:20px;">${producto.descripcion}</p>
         <small>Cantidad disponible : ${producto.stock}<small>
-        <button id="ad-carrito" class="btn btn-primary bottom-0 end-0 cart" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Anadir a la canasta </button>
-        <div class="d-flex flex-column">
-          <h2>Cantidad: <span id="contador">1</span></h2>
-          <div>
+        <div class="d-flex flex-row">
+          <h2>Cantidad: </h2>
+          <div class="ms-3">
+          <button onclick="restar()">-</button>
+          <span id="contador">1</span>
             <button onclick="sumar('${producto.stock}')">+</button>
-            <button onclick="restar()">-</button>
            </div>
+           
         </div>
+        <button id="ad-carrito" class="btn btn-primary bottom-0 end-0 cart bg-danger" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Anadir a la canasta </button>
+
       </div>
     </div>
     `
