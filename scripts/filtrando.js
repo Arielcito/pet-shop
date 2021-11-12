@@ -25,6 +25,7 @@ fetch(API_URL, init)
       sortFilter(rangeFilter(dataFiltradaSorteada))
       rangeFilter(dataFiltradaSorteada)
       filtroCombinado(dataFiltradaSorteada)
+      favoButton()
     } else {
       drawCards(JSON.parse(localStorage.getItem('favs')))
     }
@@ -42,6 +43,21 @@ function eventos (array) {
     })
   }
 }
+
+function favoButton(){
+  let close = document.querySelector(".close")
+
+  close.addEventListener('click', (e) =>{
+    let close = e.target
+    e.preventDefault()
+    if(close.innerText === "favorite_border"){
+      close.innerText = "favorite"
+    }else{
+      close.innerText = "favorite_border"
+    }
+  })
+}
+
 function drawCards (array) {
   cards.innerHTML = ''
 
@@ -70,7 +86,9 @@ function drawCards (array) {
           <button type="button" class="btn btn-primary m-1 buy ">Comprar!</button>
           </div>
         <div class="form-check d-flex justify-content-around position-absolute end-0 mt-1">
-            <span class="close favo" id="${producto._id}">&times;</span>
+            <span class="material-icons close favo user-select-none" id="${producto._id}">
+            favorite_border
+            </span>
             </span>
             </label>
           </div>
