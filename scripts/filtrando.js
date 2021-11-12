@@ -45,16 +45,17 @@ function eventos (array) {
 }
 
 function favoButton(){
-  let close = document.querySelector(".close")
-
-  close.addEventListener('click', (e) =>{
-    let close = e.target
-    e.preventDefault()
-    if(close.innerText === "favorite_border"){
-      close.innerText = "favorite"
-    }else{
-      close.innerText = "favorite_border"
-    }
+  let close = document.querySelectorAll(".close")
+  close.forEach(element =>{
+    element.addEventListener('click', (e) =>{
+      let close = e.target
+      e.preventDefault()
+      if(close.innerText === "favorite_border"){
+        close.innerText = "favorite"
+      }else{
+        close.innerText = "favorite_border"
+      }
+    })
   })
 }
 
