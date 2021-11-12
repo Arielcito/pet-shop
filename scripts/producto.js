@@ -98,7 +98,7 @@ function manageCarrito(productos, id) {
           <td>${element.precio}</td>  
           <td id="set-total">${element.total}</td>  
           <td>
-         </td>
+          </td>
       </tr>
       `
     })
