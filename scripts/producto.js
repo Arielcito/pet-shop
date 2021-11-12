@@ -87,10 +87,7 @@ function exceso() {
   btnmodal.click()
 }
 
-<<<<<<< HEAD
-=======
 
 const volverAtras = document.querySelector("#volverA")
 
 // console.log(volverAtras);
->>>>>>> 090dfc22fbba4c06653e891d9785ee02f73f2b81
