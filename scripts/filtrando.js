@@ -1,4 +1,3 @@
-
 const cards = document.getElementById('cards')
 const fav = JSON.parse(localStorage.getItem('favs'))
 const inputBuscar = document.getElementById('buscador')
