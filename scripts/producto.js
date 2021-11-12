@@ -1,7 +1,6 @@
-const container = document.querySelector(".container")
+const container = document.querySelector('.container')
 const API_URL = 'https://apipetshop.herokuapp.com/api/articulos'
 let cont = 0
-
 
 const init = {
   method: 'GET'
@@ -12,19 +11,19 @@ fetch(API_URL, init)
   .then(data => {
     const articulos = data.response
 
-    let URLsearch = window.location.search
-    let id = URLsearch.slice(4)
+    const URLsearch = window.location.search
+    const id = URLsearch.slice(4)
 
     cargarInterfaz(articulos, id)
     return articulos
   })
   .catch(err => err.message)
 
-function cargarInterfaz(array, id) {
-  let producto = array.find(array => array["_id"] == id)
-  
+function cargarInterfaz (array, id) {
+  const producto = array.find(array => array._id == id)
+
   volverAtras.innerHTML = `
-<a href="${producto.tipo == 'Medicamento'?"farmacia.html":"juguetes.html"}">Volver a ${producto.tipo == 'Medicamento'? 'Farmacia':'Juguetes'}</a>
+<a href="${producto.tipo == 'Medicamento' ? 'farmacia.html' : 'juguetes.html'}">Volver a ${producto.tipo == 'Medicamento' ? 'Farmacia' : 'Juguetes'}</a>
 
   `
 
@@ -72,22 +71,20 @@ function cargarInterfaz(array, id) {
     `
 }
 
-function sumar(stock) {
-
+function sumar (stock) {
   const contador = document.querySelector('#contador')
 
   cont < stock ? (cont++, contador.innerHTML = cont) : exceso()
 }
-function restar() {
+function restar () {
   cont > 0 && (cont--, contador.innerHTML = cont)
 }
 
-function exceso() {
+function exceso () {
   const btnmodal = document.getElementById('btnmodal')
   btnmodal.click()
 }
 
-
-const volverAtras = document.querySelector("#volverA")
+const volverAtras = document.querySelector('#volverA')
 
 // console.log(volverAtras);
