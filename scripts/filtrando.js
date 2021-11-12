@@ -40,10 +40,40 @@ function eventos (array) {
   for (let i = 0; i < favBtn.length; i++) {
     favBtn[i].addEventListener('click', function (e) {
       getId(e, array)
+      alertFavorite()
     })
   }
 }
+function alertFavorite(){
+  let alerta = document.querySelector(".alerta")
 
+  alerta.innerHTML= `
+  <div class="alert alert-success d-flex align-items-center" role="alert">
+  <span class="material-icons">
+done
+</span>
+  <div>
+    Se ha agregado a favoritos!
+  </div>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+  `
+}
+function alertShopping(){
+  let alerta = document.querySelector(".alerta")
+
+  alerta.innerHTML= `
+  <div class="alert alert-success d-flex align-items-center" role="alert">
+  <span class="material-icons">
+done
+</span>
+  <div>
+    Se ha agregado a al carrito!
+  </div>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+  `
+}
 function favoButton(){
   let close = document.querySelectorAll(".close")
   close.forEach(element =>{
