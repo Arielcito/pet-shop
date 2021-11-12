@@ -241,15 +241,11 @@ form input::placeholder {
   border: none; */
 }
 
-.active {
-  /* background-color: blue; */
-}
+
 .hidden {
   display: none;
 }
-.complete {
-  /* background-color: red; */
-}
+
 
 .producto {
   background-color: rgba(0, 0, 0, 0.1);
