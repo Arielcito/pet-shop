@@ -66,5 +66,3 @@ function favoritos (array) {
     console.log(algo)
   }
 }
-? fav.splice(fav.indexOf(indice), 1)
-    : fav.push(producto)
