@@ -1,4 +1,4 @@
-const container = document.querySelector(".container")
+const container = document.querySelector('.container')
 const API_URL = 'https://apipetshop.herokuapp.com/api/articulos'
 let cont = 0
 
@@ -11,16 +11,21 @@ fetch(API_URL, init)
   .then(data => {
     const articulos = data.response
 
-    let URLsearch = window.location.search
-    let id = URLsearch.slice(4)
+    const URLsearch = window.location.search
+    const id = URLsearch.slice(4)
 
     cargarInterfaz(articulos, id)
     return articulos
   })
   .catch(err => err.message)
 
-function cargarInterfaz(array, id) {
-  let producto = array.find(array => array["_id"] == id)
+function cargarInterfaz (array, id) {
+  const producto = array.find(array => array._id == id)
+
+  volverAtras.innerHTML = `
+<a href="${producto.tipo == 'Medicamento' ? 'farmacia.html' : 'juguetes.html'}">Volver a ${producto.tipo == 'Medicamento' ? 'Farmacia' : 'Juguetes'}</a>
+
+  `
 
   container.innerHTML = `
     <div class="row m-4">
@@ -43,7 +48,7 @@ function cargarInterfaz(array, id) {
   </div>
 </div>
       <div class="col-lg-6 m-auto">
-       <img src="${producto.imagen}" class="w-75 m-auto">
+       <img src="${producto.imagen}" class="w-100 m-auto">
       </div>
       <div class="col-lg-6">
         <h2 class="mt-5 fst-italic" >${producto.nombre}</h2>
@@ -53,9 +58,9 @@ function cargarInterfaz(array, id) {
         <div class="d-flex flex-row">
           <h2>Cantidad:</h2>
           <div>
-            <button onclick="sumar('${producto.stock}')">+</button>
-            <span id="contador">0</span>
-            <button onclick="restar()">-</button>
+          <button onclick="restar()">-</button>
+          <span id="contador">0</span>
+          <button onclick="sumar('${producto.stock}')">+</button>
            </div>
         </div>
         <button type="button" class="btn btn-primary m-1 buy">Añadir a la canasta</button>
@@ -65,17 +70,21 @@ function cargarInterfaz(array, id) {
     
     `
 }
-function sumar(stock) {
 
+function sumar (stock) {
   const contador = document.querySelector('#contador')
 
   cont < stock ? (cont++, contador.innerHTML = cont) : exceso()
 }
-function restar() {
+function restar () {
   cont > 0 && (cont--, contador.innerHTML = cont)
 }
 
-function exceso() {
+function exceso () {
   const btnmodal = document.getElementById('btnmodal')
   btnmodal.click()
 }
+
+const volverAtras = document.querySelector('#volverA')
+
+// console.log(volverAtras);
