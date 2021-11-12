@@ -1,9 +1,5 @@
 const container = document.querySelector(".container")
 
-
-
-// addProducto.addEventListener('click', renderCarrito)
-// console.log(API_URL);
 const API_URL = 'https://apipetshop.herokuapp.com/api/articulos'
 let cont = 1
 

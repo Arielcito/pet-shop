@@ -40,7 +40,7 @@ function stepperFormDisable() {
 
 function handleSteps(e) {
     let step = parseInt(e.target.parentNode.classList[1].substr(5))
-    setCount.innerHTML = `${contador + step}/6`
+    setCount.innerHTML = `${contador + step}/5`
     let nextstep = document.getElementsByClassName(`step-${step + 1}`)[0]
     handleStates(e.target, nextstep, step)
 }
@@ -48,7 +48,7 @@ function handleStepsOnKeyboard(e) {
     let step = parseInt(e.target.parentNode.classList[1].substr(5))
     let nextstep = document.getElementsByClassName(`step-${step + 1}`)[0]
     if (e.keyCode === 13) {
-        setCount.innerHTML = `${contador + step}/6`
+        setCount.innerHTML = `${contador + step}/5`
         handleStates(buttons[step - 1], nextstep, step)
     }
 }
