@@ -76,7 +76,7 @@ function drawCards (array) {
         <div class="card-footer d-flex justify-content-around">
         <ul class="list-group">
         <li class="list-group-item ">
-        <small class=" text-danger fs-3">${producto.stock > 5 ? 'Stock disponible!' : 'Ultimas unidades!'} </small>
+        <small class=" ${producto.stock < 5 ? 'text-danger' : ''} fs-3">${producto.stock > 5 ? 'Stock disponible!' : 'Ultimas unidades!'} </small>
         </li>
         <li class="list-group-item">
         <small class="text-muted fs-4">$${producto.precio}</small>
@@ -84,7 +84,7 @@ function drawCards (array) {
         </ul>
         </div>
         <div class="form-check d-flex justify-content-around">
-          <button type="button" class="btn btn-primary m-1 buy ">Comprar!</button>
+          <button type="button" class="btn btn-primary w-100 h-100 buy bg-danger mb-4 me-3">Agregar al carrito!</button>
           </div>
         <div class="form-check d-flex justify-content-around position-absolute end-0 mt-1">
             <span class="material-icons close favo user-select-none" id="${producto._id}">

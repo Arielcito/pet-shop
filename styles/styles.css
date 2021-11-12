@@ -5,6 +5,9 @@
   --color-cuarto: #dfe354 !important;
   --color-quinto: #ffe154 !important;
 }
+p{
+  
+}
 .search {
   display: flex;
 }

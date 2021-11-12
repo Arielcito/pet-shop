@@ -63,7 +63,7 @@ function cargarInterfaz (array, id) {
           <button onclick="sumar('${producto.stock}')">+</button>
            </div>
         </div>
-        <button type="button" class="btn btn-primary m-1 buy">Añadir a la canasta</button>
+        <button type="button" class="bg-danger btn btn-primary m-1 buy ">Añadir a la canasta</button>
       </div>
     </div>
     <button id="btnmodal" hidden type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">sd</button>
