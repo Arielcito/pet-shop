@@ -88,7 +88,7 @@ function drawCards (array) {
           </div>
         <div class="form-check d-flex justify-content-around position-absolute end-0 mt-1">
             <span class="material-icons close favo user-select-none" id="${producto._id}">
-            favorite_border
+            ${tipo === "Favoritos"?"favorite":"favorite_border"}
             </span>
             </span>
             </label>
